@@ -196,7 +196,7 @@ th {
 				<div class="modal-content">
 					<div class="modal-header">
 						<h5 class="modal-title" id="editModalLabel">Editar Usuario</h5>
-						<button type="button" class="close" data-dismiss="modal"
+						<button type="button" class="close" data-bs-dismiss="modal"
 							aria-label="Close">
 							<span aria-hidden="true">&times;</span>
 						</button>
@@ -235,9 +235,9 @@ th {
 					</div>
 					<div class="modal-footer">
 						<button type="button" class="btn btn-secondary"
-							data-dismiss="modal">Cerrar</button>
-						<button type="button" class="btn btn-primary">Guardar
-							Cambios</button>
+							data-bs-dismiss="modal">Cerrar</button>
+						<button type="submit" class="btn btn-primary"
+							data-bs-dismiss="modal">Guardar Cambios</button>
 					</div>
 				</div>
 			</div>
