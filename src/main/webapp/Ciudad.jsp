@@ -134,17 +134,24 @@
             </tr>
           </thead>
           <tbody>
-            <tr>
-              <td>1</td>
-              <td>Buenos Aires</td>
-              <td>Argentina</td>
-              <td>3000000</td>
-              <td>
-                <button type="button" class="btn btn-primary btn-sm edit-btn" data-toggle="modal" data-target="#editModal"><i class="fas fa-edit"></i></button>
-                <button type="button" class="btn btn-danger btn-sm delete-btn"><i class="fas fa-trash-alt"></i></button>
-              </td>
-            </tr>
-            <!-- Agregar más filas según sea necesario -->
+            <c:forEach items="${ciudades}" var="ciudad">
+                <tr>
+                    <td>${ciudad.id}</td>
+                    <td>${ciudad.nombre}</td>
+                    <td>${ciudad.ubicacionGeografica}</td>
+                    <td>${ciudad.poblacion}</td>
+                    <td>
+									<button type="button" class="btn btn-primary btn-sm edit-btn"
+										data-bs-toggle="modal" data-bs-target="#modal${deportista.id}">
+
+										<i class="fas fa-edit"></i>
+									</button>
+									<button type="button" class="btn btn-danger btn-sm delete-btn">
+										<i class="fas fa-trash-alt"></i>
+									</button>
+								</td>
+                </tr>
+            </c:forEach>
           </tbody>
         </table>
       </div>
