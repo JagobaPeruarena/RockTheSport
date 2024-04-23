@@ -115,11 +115,7 @@
         <a href="ciudad" class="btn btn-primary btn-block mt-3">Ciudad</a>
         <a href="EventoDeportivo" class="btn btn-primary btn-block mt-3">Evento deportivo</a>
         <a href="organizador" class="btn btn-primary btn-block mt-3">Organizador</a>
-<<<<<<< HEAD
         <a href="edicion" class="btn btn-primary btn-block mt-3">Edición</a>
-=======
-        <a href="edicion" class="btn btn-primary btn-block mt-3">Edici�n</a>
->>>>>>> branch 'master' of https://github.com/JagobaPeruarena/RockTheSport.git
         <a href="deportista" class="btn btn-primary btn-block mt-3">Deportista</a>
         <a href="inscripcion" class="btn btn-primary btn-block mt-3">Inscripción</a>
         <a href="resultado" class="btn btn-primary btn-block mt-3">Resultado</a>

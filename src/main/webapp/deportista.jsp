@@ -153,7 +153,7 @@
 								<td>${deportista.dni}</td>
 								<td>
 									<button type="button" class="btn btn-primary btn-sm edit-btn"
-										data-toggle="modal" data-target="#editModal">
+										data-toggle="modal" data-bs-target="#${deportista.id}">
 										<i class="fas fa-edit"></i>
 									</button>
 									<button type="button" class="btn btn-danger btn-sm delete-btn">
@@ -174,7 +174,7 @@
 	</div>
 
 	<!-- Modal de Edición -->
-	<div class="modal fade" id="editModal" tabindex="-1" role="dialog"
+	<div class="modal fade" id="${deportista.id}" tabindex="-1" role="dialog"
 		aria-labelledby="editModalLabel" aria-hidden="true">
 		<div class="modal-dialog" role="document">
 			<div class="modal-content">
@@ -187,30 +187,30 @@
 				</div>
 				<div class="modal-body">
 					<!-- Formulario de Edición -->
-					<form>
+					<form action="EditarDeportista" var="deportista" method="post">
 						<div class="form-group">
 							<label for="editNombre">Nombre</label> <input type="text"
-								class="form-control" id="editNombre">
+								class="form-control" id="editNombre" name="editNombre" value="${deportista.nombre}">
 						</div>
 						<div class="form-group">
 							<label for="editEdad">Edad</label> <input type="number"
-								class="form-control" id="editEdad">
+								class="form-control" id="editEdad" value="${deportista.edad}">
 						</div>
 						<div class="form-group">
 							<label for="editGenero">Género</label> <input type="text"
-								class="form-control" id="editGenero">
+								class="form-control" id="editGenero" value="${deportista.genero}">
 						</div>
 						<div class="form-group">
 							<label for="editEmail">Email</label> <input type="email"
-								class="form-control" id="editEmail">
+								class="form-control" id="editEmail" value="${deportista.email}">
 						</div>
 						<div class="form-group">
 							<label for="editTelefono">Teléfono</label> <input type="text"
-								class="form-control" id="editTelefono">
+								class="form-control" id="editTelefono" value="${deportista.telefono}">
 						</div>
 						<div class="form-group">
 							<label for="editDNI">DNI</label> <input type="text"
-								class="form-control" id="editDNI">
+								class="form-control" id="editDNI" value="${deportista.dni}">
 						</div>
 					</form>
 				</div>
