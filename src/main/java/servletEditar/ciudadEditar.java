@@ -26,8 +26,14 @@ public class ciudadEditar extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		response.getWriter().append("Served at: ").append(request.getContextPath());
+		 // Obtener el ID de la ciudad que se va a editar desde los parámetros de la solicitud
+        int ciudadId = Integer.parseInt(request.getParameter("id"));
+        
+        // Puedes pasar el ID a la página Ciudad.jsp como un atributo de solicitud
+        request.setAttribute("ciudadId", ciudadId);
+        
+        // Redirigir a la página Ciudad.jsp donde ya tienes el formulario de edición
+        request.getRequestDispatcher("Ciudad.jsp").forward(request, response);
 	}
 
 	/**
