@@ -7,6 +7,11 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import modelo.bean.Ciudad;
+import modelo.bean.Deportista;
+import modelo.dao.ModeloCiudad;
+import modelo.dao.ModeloDeportista;
+
 /**
  * Servlet implementation class ciudadEdotar
  */
@@ -26,22 +31,32 @@ public class ciudadEditar extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		 // Obtener el ID de la ciudad que se va a editar desde los parámetros de la solicitud
-        int ciudadId = Integer.parseInt(request.getParameter("id"));
-        
-        // Puedes pasar el ID a la página Ciudad.jsp como un atributo de solicitud
-        request.setAttribute("ciudadId", ciudadId);
-        
-        // Redirigir a la página Ciudad.jsp donde ya tienes el formulario de edición
-        request.getRequestDispatcher("Ciudad.jsp").forward(request, response);
+		// TODO Auto-generated method stub
+				response.getWriter().append("Served at: ").append(request.getContextPath());
 	}
 
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		doGet(request, response);
+		String nombre = request.getParameter("editNombre");
+		String ubicacionGeografica = request.getParameter("editUbicacion");
+		int poblacion = Integer.parseInt(request.getParameter("editPoblacion"));
+		int id = Integer.parseInt(request.getParameter("editId"));
+		
+		ModeloCiudad mc = new ModeloCiudad();
+		Ciudad ciudad = new Ciudad(id, nombre, ubicacionGeografica, poblacion);
+		
+		if(mc.editarCiudad(ciudad)) {
+			System.out.println("editado");
+			
+		}else {
+			System.out.println("error");
+		}
+		response.sendRedirect("ciudad");
+		
+		
+	}
 	}
 
-}
+

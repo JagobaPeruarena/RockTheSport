@@ -189,23 +189,23 @@ th {
 					<form>
 						<div class="form-group">
 							<label for="editNombre">Nombre</label> <input type="text"
-								class="form-control" id="editNombre"  value="${ciudad.nombre}">
+								class="form-control" id="editNombre"  name="editNombre"  value="${ciudad.nombre}">
 						</div>
 						<div class="form-group">
 							<label for="editUbicacion">Ubicación Geográfica</label> <input
-								type="text" class="form-control" id="editUbicacion" value="${ciudad.ubicacionGeografica}">
+								type="text" class="form-control" id="editUbicacion" name="editUbicacion" value="${ciudad.ubicacionGeografica}">
 						</div>
 						<div class="form-group">
 							<label for="editPoblacion">Población</label> <input type="number"
-								class="form-control" id="editPoblacion" value="${ciudad.poblacion}">
+								class="form-control" id="editPoblacion" name="editPoblacion" value="${ciudad.poblacion}">
 						</div>
 					</form>
 				</div>
 				<div class="modal-footer">
 					<button type="button" class="btn btn-secondary"
-						data-dismiss="modal">Cerrar</button>
-					<button type="button" class="btn btn-primary">Guardar
-						Cambios</button>
+							data-bs-dismiss="modal">Cerrar</button>
+						<button type="submit" class="btn btn-primary"
+							data-bs-dismiss="modal">Guardar Cambios</button>
 				</div>
 			</div>
 		</div>
@@ -250,9 +250,16 @@ th {
 	</div>
 
 	<!-- Scripts de Bootstrap -->
-	<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
 	<script
-		src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+		src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+	<script
+		src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+	<script
+		src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+		integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+		crossorigin="anonymous"></script>
+	<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+
 	<script
 		src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 </body>
