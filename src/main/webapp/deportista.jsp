@@ -168,7 +168,7 @@ th {
 								<td>${deportista.dni}</td>
 								<td>
 									<button type="button" class="btn btn-primary btn-sm edit-btn"
-										data-bs-toggle="modal" data-bs-target="#modal${deportista.id}">
+										data-toggle="modal" data-target="#modal${deportista.id}">
 
 										<i class="fas fa-edit"></i>
 									</button>
