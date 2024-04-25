@@ -269,8 +269,13 @@ th {
 								class="form-control" id="addEdad" name="addEdad">
 						</div>
 						<div class="form-group">
-							<label for="addGenero">Género</label> <input type="text"
-								class="form-control" id="addGenero" name="addGenero">
+							<select class="form-select" id="addGenero" name="addGenero" >
+								<option value="">Generos</option>
+								<c:forEach var="genero" items="${generos}">
+								<option value="${genero }">${genero.nombre}</option>
+								
+								</c:forEach> 
+							</select>
 						</div>
 						<div class="form-group">
 							<label for="addEmail">Email</label> <input type="email"

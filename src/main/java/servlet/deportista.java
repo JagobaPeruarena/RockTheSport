@@ -10,6 +10,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import modelo.bean.Deportista;
+import modelo.bean.Genero;
 import modelo.dao.ModeloDeportista;
 
 /**
@@ -33,9 +34,9 @@ public class deportista extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		ModeloDeportista mdd = new ModeloDeportista();		
 		ArrayList<Deportista> deportistas = mdd.getAll();
-		
+		Genero[] generos = Genero.values();
 		request.setAttribute("deportistas", deportistas);
-		
+		request.setAttribute("generos", generos);
 		request.getRequestDispatcher("deportista.jsp").forward(request, response);
 		
 		
