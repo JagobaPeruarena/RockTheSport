@@ -157,12 +157,12 @@ th {
 								<td>${ciudad.ubicacionGeografica}</td>
 								<td>${ciudad.poblacion}</td>
 								<td><button type="button" class="btn btn-primary btn-sm edit-btn"
-										data-toggle="modal" data-target="#editModal">
+										data-bs-toggle="modal" data-bs-target="#modal${ciudad.id}">
 										<i class="fas fa-edit"></i>
 									</button>
-									<button type="button" class="btn btn-danger btn-sm delete-btn">
+									<a  class="btn btn-danger btn-sm delete-btn" href="ciudadEliminar?ciudadId=${ciudad.id}">
 										<i class="fas fa-trash-alt"></i>
-									</button></td>
+									</a></td>
 							</tr>
 						</c:forEach>
 
@@ -173,7 +173,8 @@ th {
 	</div>
 
 	<!-- Modal de Edición -->
-	<div class="modal fade" id="editModal" tabindex="-1" role="dialog"
+	<c:forEach var="ciudad" items="${ciudades}">
+	<div class="modal fade" id="modal${ciudad.id}" tabindex="-1" role="dialog"
 		aria-labelledby="editModalLabel" aria-hidden="true">
 		<div class="modal-dialog" role="document">
 			<div class="modal-content">
@@ -186,7 +187,9 @@ th {
 				</div>
 				<div class="modal-body">
 					<!-- Formulario de Edición -->
-					<form>
+					<form action="ciudadEditar" var="ciudad" method="post">
+							<input type="hidden" name="editId" id="editId"
+								value="${ciudad.id}">
 						<div class="form-group">
 							<label for="editNombre">Nombre</label> <input type="text"
 								class="form-control" id="editNombre"  name="editNombre"  value="${ciudad.nombre}">
@@ -199,18 +202,17 @@ th {
 							<label for="editPoblacion">Población</label> <input type="number"
 								class="form-control" id="editPoblacion" name="editPoblacion" value="${ciudad.poblacion}">
 						</div>
-					</form>
-				</div>
-				<div class="modal-footer">
-					<button type="button" class="btn btn-secondary"
+						<button type="button" class="btn btn-secondary"
 							data-bs-dismiss="modal">Cerrar</button>
 						<button type="submit" class="btn btn-primary"
 							data-bs-dismiss="modal">Guardar Cambios</button>
+					</form>
 				</div>
+				
 			</div>
 		</div>
 	</div>
-
+	</c:forEach>
 	<!-- Modal de Agregar -->
 	<div class="modal fade" id="addModal" tabindex="-1" role="dialog"
 		aria-labelledby="addModalLabel" aria-hidden="true">
@@ -225,26 +227,28 @@ th {
 				</div>
 				<div class="modal-body">
 					<!-- Formulario de Agregar -->
-					<form>
+					<form action="ciudadAgregar" var="ciudad" method="post">
+					
 						<div class="form-group">
 							<label for="addNombre">Nombre</label> <input type="text"
-								class="form-control" id="addNombre">
+								class="form-control" id="addNombre" name="addNombre">
 						</div>
 						<div class="form-group">
 							<label for="addUbicacion">Ubicación Geográfica</label> <input
-								type="text" class="form-control" id="addUbicacion">
+								type="text" class="form-control" id="addUbicacion" name="addUbicacion">
 						</div>
 						<div class="form-group">
 							<label for="addPoblacion">Población</label> <input type="number"
-								class="form-control" id="addPoblacion">
+								class="form-control" id="addPoblacion" name="addPoblacion">
 						</div>
-					</form>
-				</div>
-				<div class="modal-footer">
+						<div class="modal-footer">
 					<button type="button" class="btn btn-secondary"
 						data-dismiss="modal">Cerrar</button>
-					<button type="button" class="btn btn-primary">Agregar</button>
+					<button type="submit" class="btn btn-primary" data-dismiss="modal">Agregar</button>
 				</div>
+					</form>
+				</div>
+				
 			</div>
 		</div>
 	</div>

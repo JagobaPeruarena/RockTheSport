@@ -188,8 +188,10 @@ th {
 			</div>
 		</div>
 	</div>
+	
+	
+	<!-- Modal de Edición -->
 	<c:forEach var="deportista" items="${deportistas}">
-		<!-- Modal de Edición -->
 		<div class="modal fade" id="modal${deportista.id}" tabindex="-1"
 			role="dialog" aria-labelledby="editModalLabel" aria-hidden="true">
 			<div class="modal-dialog" role="document">
@@ -204,7 +206,8 @@ th {
 					<div class="modal-body">
 						<!-- Formulario de Edición -->
 						<form action="deportistaEditar" var="deportista" method="post">
-							<input type="hidden" name="editId" id="editId" value="${deportista.id}">
+							<input type="hidden" name="editId" id="editId"
+								value="${deportista.id}">
 							<div class="form-group">
 								<label for="editNombre">Nombre</label> <input type="text"
 									class="form-control" id="editNombre" name="editNombre"
@@ -212,7 +215,8 @@ th {
 							</div>
 							<div class="form-group">
 								<label for="editEdad">Edad</label> <input type="number"
-									class="form-control" id="editEdad" name="editEdad" value="${deportista.edad}">
+									class="form-control" id="editEdad" name="editEdad"
+									value="${deportista.edad}">
 							</div>
 							<div class="form-group">
 								<label for="editGenero">Género</label> <input type="text"
@@ -221,7 +225,8 @@ th {
 							</div>
 							<div class="form-group">
 								<label for="editEmail">Email</label> <input type="email"
-									class="form-control" id="editEmail" name="editEmail" value="${deportista.email}">
+									class="form-control" id="editEmail" name="editEmail"
+									value="${deportista.email}">
 							</div>
 							<div class="form-group">
 								<label for="editTelefono">Teléfono</label> <input type="text"
@@ -230,17 +235,18 @@ th {
 							</div>
 							<div class="form-group">
 								<label for="editDNI">DNI</label> <input type="text"
-									class="form-control" id="editDNI" name="editDNI"value="${deportista.dni}">
+									class="form-control" id="editDNI" name="editDNI"
+									value="${deportista.dni}">
 							</div>
 							<div class="modal-footer">
-						<button type="button" class="btn btn-secondary"
-							data-bs-dismiss="modal">Cerrar</button>
-						<button type="submit" class="btn btn-primary"
-							data-bs-dismiss="modal">Guardar Cambios</button>
-					</div>
+								<button type="button" class="btn btn-secondary"
+									data-bs-dismiss="modal">Cerrar</button>
+								<button type="submit" class="btn btn-primary"
+									data-bs-dismiss="modal">Guardar Cambios</button>
+							</div>
 						</form>
 					</div>
-					
+
 				</div>
 			</div>
 		</div>
