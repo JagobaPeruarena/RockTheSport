@@ -15,7 +15,7 @@ import modelo.dao.ModeloDeportista;
 /**
  * Servlet implementation class ciudadEdotar
  */
-@WebServlet("/ciudadEdotar")
+@WebServlet("/ciudadEditar")
 public class ciudadEditar extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
