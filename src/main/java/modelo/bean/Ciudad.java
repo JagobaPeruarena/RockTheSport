@@ -37,6 +37,13 @@ public class Ciudad {
 		this.ubicacionGeografica = ubicacionGeografica;
 		this.poblacion = poblacion;
 	}
+	
+	public Ciudad( String nombre, String ubicacionGeografica, int poblacion) {
+	
+		this.nombre = nombre;
+		this.ubicacionGeografica = ubicacionGeografica;
+		this.poblacion = poblacion;
+	}
 	public Ciudad() {}
 	
 }

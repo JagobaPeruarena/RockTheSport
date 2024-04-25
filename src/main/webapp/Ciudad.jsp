@@ -227,26 +227,28 @@ th {
 				</div>
 				<div class="modal-body">
 					<!-- Formulario de Agregar -->
-					<form>
+					<form action="ciudadAgregar" var="ciudad" method="post">
+					
 						<div class="form-group">
 							<label for="addNombre">Nombre</label> <input type="text"
-								class="form-control" id="addNombre">
+								class="form-control" id="addNombre" name="addNombre">
 						</div>
 						<div class="form-group">
 							<label for="addUbicacion">Ubicación Geográfica</label> <input
-								type="text" class="form-control" id="addUbicacion">
+								type="text" class="form-control" id="addUbicacion" name="addUbicacion">
 						</div>
 						<div class="form-group">
 							<label for="addPoblacion">Población</label> <input type="number"
-								class="form-control" id="addPoblacion">
+								class="form-control" id="addPoblacion" name="addPoblacion">
 						</div>
-					</form>
-				</div>
-				<div class="modal-footer">
+						<div class="modal-footer">
 					<button type="button" class="btn btn-secondary"
 						data-dismiss="modal">Cerrar</button>
-					<button type="button" class="btn btn-primary">Agregar</button>
+					<button type="submit" class="btn btn-primary" data-dismiss="modal">Agregar</button>
 				</div>
+					</form>
+				</div>
+				
 			</div>
 		</div>
 	</div>
