@@ -62,6 +62,16 @@ public class Deportista {
 		this.dni = dni;
 	}
 	public Deportista () {}
+	public Deportista(String nombre, int edad, String genero, String email, int telefono, String dni) {
+		super();
+		
+		this.nombre = nombre;
+		this.edad = edad;
+		this.genero = genero;
+		this.email = email;
+		this.telefono = telefono;
+		this.dni = dni;
+	}
 	
 	
 }
