@@ -172,9 +172,9 @@ th {
 
 										<i class="fas fa-edit"></i>
 									</button>
-									<button type="button" class="btn btn-danger btn-sm delete-btn">
+									<a href="deportistaEliminar?idDeportista=${deportista.id}" type="button" class="btn btn-danger btn-sm delete-btn">
 										<i class="fas fa-trash-alt"></i>
-									</button>
+									</a>
 								</td>
 							</tr>
 						</c:forEach>
@@ -259,38 +259,38 @@ th {
 				</div>
 				<div class="modal-body">
 					<!-- Formulario de Agregar -->
-					<form>
+					<form action="deportistaAgregar" var="deportista" method="post">
 						<div class="form-group">
 							<label for="addNombre">Nombre</label> <input type="text"
-								class="form-control" id="addNombre">
+								class="form-control" id="addNombre" name="addNombre">
 						</div>
 						<div class="form-group">
 							<label for="addEdad">Edad</label> <input type="number"
-								class="form-control" id="addEdad">
+								class="form-control" id="addEdad" name="addEdad">
 						</div>
 						<div class="form-group">
 							<label for="addGenero">Género</label> <input type="text"
-								class="form-control" id="addGenero">
+								class="form-control" id="addGenero" name="addGenero">
 						</div>
 						<div class="form-group">
 							<label for="addEmail">Email</label> <input type="email"
-								class="form-control" id="addEmail">
+								class="form-control" id="addEmail" name="addEmail">
 						</div>
 						<div class="form-group">
 							<label for="addTelefono">Teléfono</label> <input type="text"
-								class="form-control" id="addTelefono">
+								class="form-control" id="addTelefono" name="addTelefono">
 						</div>
 						<div class="form-group">
 							<label for="addDNI">DNI</label> <input type="text"
-								class="form-control" id="addDNI">
+								class="form-control" id="addDNI" name="addDNI">
 						</div>
+						<button type="button" class="btn btn-secondary"
+						data-dismiss="modal">Cerrar</button>
+						<button type="submit" class="btn btn-primary" data-dismiss="modal">Agregar</button>
+				
 					</form>
 				</div>
-				<div class="modal-footer">
-					<button type="button" class="btn btn-secondary"
-						data-dismiss="modal">Cerrar</button>
-					<button type="button" class="btn btn-primary">Agregar</button>
-				</div>
+				
 			</div>
 		</div>
 	</div>

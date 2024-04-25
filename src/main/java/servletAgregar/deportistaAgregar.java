@@ -7,6 +7,9 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import modelo.bean.Deportista;
+import modelo.dao.ModeloDeportista;
+
 /**
  * Servlet implementation class deportistaAgregar
  */
@@ -35,7 +38,26 @@ public class deportistaAgregar extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		doGet(request, response);
+		String nombre = request.getParameter("addNombre");
+		int edad = Integer.parseInt(request.getParameter("addEdad"));
+		String genero =request.getParameter("addGenero");
+		String email = request.getParameter("addEmail");
+		int telefono = Integer.parseInt(request.getParameter("addTelefono"));
+		String dni = request.getParameter("addDNI");
+		
+		
+		ModeloDeportista mdd = new ModeloDeportista();
+		Deportista deportista = new Deportista( nombre, edad, genero, email, telefono, dni);
+		
+		if(mdd.insertDeportista(deportista)) {
+			System.out.println("creado");
+			
+		}else {
+			System.out.println("error");
+		}
+		response.sendRedirect("deportista");
+		
+		
 	}
 
 }

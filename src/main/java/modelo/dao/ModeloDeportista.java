@@ -93,7 +93,7 @@ public class ModeloDeportista extends Conector{
 	
 	
 	
-	public boolean eliminarCiudad(int idDeportista) {
+	public boolean eliminarDeportista(int idDeportista) {
 	    String query = "DELETE FROM deportista WHERE idDeportista = ?";
 	    
 	    try {

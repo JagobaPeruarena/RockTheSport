@@ -7,6 +7,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import modelo.dao.ModeloDeportista;
+
 /**
  * Servlet implementation class deportistaEliminar
  */
@@ -27,15 +29,19 @@ public class deportistaEliminar extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		response.getWriter().append("Served at: ").append(request.getContextPath());
-	}
+		ModeloDeportista mdd = new ModeloDeportista();
+		 int IdDeportista = Integer.parseInt(request.getParameter("idDeportista"));
 
-	/**
-	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
-	 */
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		doGet(request, response);
+	        boolean eliminado =mdd.eliminarDeportista(IdDeportista);
+
+	        if (eliminado) {
+	            // Redireccionar a alguna p�gina despu�s de eliminar exitosamente el alumno
+	        	
+	            response.sendRedirect("deportista");
+	        } else {
+	            // Manejo si no se puede eliminar el alumno
+	            response.getWriter().println("No se pudo eliminar el deportista con ID: " + IdDeportista);
+	        }
 	}
 
 }
