@@ -1,11 +1,18 @@
 package servlet;
 
 import java.io.IOException;
+import java.util.ArrayList;
+
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+
+import modelo.bean.Ciudad;
+import modelo.bean.Organizador;
+import modelo.dao.ModeloCiudad;
+import modelo.dao.ModeloOrganizador;
 
 /**
  * Servlet implementation class organizador
@@ -26,7 +33,17 @@ public class organizador extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		request.getRequestDispatcher("organizador.jsp").forward(request, response);
+		 // Instanciar el modelo de ciudad
+        ModeloOrganizador mo= new ModeloOrganizador();
+        
+        // Obtener la lista de ciudades desde el modelo
+        ArrayList<Organizador> organizadores = mo.getAll();
+        
+        // Pasar la lista de ciudades al JSP
+        request.setAttribute("organizadores", organizadores);
+        
+        // Redirigir a la página JSP para mostrar los datos
+        request.getRequestDispatcher("organizador.jsp").forward(request, response);
 	}
 
 	/**

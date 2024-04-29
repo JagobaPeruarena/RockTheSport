@@ -134,17 +134,18 @@
             </tr>
           </thead>
           <tbody>
+          <c:forEach items="${resultados}" var="resultados">
             <tr>
-              <td>1</td>
-              <td>2:30:15</td>
-              <td>1</td>
-              <td>1234</td>
+              <td>${resultados.id}</td>
+              <td>${resultados.tiempo}</td>
+              <td>${resultados.clasificacion}</td>
+              <td>${resultados.inscripcion}</td>
               <td>
                 <button type="button" class="btn btn-primary btn-sm edit-btn" data-toggle="modal" data-target="#editModal"><i class="fas fa-edit"></i></button>
                 <button type="button" class="btn btn-danger btn-sm delete-btn"><i class="fas fa-trash-alt"></i></button>
               </td>
             </tr>
-            <!-- Agregar más filas según sea necesario -->
+            </c:forEach>
           </tbody>
         </table>
       </div>

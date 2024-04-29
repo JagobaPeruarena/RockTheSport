@@ -1,11 +1,18 @@
 package servlet;
 
 import java.io.IOException;
+import java.util.ArrayList;
+
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+
+import modelo.bean.Ciudad;
+import modelo.bean.Resultado;
+import modelo.dao.ModeloCiudad;
+import modelo.dao.ModeloResultado;
 
 /**
  * Servlet implementation class resultado
@@ -26,7 +33,17 @@ public class resultado extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		request.getRequestDispatcher("resultado.jsp").forward(request, response);;
+		   // Instanciar el modelo de ciudad
+        ModeloResultado mr= new ModeloResultado();
+        
+        // Obtener la lista de ciudades desde el modelo
+        ArrayList<Resultado> resultados = mr.getResultados();
+        
+        // Pasar la lista de ciudades al JSP
+        request.setAttribute("resultados", resultados);
+        
+        // Redirigir a la página JSP para mostrar los datos
+        request.getRequestDispatcher("resultado.jsp").forward(request, response);
 	}
 
 	/**

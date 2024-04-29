@@ -135,18 +135,19 @@
             </tr>
           </thead>
           <tbody>
+          <c:forEach items="${organizadores}" var="organizadores">
             <tr>
-              <td>1</td>
-              <td>Juan Pérez</td>
-              <td>juan@example.com</td>
-              <td>123456789</td>
-              <td>12345678A</td>
+              <td>${organizadores.id}</td>
+              <td>${organizadores.nombre}</td>
+              <td>${organizadores.email}</td>
+              <td>${organizadores.telefono}</td>
+              <td>${organizadores.dni}</td>
               <td>
                 <button type="button" class="btn btn-primary btn-sm edit-btn" data-toggle="modal" data-target="#editModal"><i class="fas fa-edit"></i></button>
                 <button type="button" class="btn btn-danger btn-sm delete-btn"><i class="fas fa-trash-alt"></i></button>
               </td>
             </tr>
-            <!-- Agregar más filas según sea necesario -->
+            </c:forEach>
           </tbody>
         </table>
       </div>

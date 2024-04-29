@@ -127,6 +127,7 @@
         <table>
           <thead>
             <tr>
+              <th>id</th>
               <th>dorsal</th>
               <th>fechaInscipcion</th>
               <th>idDeportista</th>
@@ -135,17 +136,19 @@
             </tr>
           </thead>
           <tbody>
-            <!-- Aquí puedes agregar las filas según sea necesario -->
+            <c:forEach items="${inscripciones}" var="inscripcion">
             <tr>
-              <td>1</td>
-              <td>2024-04-15</td>
-              <td>123</td>
-              <td>456</td>
+              <td>${inscripcion.id}</td>
+              <td>${inscripcion.dorsal}</td>
+              <td>${inscripcion.fecha}</td>
+              <td>${inscripcion.deportista}</td>
+              <td>${inscripcion.edicion}</td>
               <td>
                 <button type="button" class="btn btn-primary btn-sm edit-btn" data-toggle="modal" data-target="#editModal"><i class="fas fa-edit"></i></button>
                 <button type="button" class="btn btn-danger btn-sm delete-btn"><i class="fas fa-trash-alt"></i></button>
               </td>
             </tr>
+            </c:forEach>
           </tbody>
         </table>
       </div>
