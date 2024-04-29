@@ -241,11 +241,11 @@ th {
 							<label for="addPoblacion">Población</label> <input type="number"
 								class="form-control" id="addPoblacion" name="addPoblacion">
 						</div>
-						<div class="modal-footer">
+						
 					<button type="button" class="btn btn-secondary"
 						data-dismiss="modal">Cerrar</button>
 					<button type="submit" class="btn btn-primary" data-dismiss="modal">Agregar</button>
-				</div>
+				
 					</form>
 				</div>
 				

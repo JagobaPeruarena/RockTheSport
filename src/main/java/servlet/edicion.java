@@ -1,11 +1,19 @@
 package servlet;
 
 import java.io.IOException;
+import java.util.ArrayList;
+
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+
+import modelo.bean.Deportista;
+import modelo.bean.Edicion;
+import modelo.bean.Genero;
+import modelo.dao.ModeloDeportista;
+import modelo.dao.ModeloEdicion;
 
 /**
  * Servlet implementation class edicion
@@ -26,7 +34,15 @@ public class edicion extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		
+		ModeloEdicion me = new ModeloEdicion();	
+		
+		ArrayList<Edicion> ediciones = me.getEdicions();
+		
+		request.setAttribute("ediciones", ediciones);
+		
 		request.getRequestDispatcher("edicion.jsp").forward(request, response);
+		
 	}
 
 	/**

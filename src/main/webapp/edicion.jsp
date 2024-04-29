@@ -130,27 +130,27 @@
           <thead>
             <tr>
               <th>ID Edición</th>
-              <th>Cupos Disponibles</th>
               <th>Fecha</th>
+              <th>Cupos Disponibles</th>
               <th>ID Evento</th>
               <th>ID Ciudad</th>
               <th>Acciones</th>
             </tr>
           </thead>
           <tbody>
-            <!-- Aquí se pueden agregar filas con los datos de las ediciones -->
+            <c:forEach var="edicion" items="${ediciones}">
             <tr>
-              <td>1</td>
-              <td>100</td>
-              <td>2024-05-15</td>
-              <td>1</td>
-              <td>1</td>
+              <td>${edicion.id}</td>
+              <td>${edicion.fecha}</td>
+              <td>${edicion.cuposDisponibles}</td>
+              <td>${edicion.eventoDeportivo}</td>
+              <td>${edicion.ciudad}</td>
               <td>
                 <button type="button" class="btn btn-primary btn-sm edit-btn" data-toggle="modal" data-target="#editModal"><i class="fas fa-edit"></i></button>
                 <button type="button" class="btn btn-danger btn-sm delete-btn"><i class="fas fa-trash-alt"></i></button>
               </td>
             </tr>
-            <!-- Agregar más filas según sea necesario -->
+            </c:forEach>
           </tbody>
         </table>
       </div>

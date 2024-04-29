@@ -135,19 +135,19 @@
             </tr>
           </thead>
           <tbody>
-            <!-- Aquí puedes agregar las filas según sea necesario -->
+            <c:forEach items="${eventoDeportivo}" var="eventoDeportivo">
             <tr>
-              <td>1</td>
-              <td>Maratón de Nueva York</td>
-              <td>Maratón anual que tiene lugar en Nueva York.</td>
-              <td>Maraton</td>
-              <td>1</td>
+              <td>${eventoDeportivo.id}</td>
+              <td>${eventoDeportivo.nombre}</td>
+              <td>${eventoDeportivo.descripcion}</td>
+              <td>${eventoDeportivo.tipoDeporte}</td>
+              <td>${eventoDeportivo.organizador}</td>
               <td>
                 <button type="button" class="btn btn-primary btn-sm edit-btn" data-toggle="modal" data-target="#editModal"><i class="fas fa-edit"></i></button>
                 <button type="button" class="btn btn-danger btn-sm delete-btn"><i class="fas fa-trash-alt"></i></button>
               </td>
             </tr>
-            <!-- Puedes agregar más filas aquí -->
+            </c:forEach>
           </tbody>
         </table>
       </div>
