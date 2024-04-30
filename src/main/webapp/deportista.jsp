@@ -278,7 +278,7 @@ th {
 							<select class="form-select" id="addGenero" name="addGenero" >
 								<option value="">Generos</option>
 								<c:forEach var="genero" items="${generos}">
-								<option value="${genero }">${genero.nombre}</option>
+								<option value="${genero.nombre}">${genero.nombre}</option>
 								
 								</c:forEach> 
 							</select>
