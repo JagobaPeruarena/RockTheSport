@@ -130,7 +130,7 @@
               <th>Nombre</th>
               <th>Descripción</th>
               <th>Tipo de Deporte</th>
-              <th>ID Organizador</th>
+              <th>Organizador</th>
               <th>Acciones</th>
             </tr>
           </thead>
@@ -141,7 +141,7 @@
               <td>${eventoDeportivo.nombre}</td>
               <td>${eventoDeportivo.descripcion}</td>
               <td>${eventoDeportivo.tipoDeporte}</td>
-              <td>${eventoDeportivo.organizador}</td>
+              <td>${eventoDeportivo.organizador.nombre}</td>
               <td>
                 <button type="button" class="btn btn-primary btn-sm edit-btn" data-toggle="modal" data-target="#editModal"><i class="fas fa-edit"></i></button>
                 <button type="button" class="btn btn-danger btn-sm delete-btn"><i class="fas fa-trash-alt"></i></button>

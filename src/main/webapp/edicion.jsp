@@ -132,8 +132,8 @@
               <th>ID Edición</th>
               <th>Fecha</th>
               <th>Cupos Disponibles</th>
-              <th>ID Evento</th>
-              <th>ID Ciudad</th>
+              <th>Evento</th>
+              <th>Ciudad</th>
               <th>Acciones</th>
             </tr>
           </thead>
@@ -143,8 +143,8 @@
               <td>${edicion.id}</td>
               <td>${edicion.fecha}</td>
               <td>${edicion.cuposDisponibles}</td>
-              <td>${edicion.eventoDeportivo}</td>
-              <td>${edicion.ciudad}</td>
+              <td>${edicion.eventoDeportivo.nombre}</td>
+              <td>${edicion.ciudad.nombre}</td>
               <td>
                 <button type="button" class="btn btn-primary btn-sm edit-btn" data-toggle="modal" data-target="#editModal"><i class="fas fa-edit"></i></button>
                 <button type="button" class="btn btn-danger btn-sm delete-btn"><i class="fas fa-trash-alt"></i></button>

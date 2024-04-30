@@ -129,7 +129,7 @@
               <th>ID</th>
               <th>Tiempo</th>
               <th>Clasificación</th>
-              <th>ID Inscripción</th>
+              <th>Inscripción</th>
               <th>Acciones</th>
             </tr>
           </thead>
@@ -139,7 +139,7 @@
               <td>${resultados.id}</td>
               <td>${resultados.tiempo}</td>
               <td>${resultados.clasificacion}</td>
-              <td>${resultados.inscripcion}</td>
+              <td>${resultados.inscripcion.id}</td>
               <td>
                 <button type="button" class="btn btn-primary btn-sm edit-btn" data-toggle="modal" data-target="#editModal"><i class="fas fa-edit"></i></button>
                 <button type="button" class="btn btn-danger btn-sm delete-btn"><i class="fas fa-trash-alt"></i></button>
@@ -174,7 +174,7 @@
               <input type="number" class="form-control" id="editClasificacion">
             </div>
             <div class="form-group">
-              <label for="editIdInscripcion">ID Inscripción</label>
+              <label for="editIdInscripcion">Inscripción</label>
               <input type="number" class="form-control" id="editIdInscripcion">
             </div>
           </form>
@@ -209,7 +209,7 @@
               <input type="number" class="form-control" id="addClasificacion">
             </div>
             <div class="form-group">
-              <label for="addIdInscripcion">ID Inscripción</label>
+              <label for="addIdInscripcion">Inscripción</label>
               <input type="number" class="form-control" id="addIdInscripcion">
             </div>
           </form>

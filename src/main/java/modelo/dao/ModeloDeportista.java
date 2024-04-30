@@ -42,7 +42,7 @@ public class ModeloDeportista extends Conector{
 	
 	public Deportista select(int id) {
 		try {
-		PreparedStatement st = getCon().prepareStatement("Select * from deportista where idOrganizador = ? ");
+		PreparedStatement st = getCon().prepareStatement("Select * from deportista where idDeportista = ? ");
 		st.setInt(1, id);
 		ResultSet rs= st.executeQuery();
 		

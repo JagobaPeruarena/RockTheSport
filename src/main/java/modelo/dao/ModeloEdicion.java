@@ -15,7 +15,7 @@ public class ModeloEdicion extends Conector {
 
 	public ArrayList<Edicion> getEdicions() {
 		ArrayList<Edicion> edicions = new ArrayList<Edicion>();
-		String query = "Select * from ediciones";
+		String query = "SELECT * FROM ediciones";
 
 		try {
 			Statement st = getCon().createStatement();
@@ -24,7 +24,7 @@ public class ModeloEdicion extends Conector {
 			while (rs.next()) {
 				Edicion edicion = new Edicion();
 				edicion.setId(rs.getInt("idEdicion"));
-				edicion.setFecha(rs.getDate("date"));
+				edicion.setFecha(rs.getDate("fecha"));
 				edicion.setCuposDisponibles(rs.getInt("cuposDisponibles"));
 				edicion.setEventoDeportivo(mded.select(rs.getInt("idEvento")));
 				edicion.setCiudad(mdc.select(rs.getInt("idCiudad")));
