@@ -130,8 +130,8 @@
               <th>id</th>
               <th>dorsal</th>
               <th>fechaInscipcion</th>
-              <th>idDeportista</th>
-              <th>idEdicion</th>
+              <th>Deportista</th>
+              <th>Evento</th>
               <th>Acciones</th>
             </tr>
           </thead>
@@ -140,9 +140,9 @@
             <tr>
               <td>${inscripcion.id}</td>
               <td>${inscripcion.dorsal}</td>
-              <td>${inscripcion.fecha}</td>
-              <td>${inscripcion.deportista}</td>
-              <td>${inscripcion.edicion}</td>
+              <td>${inscripcion.fechaInscripcion}</td>
+              <td>${inscripcion.deportista.nombre}</td>
+              <td>${inscripcion.edicion.eventoDeportivo.nombre}</td>
               <td>
                 <button type="button" class="btn btn-primary btn-sm edit-btn" data-toggle="modal" data-target="#editModal"><i class="fas fa-edit"></i></button>
                 <button type="button" class="btn btn-danger btn-sm delete-btn"><i class="fas fa-trash-alt"></i></button>

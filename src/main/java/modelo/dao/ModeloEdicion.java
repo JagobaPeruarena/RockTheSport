@@ -50,7 +50,7 @@ public class ModeloEdicion extends Conector {
 			if (rs.next()) {
 				Edicion edicion = new Edicion();
 				edicion.setId(rs.getInt("idEdicion"));
-				edicion.setFecha(rs.getDate("date"));
+				edicion.setFecha(rs.getDate("fecha"));
 				edicion.setCuposDisponibles(rs.getInt("cuposDisponibles"));
 				edicion.setEventoDeportivo(mded.select(rs.getInt("idEvento")));
 				edicion.setCiudad(mdc.select(rs.getInt("idCiudad")));
