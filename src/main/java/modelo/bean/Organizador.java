@@ -46,6 +46,14 @@ public class Organizador {
 		this.telefono = telefono;
 		this.dni = dni;
 	}
+	public Organizador( String nombre, String email, int telefono, String dni) {
+		super();
+		
+		this.nombre = nombre;
+		this.email = email;
+		this.telefono = telefono;
+		this.dni = dni;
+	}
 	
 	
 	public Organizador() {}

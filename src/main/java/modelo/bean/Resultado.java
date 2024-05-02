@@ -36,6 +36,13 @@ public class Resultado {
 		this.clasificacion = clasificacion;
 		this.inscripcion = inscripcion;
 	}
+	public Resultado( String tiempo, int clasificacion, Inscripcion inscripcion) {
+		super();
+		
+		this.tiempo = tiempo;
+		this.clasificacion = clasificacion;
+		this.inscripcion = inscripcion;
+	}
 	
 	public Resultado() {}
 }

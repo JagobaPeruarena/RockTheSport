@@ -79,6 +79,14 @@ public class Inscripcion {
 		this.deportista = deportista;
 		this.edicion = edicion;
 	}
+	public Inscripcion( int dorsal, Date fechaInscripcion, Deportista deportista, Edicion edicion) {
+		super();
+		
+		this.dorsal = dorsal;
+		this.fechaInscripcion = fechaInscripcion;
+		this.deportista = deportista;
+		this.edicion = edicion;
+	}
 
 
 

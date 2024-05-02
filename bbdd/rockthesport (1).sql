@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 29-04-2024 a las 08:40:47
+-- Tiempo de generación: 02-05-2024 a las 10:43:40
 -- Versión del servidor: 10.4.32-MariaDB
 -- Versión de PHP: 8.2.12
 
@@ -334,23 +334,23 @@ ALTER TABLE `deportista`
 --
 ALTER TABLE `ediciones`
   ADD PRIMARY KEY (`idEdicion`),
-  ADD UNIQUE KEY `idCiudad` (`idCiudad`),
-  ADD UNIQUE KEY `idEvento` (`idEvento`);
+  ADD KEY `idCiudad` (`idCiudad`) USING BTREE,
+  ADD KEY `idEvento` (`idEvento`) USING BTREE;
 
 --
 -- Indices de la tabla `eventosdeportivos`
 --
 ALTER TABLE `eventosdeportivos`
   ADD PRIMARY KEY (`idEvento`),
-  ADD UNIQUE KEY `idOrganizador` (`idOrganizador`);
+  ADD KEY `fk_foreign_key_organizador` (`idOrganizador`);
 
 --
 -- Indices de la tabla `inscripciones`
 --
 ALTER TABLE `inscripciones`
   ADD PRIMARY KEY (`idInscripcion`),
-  ADD UNIQUE KEY `idDeportista` (`idDeportista`,`idEdicion`),
-  ADD KEY `idEdicion` (`idEdicion`);
+  ADD KEY `idEdicion` (`idEdicion`),
+  ADD KEY `idDeportista` (`idDeportista`,`idEdicion`) USING BTREE;
 
 --
 -- Indices de la tabla `organizadores`
@@ -363,7 +363,7 @@ ALTER TABLE `organizadores`
 --
 ALTER TABLE `resultados`
   ADD PRIMARY KEY (`idResultado`),
-  ADD UNIQUE KEY `idInscripcion` (`idInscripcion`);
+  ADD KEY `idInscripcion` (`idInscripcion`) USING BTREE;
 
 --
 -- AUTO_INCREMENT de las tablas volcadas
@@ -391,7 +391,7 @@ ALTER TABLE `ediciones`
 -- AUTO_INCREMENT de la tabla `eventosdeportivos`
 --
 ALTER TABLE `eventosdeportivos`
-  MODIFY `idEvento` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
+  MODIFY `idEvento` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
 
 --
 -- AUTO_INCREMENT de la tabla `inscripciones`
@@ -426,7 +426,8 @@ ALTER TABLE `ediciones`
 -- Filtros para la tabla `eventosdeportivos`
 --
 ALTER TABLE `eventosdeportivos`
-  ADD CONSTRAINT `eventosdeportivos_ibfk_1` FOREIGN KEY (`idOrganizador`) REFERENCES `organizadores` (`idOrganizador`) ON DELETE CASCADE;
+  ADD CONSTRAINT `eventosdeportivos_ibfk_1` FOREIGN KEY (`idOrganizador`) REFERENCES `organizadores` (`idOrganizador`) ON DELETE CASCADE,
+  ADD CONSTRAINT `fk_foreign_key_organizador` FOREIGN KEY (`idOrganizador`) REFERENCES `organizadores` (`idOrganizador`);
 
 --
 -- Filtros para la tabla `inscripciones`

@@ -44,5 +44,13 @@ public class EventoDeportivo {
 		this.tipoDeporte = tipoDeporte;
 		this.organizador = organizador;
 	}
+	public EventoDeportivo( String nombre, String descripcion, String tipoDeporte, Organizador organizador) {
+		super();
+	
+		this.nombre = nombre;
+		this.descripcion = descripcion;
+		this.tipoDeporte = tipoDeporte;
+		this.organizador = organizador;
+	}
 	public EventoDeportivo() {}
 }

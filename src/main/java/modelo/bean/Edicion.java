@@ -18,6 +18,14 @@ public class Edicion {
 		this.eventoDeportivo = eventoDeportivo;
 		this.ciudad = ciudad;
 	}
+	public Edicion( Date fecha, int cuposDisponibles, EventoDeportivo eventoDeportivo, Ciudad ciudad) {
+		super();
+		
+		this.fecha = fecha;
+		this.cuposDisponibles = cuposDisponibles;
+		this.eventoDeportivo = eventoDeportivo;
+		this.ciudad = ciudad;
+	}
 
 
 	public int getId() {
