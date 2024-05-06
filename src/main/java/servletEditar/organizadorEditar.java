@@ -7,6 +7,9 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import modelo.bean.Organizador;
+import modelo.dao.ModeloOrganizador;
+
 /**
  * Servlet implementation class organizadorEditar
  */
@@ -35,7 +38,22 @@ public class organizadorEditar extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		doGet(request, response);
+		String nombre = request.getParameter("editNombre");
+		String email = request.getParameter("editEmail");
+		int telefono = Integer.parseInt(request.getParameter("editTelefono"));
+		String dni = request.getParameter("editDNI");
+		int id = Integer.parseInt(request.getParameter("editId"));
+		
+		ModeloOrganizador mdo = new ModeloOrganizador();
+		Organizador organizador = new Organizador(id, nombre, email, telefono, dni);
+		
+		if (mdo.actualizarOrganizador(organizador)) {
+			System.out.println("editado");
+		}else {
+			System.out.println("error");
+		}
+		response.sendRedirect("organizador");
+		
 	}
 
 }

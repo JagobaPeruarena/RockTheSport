@@ -7,6 +7,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import modelo.dao.ModeloOrganizador;
+
 /**
  * Servlet implementation class organizadorEliminar
  */
@@ -27,15 +29,17 @@ public class organizadorEliminar extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		response.getWriter().append("Served at: ").append(request.getContextPath());
+		ModeloOrganizador mdo = new ModeloOrganizador();
+		int IdOrganizdor = Integer.parseInt(request.getParameter("idOrganizador"));
+		
+		boolean eliminado = mdo.eliminarOrganizador(IdOrganizdor);
+		if (eliminado) {
+			response.sendRedirect("organizador");
+		}else {
+			response.getWriter().println("No se pudo eliminar el deportista con ID: "+ IdOrganizdor);
+		}
 	}
 
-	/**
-	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
-	 */
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		doGet(request, response);
-	}
+	
 
 }

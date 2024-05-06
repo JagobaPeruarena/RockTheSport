@@ -159,7 +159,7 @@ th {
 									<button type="button" class="btn btn-primary btn-sm edit-btn"
 										data-toggle="modal" data-target="#editModal${organizador.id}">
 										<i class="fas fa-edit"></i>
-									</button> <a type="button" class="btn btn-danger btn-sm delete-btn"><i
+									</button> <a href="organizadorEliminar?idOrganizador=${organizador.id}" type="button" class="btn btn-danger btn-sm delete-btn"><i
 										class="fas fa-trash-alt"></i></a>
 								</td>
 							</tr>
@@ -203,7 +203,7 @@ th {
 							</div>
 							<div class="form-group">
 								<label for="editDNI">DNI</label> <input type="text"
-									class="form-control" id="editDNI" name="EditDNI" value="${organizador.dni}">
+									class="form-control" id="editDNI" name="editDNI" value="${organizador.dni}">
 							</div>
 							<div class="modal-footer">
 								<button type="button" class="btn btn-secondary"
