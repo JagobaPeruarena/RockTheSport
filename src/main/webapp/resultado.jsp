@@ -193,11 +193,11 @@ th {
 						</div>
 						<div class="form-group">
 							<label for="editClasificacion">Clasificación</label> <input
-								type="number" class="form-control" id="editClasificacion">
+								type="number" min="1" max="50000" class="form-control" id="editClasificacion">
 						</div>
 						<div class="form-group">
-							<label for="editIdInscripcion">Inscripción</label> <input
-								type="number" class="form-control" id="editIdInscripcion">
+							<label for="editIdInscripcion">Dorsal</label> <input
+								type="text" class="form-control" id="editIdInscripcion">
 						</div>
 					</form>
 				</div>
@@ -232,11 +232,11 @@ th {
 						</div>
 						<div class="form-group">
 							<label for="addClasificacion">Clasificación</label> <input
-								type="number" class="form-control" id="addClasificacion">
+								type="number" min="1" max="50000" class="form-control" id="addClasificacion">
 						</div>
 						<div class="form-group">
-							<label for="addIdInscripcion">Inscripción</label> <input
-								type="number" class="form-control" id="addIdInscripcion">
+							<label for="addIdInscripcion">Dorsal</label> <input
+								type="text" class="form-control" id="addIdInscripcion">
 						</div>
 					</form>
 				</div>

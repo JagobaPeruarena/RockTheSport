@@ -139,7 +139,7 @@ th {
 				<table>
 					<thead>
 						<tr>
-							<th>id</th>
+							<th>#</th>
 							<th>dorsal</th>
 							<th>fechaInscipcion</th>
 							<th>Deportista</th>

@@ -193,7 +193,7 @@ td {
 					<form action="edicionAgregar" var="edicion" method="post">
 						<div class="form-group">
 							<label for="addCuposDisponibles">Cupos Disponibles</label> <input
-								type="number" class="form-control" id="addCuposDisponibles"
+								type="number" min="1000" max="50000" class="form-control" id="addCuposDisponibles"
 								name="addCuposDisponibles">
 						</div>
 						<div class="form-group">
@@ -253,7 +253,7 @@ td {
 							</div>
 							<div class="form-group">
 								<label for="editCuposDisponibles">Cupos Disponibles</label> <input
-									type="number" class="form-control" id="editCuposDisponibles" name="editCuposDisponibles"
+									type="number" min="1000" max="50000" class="form-control" id="editCuposDisponibles" name="editCuposDisponibles"
 									value="${edicion.cuposDisponibles}">
 							</div>
 							<div class="form-group">

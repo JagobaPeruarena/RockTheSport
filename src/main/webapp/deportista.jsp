@@ -215,7 +215,7 @@ th {
 							</div>
 							<div class="form-group">
 								<label for="editEdad">Edad</label> <input type="number"
-									class="form-control" id="editEdad" name="editEdad"
+									class="form-control" min="1" max="110" id="editEdad" name="editEdad"
 									value="${deportista.edad}">
 							</div>
 							<div class="form-group">
@@ -272,7 +272,7 @@ th {
 						</div>
 						<div class="form-group">
 							<label for="addEdad">Edad</label> <input type="number"
-								class="form-control" id="addEdad" name="addEdad">
+								class="form-control" min="1" max="110" id="addEdad" name="addEdad">
 						</div>
 						<div class="form-group">
 							<select class="form-select" id="addGenero" name="addGenero" >
