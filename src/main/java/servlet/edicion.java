@@ -9,11 +9,14 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import modelo.bean.Deportista;
+import modelo.bean.Ciudad;
+import modelo.bean.EventoDeportivo;
 import modelo.bean.Edicion;
 import modelo.bean.Genero;
+import modelo.dao.ModeloCiudad;
 import modelo.dao.ModeloDeportista;
 import modelo.dao.ModeloEdicion;
+import modelo.dao.ModeloEventoDeportivo;
 
 /**
  * Servlet implementation class edicion
@@ -35,11 +38,17 @@ public class edicion extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
-		ModeloEdicion me = new ModeloEdicion();	
+		ModeloEdicion me = new ModeloEdicion();
+		ModeloCiudad mdc = new ModeloCiudad();
+		ModeloEventoDeportivo mded = new ModeloEventoDeportivo();
 		
 		ArrayList<Edicion> ediciones = me.getEdicions();
+		ArrayList<Ciudad> ciudades = mdc.getCiudades();
+		ArrayList<EventoDeportivo> eventoDeportivos = mded.getEventos();
 		
 		request.setAttribute("ediciones", ediciones);
+		request.setAttribute("ciudades", ciudades);
+		request.setAttribute("eventoDeportivos", eventoDeportivos);
 		
 		request.getRequestDispatcher("edicion.jsp").forward(request, response);
 		

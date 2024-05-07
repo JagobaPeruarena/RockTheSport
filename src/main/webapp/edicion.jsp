@@ -161,12 +161,12 @@ td {
 								<td>${edicion.ciudad.nombre}</td>
 								<td>
 									<button type="button" class="btn btn-primary btn-sm edit-btn"
-										data-toggle="modal" data-target="#editModal">
+										data-toggle="modal" data-target="#editModal${edicion.id}">
 										<i class="fas fa-edit"></i>
 									</button>
-									<button type="button" class="btn btn-danger btn-sm delete-btn">
+									<a href="edicionEliminar?idEdicion=${edicion.id}" type="button" class="btn btn-danger btn-sm delete-btn">
 										<i class="fas fa-trash-alt"></i>
-									</button>
+									</a>
 								</td>
 							</tr>
 						</c:forEach>
@@ -190,85 +190,112 @@ td {
 				</div>
 				<div class="modal-body">
 					<!-- Formulario de Agregar Edición -->
-					<form>
-						<div class="form-group">
-							<label for="addIdEdicion">ID Edición</label> <input type="text"
-								class="form-control" id="addIdEdicion">
-						</div>
+					<form action="edicionAgregar" var="edicion" method="post">
 						<div class="form-group">
 							<label for="addCuposDisponibles">Cupos Disponibles</label> <input
-								type="number" class="form-control" id="addCuposDisponibles">
+								type="number" class="form-control" id="addCuposDisponibles"
+								name="addCuposDisponibles">
 						</div>
 						<div class="form-group">
 							<label for="addFecha">Fecha</label> <input type="date"
-								class="form-control" id="addFecha">
+								class="form-control" id="addFecha" name="addFecha">
 						</div>
 						<div class="form-group">
-							<label for="addIdEvento">ID Evento</label> <input type="text"
-								class="form-control" id="addIdEvento">
+							<select class="form-select" id="addEventoDeportivo"
+								name="addEventoDeportivo">
+								<option value="" not Selected>Eventos Deportivos</option>
+								<c:forEach var="eventoDeportivo" items="${eventoDeportivos}">
+									<option value="${eventoDeportivo.id}">${eventoDeportivo.nombre}</option>
+
+								</c:forEach>
+							</select>
 						</div>
 						<div class="form-group">
-							<label for="addIdCiudad">ID Ciudad</label> <input type="text"
-								class="form-control" id="addIdCiudad">
+							<select class="form-select" id="addCiudad" name="addCiudad">
+								<option value="" not Selected>Ciudades</option>
+								<c:forEach var="ciudad" items="${ciudades}">
+									<option value="${ciudad.id}">${ciudad.nombre}</option>
+
+								</c:forEach>
+							</select>
+						</div>
+						<div class="modal-footer">
+							<button type="button" class="btn btn-secondary"
+								data-dismiss="modal">Cerrar</button>
+							<button type="submit" class="btn btn-primary">Agregar</button>
 						</div>
 					</form>
 				</div>
-				<div class="modal-footer">
-					<button type="button" class="btn btn-secondary"
-						data-dismiss="modal">Cerrar</button>
-					<button type="button" class="btn btn-primary">Agregar</button>
-				</div>
+
 			</div>
 		</div>
 	</div>
 
 	<!-- Modal de Editar -->
-	<div class="modal fade" id="editModal" tabindex="-1" role="dialog"
-		aria-labelledby="editModalLabel" aria-hidden="true">
-		<div class="modal-dialog" role="document">
-			<div class="modal-content">
-				<div class="modal-header">
-					<h5 class="modal-title" id="editModalLabel">Editar Edición</h5>
-					<button type="button" class="close" data-dismiss="modal"
-						aria-label="Close">
-						<span aria-hidden="true">&times;</span>
-					</button>
-				</div>
-				<div class="modal-body">
-					<!-- Agrega aquí los campos para editar -->
-					<form action ="edicionEditar" var="edicion" method="post" >
-						<div class="form-group">
-							<input type="hidden" name="editId" id="editId"
-								value="${edicion.id}">
-						</div>
-						<div class="form-group">
-							<label for="editCuposDisponibles">Cupos Disponibles</label> <input
-								type="number" class="form-control" id="editCuposDisponibles">
-						</div>
-						<div class="form-group">
-							<label for="editFecha">Fecha</label> <input type="date"
-								class="form-control" id="editFecha">
-						</div>
-						<div class="form-group">
-							<label for="editIdEvento">ID Evento</label> <input type="text"
-								class="form-control" id="editIdEvento">
-						</div>
-						<div class="form-group">
-							<label for="editIdCiudad">ID Ciudad</label> <input type="text"
-								class="form-control" id="editIdCiudad">
-						</div>
-					</form>
-				</div>
-				<div class="modal-footer">
-					<button type="button" class="btn btn-secondary"
-						data-dismiss="modal">Cerrar</button>
-					<button type="button" class="btn btn-primary">Guardar
-						cambios</button>
+	<c:forEach items="${ediciones}" var="edicion">
+		<div class="modal fade" id="editModal${edicion.id}" tabindex="-1"
+			role="dialog" aria-labelledby="editModalLabel" aria-hidden="true">
+			<div class="modal-dialog" role="document">
+				<div class="modal-content">
+					<div class="modal-header">
+						<h5 class="modal-title" id="editModalLabel">Editar Edición</h5>
+						<button type="button" class="close" data-dismiss="modal"
+							aria-label="Close">
+							<span aria-hidden="true">&times;</span>
+						</button>
+					</div>
+					<div class="modal-body">
+						<!-- Agrega aquí los campos para editar -->
+						<form action="edicionEditar" var="edicion" method="post">
+							<div class="form-group">
+								<input type="hidden" name="editId" id="editId"
+									value="${edicion.id}">
+							</div>
+							<div class="form-group">
+								<label for="editCuposDisponibles">Cupos Disponibles</label> <input
+									type="number" class="form-control" id="editCuposDisponibles" name="editCuposDisponibles"
+									value="${edicion.cuposDisponibles}">
+							</div>
+							<div class="form-group">
+								<label for="editFecha">Fecha</label> <input type="date"
+									class="form-control" id="editFecha" name="editFecha" value="${edicion.fecha}">
+							</div>
+							<div class="form-group">
+								<select class="form-select" id="editEventoDeportivo"
+									name="editEventoDeportivo">
+									<option value="" not Selected>Eventos Deportivos</option>
+									<c:forEach var="eventoDeportivo" items="${eventoDeportivos}">
+										<option
+											${eventoDeportivo.id == edicion.eventoDeportivo.id ? 'selected' : ''}
+											value="${eventoDeportivo.id}">${eventoDeportivo.nombre}</option>
+
+									</c:forEach>
+								</select>
+							</div>
+							<div class="form-group">
+								<select class="form-select" id="editCiudad" name="editCiudad">
+									<option value="" not Selected>Ciudades</option>
+									<c:forEach var="ciudad" items="${ciudades}">
+										<option ${ciudad.id == edicion.ciudad.id ? 'selected' : ''}
+											value="${ciudad.id}">${ciudad.nombre}</option>
+
+									</c:forEach>
+								</select>
+							</div>
+							<div class="modal-footer">
+								<button type="button" class="btn btn-secondary"
+									data-dismiss="modal">Cerrar</button>
+								<button type="submit" class="btn btn-primary">Guardar
+									cambios</button>
+							</div>
+						</form>
+					</div>
+
 				</div>
 			</div>
-		</div>
-	</div>
 
+		</div>
+	</c:forEach>
 	<!-- Scripts de Bootstrap -->
 	<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
 	<script
