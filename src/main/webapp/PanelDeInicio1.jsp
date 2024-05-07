@@ -62,7 +62,7 @@
   <div class="text-center">
     <h1>Bienvenido a RockTheSport</h1> 
     <p class="lead">Descubre los mejores eventos deportivos cerca de ti.</p> 
-    <a href="#" class="btn btn-primary btn-lg" style="background-color: #0688B4;">Ver Eventos</a> 
+    <a href="PanelDeInicio2" class="btn btn-primary btn-lg" style="background-color: #0688B4;">Ver Eventos</a> 
   </div>
 </div>
 

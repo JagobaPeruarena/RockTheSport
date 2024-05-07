@@ -59,61 +59,61 @@
       <h4>Nombre del Evento</h4>
       <p>Fecha</p>
       <p>Ciudad</p>
-      <button class="btn btn-primary">Entrar</button>
+      <a class="btn btn-primary" href="PanelDeInicio3">Entrar</a>
     </div>
     <div class="event-box">
         <h4>Nombre del Evento</h4>
         <p>Fecha</p>
         <p>Ciudad</p>
-        <button class="btn btn-primary">Entrar</button>
+        <a class="btn btn-primary" href="PanelDeInicio3">Entrar</a>
       </div>
       <div class="event-box">
         <h4>Nombre del Evento</h4>
         <p>Fecha</p>
         <p>Ciudad</p>
-        <button class="btn btn-primary">Entrar</button>
+        <a class="btn btn-primary" href="PanelDeInicio3">Entrar</a>
       </div>
       <div class="event-box">
         <h4>Nombre del Evento</h4>
         <p>Fecha</p>
         <p>Ciudad</p>
-        <button class="btn btn-primary">Entrar</button>
+        <a class="btn btn-primary" href="PanelDeInicio3">Entrar</a>
       </div>
       <div class="event-box">
         <h4>Nombre del Evento</h4>
         <p>Fecha</p>
         <p>Ciudad</p>
-        <button class="btn btn-primary">Entrar</button>
+        <a class="btn btn-primary" href="PanelDeInicio3">Entrar</a>
       </div>
       <div class="event-box">
         <h4>Nombre del Evento</h4>
         <p>Fecha</p>
         <p>Ciudad</p>
-        <button class="btn btn-primary">Entrar</button>
+        <a class="btn btn-primary" href="PanelDeInicio3">Entrar</a>
       </div>
       <div class="event-box">
         <h4>Nombre del Evento</h4>
         <p>Fecha</p>
         <p>Ciudad</p>
-        <button class="btn btn-primary">Entrar</button>
+        <a class="btn btn-primary" href="PanelDeInicio3">Entrar</a>
       </div>
       <div class="event-box">
         <h4>Nombre del Evento</h4>
         <p>Fecha</p>
         <p>Ciudad</p>
-        <button class="btn btn-primary">Entrar</button>
+        <a class="btn btn-primary" href="PanelDeInicio3">Entrar</a>
       </div>
       <div class="event-box">
         <h4>Nombre del Evento</h4>
         <p>Fecha</p>
         <p>Ciudad</p>
-        <button class="btn btn-primary">Entrar</button>
+        <a class="btn btn-primary" href="PanelDeInicio3">Entrar</a>
       </div>
       <div class="event-box">
         <h4>Nombre del Evento</h4>
         <p>Fecha</p>
         <p>Ciudad</p>
-        <button class="btn btn-primary">Entrar</button>
+        <a class="btn btn-primary" href="PanelDeInicio3">Entrar</a>
       </div>
   </div>
 
