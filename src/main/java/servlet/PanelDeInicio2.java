@@ -1,11 +1,20 @@
 package servlet;
 
 import java.io.IOException;
+import java.util.ArrayList;
+
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+
+import modelo.bean.Ciudad;
+import modelo.bean.Edicion;
+import modelo.bean.EventoDeportivo;
+import modelo.dao.ModeloCiudad;
+import modelo.dao.ModeloEdicion;
+import modelo.dao.ModeloEventoDeportivo;
 
 /**
  * Servlet implementation class PanelDeInicio2
@@ -26,6 +35,18 @@ public class PanelDeInicio2 extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		
+		ModeloEdicion me = new ModeloEdicion();
+		ModeloCiudad mdc = new ModeloCiudad();
+		ModeloEventoDeportivo mded = new ModeloEventoDeportivo();
+		
+		ArrayList<Edicion> ediciones = me.getEdicions();
+		ArrayList<Ciudad> ciudades = mdc.getCiudades();
+		ArrayList<EventoDeportivo> eventoDeportivos = mded.getEventos();
+		
+		request.setAttribute("ediciones", ediciones);
+		request.setAttribute("ciudades", ciudades);
+		request.setAttribute("eventoDeportivos", eventoDeportivos);
 		
 		request.getRequestDispatcher("PanelDeInicio2.jsp").forward(request, response);
 	}
