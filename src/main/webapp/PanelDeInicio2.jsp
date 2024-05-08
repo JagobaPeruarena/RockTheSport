@@ -48,9 +48,10 @@
   </style>
 </head>
 <body>
+	
    <!-- Sección del logo con fondo -->
   <div class="logo-section">
-    <img src="imagen\images.jpg" alt="Logo de Eventos Deportivos" style="height: 100px;">
+    <a href="PanelDeInicio1"><img  src="imagen\images.jpg" alt="Logo de Eventos Deportivos" style="height: 100px;"></a>
   </div>
 
   <!-- Contenido de la Landing Page -->

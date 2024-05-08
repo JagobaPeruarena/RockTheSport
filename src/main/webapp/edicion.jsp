@@ -90,49 +90,13 @@ td {
 <body>
 
 	<!-- Barra de Navegación -->
-	<nav class="navbar navbar-expand-lg navbar-dark fixed-top">
-		<div class="container">
-			<a class="navbar-brand" href="#"> <img src="imagen\images.jpg"
-				alt="Logo de la Empresa">
-			</a>
-			<button class="navbar-toggler" type="button" data-toggle="collapse"
-				data-target="#navbarSupportedContent"
-				aria-controls="navbarSupportedContent" aria-expanded="false"
-				aria-label="Toggle navigation">
-				<span class="navbar-toggler-icon"></span>
-			</button>
-
-			<div class="collapse navbar-collapse" id="navbarSupportedContent">
-				<ul class="navbar-nav ml-auto">
-					<li class="nav-item active"><a class="nav-link" href="#">Inicio</a>
-					</li>
-					<li class="nav-item"><a class="nav-link" href="#">Usuarios</a>
-					</li>
-					<li class="nav-item"><a class="nav-link" href="#">Tablas</a></li>
-					<li class="nav-item"><a class="nav-link" href="#">Configuración</a>
-					</li>
-					<li class="nav-item"><a class="nav-link" href="#">Salir</a></li>
-				</ul>
-			</div>
-		</div>
-	</nav>
+	<%@ include file="/partes/navbar.jsp"%>
 
 	<!-- Contenido Principal -->
 	<div class="container-fluid">
 		<div class="row">
 			<!-- Barra lateral -->
-			<div class="col-md-3 sidebar">
-
-				<!-- Botones para seleccionar tablas -->
-				<a href="ciudad" class="btn btn-primary btn-block mt-3">Ciudad</a> <a
-					href="EventoDeportivo" class="btn btn-primary btn-block mt-3">Evento
-					deportivo</a> <a href="organizador"
-					class="btn btn-primary btn-block mt-3">Organizador</a> <a
-					href="edicion" class="btn btn-primary btn-block mt-3">Edición</a> <a
-					href="deportista" class="btn btn-primary btn-block mt-3">Deportista</a>
-				<a href="inscripcion" class="btn btn-primary btn-block mt-3">Inscripción</a>
-				<a href="resultado" class="btn btn-primary btn-block mt-3">Resultado</a>
-			</div>
+			<%@ include file="/partes/sidebar.jsp"%>
 			<!-- Contenido principal -->
 			<div class="col-md-9 main-content">
 				<!-- Tabla de información de la tabla seleccionada -->
@@ -163,10 +127,10 @@ td {
 									<button type="button" class="btn btn-primary btn-sm edit-btn"
 										data-toggle="modal" data-target="#editModal${edicion.id}">
 										<i class="fas fa-edit"></i>
-									</button>
-									<a href="edicionEliminar?idEdicion=${edicion.id}" type="button" class="btn btn-danger btn-sm delete-btn">
-										<i class="fas fa-trash-alt"></i>
-									</a>
+									</button> <a href="edicionEliminar?idEdicion=${edicion.id}"
+									type="button" class="btn btn-danger btn-sm delete-btn"> <i
+										class="fas fa-trash-alt"></i>
+								</a>
 								</td>
 							</tr>
 						</c:forEach>
@@ -193,8 +157,8 @@ td {
 					<form action="edicionAgregar" var="edicion" method="post">
 						<div class="form-group">
 							<label for="addCuposDisponibles">Cupos Disponibles</label> <input
-								type="number" min="1000" max="50000" class="form-control" id="addCuposDisponibles"
-								name="addCuposDisponibles">
+								type="number" min="1000" max="50000" class="form-control"
+								id="addCuposDisponibles" name="addCuposDisponibles">
 						</div>
 						<div class="form-group">
 							<label for="addFecha">Fecha</label> <input type="date"
@@ -253,12 +217,14 @@ td {
 							</div>
 							<div class="form-group">
 								<label for="editCuposDisponibles">Cupos Disponibles</label> <input
-									type="number" min="1000" max="50000" class="form-control" id="editCuposDisponibles" name="editCuposDisponibles"
+									type="number" min="1000" max="50000" class="form-control"
+									id="editCuposDisponibles" name="editCuposDisponibles"
 									value="${edicion.cuposDisponibles}">
 							</div>
 							<div class="form-group">
 								<label for="editFecha">Fecha</label> <input type="date"
-									class="form-control" id="editFecha" name="editFecha" value="${edicion.fecha}">
+									class="form-control" id="editFecha" name="editFecha"
+									value="${edicion.fecha}">
 							</div>
 							<div class="form-group">
 								<select class="form-select" id="editEventoDeportivo"

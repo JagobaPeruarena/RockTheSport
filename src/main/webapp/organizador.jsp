@@ -86,49 +86,13 @@ th {
 <body>
 
 	<!-- Barra de Navegación -->
-	<nav class="navbar navbar-expand-lg navbar-dark fixed-top">
-		<div class="container">
-			<a class="navbar-brand" href="#"> <img src="imagen\images.jpg"
-				alt="Logo de la Empresa">
-			</a>
-			<button class="navbar-toggler" type="button" data-toggle="collapse"
-				data-target="#navbarSupportedContent"
-				aria-controls="navbarSupportedContent" aria-expanded="false"
-				aria-label="Toggle navigation">
-				<span class="navbar-toggler-icon"></span>
-			</button>
-
-			<div class="collapse navbar-collapse" id="navbarSupportedContent">
-				<ul class="navbar-nav ml-auto">
-					<li class="nav-item active"><a class="nav-link" href="#">Inicio</a>
-					</li>
-					<li class="nav-item"><a class="nav-link" href="#">Usuarios</a>
-					</li>
-					<li class="nav-item"><a class="nav-link" href="#">Tablas</a></li>
-					<li class="nav-item"><a class="nav-link" href="#">Configuración</a>
-					</li>
-					<li class="nav-item"><a class="nav-link" href="#">Salir</a></li>
-				</ul>
-			</div>
-		</div>
-	</nav>
+	<%@ include file="/partes/navbar.jsp"%>
 
 	<!-- Contenido Principal -->
 	<div class="container-fluid">
 		<div class="row">
 			<!-- Barra lateral -->
-			<div class="col-md-3 sidebar">
-
-				<!-- Botones para seleccionar tablas -->
-				<a href="ciudad" class="btn btn-primary btn-block mt-3">Ciudad</a> <a
-					href="EventoDeportivo" class="btn btn-primary btn-block mt-3">Evento
-					deportivo</a> <a href="organizador"
-					class="btn btn-primary btn-block mt-3">Organizador</a> <a
-					href="edicion" class="btn btn-primary btn-block mt-3">Edición</a> <a
-					href="deportista" class="btn btn-primary btn-block mt-3">Deportista</a>
-				<a href="isncripcion" class="btn btn-primary btn-block mt-3">Inscripción</a>
-				<a href="resultado" class="btn btn-primary btn-block mt-3">Resultado</a>
-			</div>
+			<%@ include file="/partes/sidebar.jsp"%>
 			<!-- Contenido principal -->
 			<div class="col-md-9 main-content">
 				<!-- Tabla de información de la tabla seleccionada -->
@@ -159,7 +123,8 @@ th {
 									<button type="button" class="btn btn-primary btn-sm edit-btn"
 										data-toggle="modal" data-target="#editModal${organizador.id}">
 										<i class="fas fa-edit"></i>
-									</button> <a href="organizadorEliminar?idOrganizador=${organizador.id}" type="button" class="btn btn-danger btn-sm delete-btn"><i
+									</button> <a href="organizadorEliminar?idOrganizador=${organizador.id}"
+									type="button" class="btn btn-danger btn-sm delete-btn"><i
 										class="fas fa-trash-alt"></i></a>
 								</td>
 							</tr>
@@ -191,19 +156,23 @@ th {
 								value="${organizador.id}">
 							<div class="form-group">
 								<label for="editNombre">Nombre</label> <input type="text"
-									class="form-control" id="editNombre" name="editNombre" value="${organizador.nombre}">
+									class="form-control" id="editNombre" name="editNombre"
+									value="${organizador.nombre}">
 							</div>
 							<div class="form-group">
 								<label for="editEmail">Email</label> <input type="email"
-									class="form-control" id="editEmail" name="editEmail" value="${organizador.email}" >
+									class="form-control" id="editEmail" name="editEmail"
+									value="${organizador.email}">
 							</div>
 							<div class="form-group">
 								<label for="editTelefono">Teléfono</label> <input type="tel"
-									class="form-control" id="editTelefono" name="editTelefono" value="${organizador.telefono}">
+									class="form-control" id="editTelefono" name="editTelefono"
+									value="${organizador.telefono}">
 							</div>
 							<div class="form-group">
 								<label for="editDNI">DNI</label> <input type="text"
-									class="form-control" id="editDNI" name="editDNI" value="${organizador.dni}">
+									class="form-control" id="editDNI" name="editDNI"
+									value="${organizador.dni}">
 							</div>
 							<div class="modal-footer">
 								<button type="button" class="btn btn-secondary"

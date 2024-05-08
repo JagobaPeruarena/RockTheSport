@@ -86,49 +86,13 @@ th {
 <body>
 
 	<!-- Barra de Navegación -->
-	<nav class="navbar navbar-expand-lg navbar-dark fixed-top">
-		<div class="container">
-			<a class="navbar-brand" href="#"> <img src="imagen\images.jpg"
-				alt="Logo de la Empresa">
-			</a>
-			<button class="navbar-toggler" type="button" data-toggle="collapse"
-				data-target="#navbarSupportedContent"
-				aria-controls="navbarSupportedContent" aria-expanded="false"
-				aria-label="Toggle navigation">
-				<span class="navbar-toggler-icon"></span>
-			</button>
-
-			<div class="collapse navbar-collapse" id="navbarSupportedContent">
-				<ul class="navbar-nav ml-auto">
-					<li class="nav-item active"><a class="nav-link" href="#">Inicio</a>
-					</li>
-					<li class="nav-item"><a class="nav-link" href="#">Usuarios</a>
-					</li>
-					<li class="nav-item"><a class="nav-link" href="#">Tablas</a></li>
-					<li class="nav-item"><a class="nav-link" href="#">Configuración</a>
-					</li>
-					<li class="nav-item"><a class="nav-link" href="#">Salir</a></li>
-				</ul>
-			</div>
-		</div>
-	</nav>
+	<%@ include file="/partes/navbar.jsp"%>
 
 	<!-- Contenido Principal -->
 	<div class="container-fluid">
 		<div class="row">
 			<!-- Barra lateral -->
-			<div class="col-md-3 sidebar">
-
-				<!-- Botones para seleccionar tablas -->
-				<a href="ciudad" class="btn btn-primary btn-block mt-3">Ciudad</a> <a
-					href="EventoDeportivo" class="btn btn-primary btn-block mt-3">Evento
-					deportivo</a> <a href="organizador"
-					class="btn btn-primary btn-block mt-3">Organizador</a> <a
-					href="edicion" class="btn btn-primary btn-block mt-3">Edicion</a> <a
-					href="deportista" class="btn btn-primary btn-block mt-3">Deportista</a>
-				<a href="inscripcion" class="btn btn-primary btn-block mt-3">Inscripción</a>
-				<a href="resultado" class="btn btn-primary btn-block mt-3">Resultado</a>
-			</div>
+			<%@ include file="/partes/sidebar.jsp"%>
 			<!-- Contenido principal -->
 			<div class="col-md-9 main-content">
 				<!-- Tabla de información de la tabla seleccionada -->
@@ -160,10 +124,11 @@ th {
 										data-toggle="modal"
 										data-target="#editModal${eventoDeportivo.id}">
 										<i class="fas fa-edit"></i>
-									</button>
-									<a href="eventoDeportivoEliminar?idEventoDeportivo=${eventoDeportivo.id}" type="button" class="btn btn-danger btn-sm delete-btn">
-										<i class="fas fa-trash-alt"></i>
-									</a>
+									</button> <a
+									href="eventoDeportivoEliminar?idEventoDeportivo=${eventoDeportivo.id}"
+									type="button" class="btn btn-danger btn-sm delete-btn"> <i
+										class="fas fa-trash-alt"></i>
+								</a>
 								</td>
 							</tr>
 						</c:forEach>
@@ -201,12 +166,13 @@ th {
 							</div>
 							<div class="form-group">
 								<label for="editDescripcion">Descripción</label> <input
-									type="text" class="form-control" id="editDescripcion" name="editDescripcion"
-									value="${eventoDeportivo.descripcion}">
+									type="text" class="form-control" id="editDescripcion"
+									name="editDescripcion" value="${eventoDeportivo.descripcion}">
 							</div>
 							<div class="form-group">
 								<label for="editTipoDeporte">Tipo de Deporte</label> <select
-									class="form-control" id="editTipoDeporte" name="editTipoDeporte">
+									class="form-control" id="editTipoDeporte"
+									name="editTipoDeporte">
 									<option value="Triatlon"
 										${eventoDeportivo.tipoDeporte.equals("Triatlon") ? 'selected' : ''}>Triatlón</option>
 									<option value="Ciclismo"
@@ -271,7 +237,8 @@ th {
 						</div>
 						<div class="form-group">
 							<label for="addDescripcion">Descripción</label> <input
-								type="text" class="form-control" id="addDescripcion" name="addDescripcion">
+								type="text" class="form-control" id="addDescripcion"
+								name="addDescripcion">
 						</div>
 						<div class="form-group">
 							<label for="addTipoDeporte">Tipo de Deporte</label> <select
@@ -290,7 +257,8 @@ th {
 								class="form-select" id="addOrganizador" name="addOrganizador">
 								<option value="">Organizadores</option>
 								<c:forEach var="organizador" items="${organizadores}">
-									<option value="${organizador.id}" > ${organizador.nombre}</option>
+									<option value="${organizador.id}">
+										${organizador.nombre}</option>
 
 								</c:forEach>
 							</select>

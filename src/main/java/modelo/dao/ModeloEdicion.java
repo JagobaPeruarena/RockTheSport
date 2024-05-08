@@ -40,6 +40,34 @@ public class ModeloEdicion extends Conector {
 		return null;
 
 	}
+	public ArrayList<Edicion> getEdicionsCiudad(int idCiudad) {
+		ArrayList<Edicion> edicions = new ArrayList<Edicion>();
+		String query = "SELECT * FROM ediciones where idCiudad = ?";
+
+		try {
+			PreparedStatement st = getCon().prepareStatement(query);
+			st.setInt(1, idCiudad);
+			ResultSet rs = st.executeQuery();
+
+			while (rs.next()) {
+				Edicion edicion = new Edicion();
+				edicion.setId(rs.getInt("idEdicion"));
+				edicion.setFecha(rs.getDate("fecha"));
+				edicion.setCuposDisponibles(rs.getInt("cuposDisponibles"));
+				edicion.setEventoDeportivo(mded.select(rs.getInt("idEvento")));
+				edicion.setCiudad(mdc.select(rs.getInt("idCiudad")));
+
+				edicions.add(edicion);
+			}
+			rs.close();
+			st.close();
+			return edicions;
+		} catch (Exception e) {
+			// TODO: handle exception
+		}
+		return null;
+
+	}
 
 	public Edicion select(int id) {
 		try {

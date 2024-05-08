@@ -88,54 +88,13 @@ th {
 </head>
 <body>
 
-	<!-- Barra de Navegación -->
-	<nav class="navbar navbar-expand-lg navbar-dark fixed-top">
-		<div class="container">
-			<a class="navbar-brand" href="#"> <img src="imagen\images.jpg"
-				alt="Logo de la Empresa">
-			</a>
-			<button class="navbar-toggler" type="button" data-toggle="collapse"
-				data-target="#navbarSupportedContent"
-				aria-controls="navbarSupportedContent" aria-expanded="false"
-				aria-label="Toggle navigation">
-				<span class="navbar-toggler-icon"></span>
-			</button>
-
-			<div class="collapse navbar-collapse" id="navbarSupportedContent">
-				<ul class="navbar-nav ml-auto">
-					<li class="nav-item active"><a class="nav-link" href="#">Inicio</a>
-					</li>
-					<li class="nav-item"><a class="nav-link" href="#">Usuarios</a>
-					</li>
-					<li class="nav-item"><a class="nav-link" href="#">Tablas</a></li>
-					<li class="nav-item"><a class="nav-link" href="#">Configuración</a>
-					</li>
-					<li class="nav-item"><a class="nav-link" href="#">Salir</a></li>
-				</ul>
-			</div>
-		</div>
-	</nav>
+		<%@ include file="/partes/navbar.jsp" %>	
 
 	<!-- Contenido Principal -->
 	<div class="container-fluid">
 		<div class="row">
 			<!-- Barra lateral -->
-			<div class="col-md-3 sidebar">
-
-				<!-- Botones para seleccionar tablas -->
-
-				<a type="button" class="btn btn-primary btn-block mt-3"
-					href="ciudad">Ciudad</a> <a type="button"
-					class="btn btn-primary btn-block mt-3" href="EventoDeportivo">Evento
-					deportivo</a> <a type="button" class="btn btn-primary btn-block mt-3"
-					href="organizador">Organizador</a> <a type="button"
-					class="btn btn-primary btn-block mt-3" href="edicion">Edicion</a> <a
-					type="button" class="btn btn-primary btn-block mt-3"
-					href="deportista">Deportista</a> <a type="button"
-					class="btn btn-primary btn-block mt-3" href="inscripcion">Inscripción</a>
-				<a type="button" class="btn btn-primary btn-block mt-3"
-					href="resultado">Resultado</a>
-			</div>
+			<%@ include file="/partes/sidebar.jsp" %>
 			<!-- Contenido principal -->
 			<div class="col-md-9 main-content">
 				<!-- Tabla de información de la tabla seleccionada -->

@@ -84,54 +84,14 @@ th {
 </style>
 </head>
 <body>
-
 	<!-- Barra de Navegación -->
-	<nav class="navbar navbar-expand-lg navbar-dark fixed-top">
-		<div class="container">
-			<a class="navbar-brand" href="#"> <img src="imagen\images.jpg"
-				alt="Logo de la Empresa">
-			</a>
-			<button class="navbar-toggler" type="button" data-toggle="collapse"
-				data-target="#navbarSupportedContent"
-				aria-controls="navbarSupportedContent" aria-expanded="false"
-				aria-label="Toggle navigation">
-				<span class="navbar-toggler-icon"></span>
-			</button>
-
-			<div class="collapse navbar-collapse" id="navbarSupportedContent">
-				<ul class="navbar-nav ml-auto">
-					<li class="nav-item active"><a class="nav-link" href="#">Inicio</a>
-					</li>
-					<li class="nav-item"><a class="nav-link" href="#">Usuarios</a>
-					</li>
-					<li class="nav-item"><a class="nav-link" href="#">Tablas</a></li>
-					<li class="nav-item"><a class="nav-link" href="#">Configuración</a>
-					</li>
-					<li class="nav-item"><a class="nav-link" href="#">Salir</a></li>
-				</ul>
-			</div>
-		</div>
-	</nav>
+	<%@ include file="/partes/navbar.jsp"%>
 
 	<!-- Contenido Principal -->
 	<div class="container-fluid">
 		<div class="row">
 			<!-- Barra lateral -->
-			<div class="col-md-3 sidebar">
-
-				<!-- Botones para seleccionar tablas -->
-				<a type="button" class="btn btn-primary btn-block mt-3"
-					href="ciudad">Ciudad</a> <a type="button"
-					class="btn btn-primary btn-block mt-3" href="EventoDeportivo">Evento
-					deportivo</a> <a type="button" class="btn btn-primary btn-block mt-3"
-					href="organizador">Organizador</a> <a type="button"
-					class="btn btn-primary btn-block mt-3" href="edicion">Edicion</a> <a
-					type="button" class="btn btn-primary btn-block mt-3"
-					href="deportista">Deportista</a> <a type="button"
-					class="btn btn-primary btn-block mt-3" href="inscripcion">Inscripción</a>
-				<a type="button" class="btn btn-primary btn-block mt-3"
-					href="resultado">Resultado</a>
-			</div>
+			<%@ include file="/partes/sidebar.jsp"%>
 			<!-- Contenido principal -->
 			<div class="col-md-9 main-content">
 				<!-- Tabla de información de la tabla seleccionada -->
@@ -156,13 +116,16 @@ th {
 								<td>${ciudad.nombre}</td>
 								<td>${ciudad.ubicacionGeografica}</td>
 								<td>${ciudad.poblacion}</td>
-								<td><button type="button" class="btn btn-primary btn-sm edit-btn"
-										data-bs-toggle="modal" data-bs-target="#modal${ciudad.id}">
+								<td><button type="button"
+										class="btn btn-primary btn-sm edit-btn" data-bs-toggle="modal"
+										data-bs-target="#modal${ciudad.id}">
 										<i class="fas fa-edit"></i>
-									</button>
-									<a  class="btn btn-danger btn-sm delete-btn" href="ciudadEliminar?ciudadId=${ciudad.id}">
-										<i class="fas fa-trash-alt"></i>
-									</a></td>
+									</button> <a class="btn btn-danger btn-sm delete-btn"
+									href="ciudadEliminar?ciudadId=${ciudad.id}"> <i
+										class="fas fa-trash-alt"></i></a>
+										<a class="btn btn-info btn-sm delete-btn"
+									href="ciudadVer?ciudadId=${ciudad.id}"> <i class="fas fa-eye"></i></a>
+										</td>
 							</tr>
 						</c:forEach>
 
@@ -174,44 +137,47 @@ th {
 
 	<!-- Modal de Edición -->
 	<c:forEach var="ciudad" items="${ciudades}">
-	<div class="modal fade" id="modal${ciudad.id}" tabindex="-1" role="dialog"
-		aria-labelledby="editModalLabel" aria-hidden="true">
-		<div class="modal-dialog" role="document">
-			<div class="modal-content">
-				<div class="modal-header">
-					<h5 class="modal-title" id="editModalLabel">Editar Ciudad</h5>
-					<button type="button" class="close" data-dismiss="modal"
-						aria-label="Close">
-						<span aria-hidden="true">&times;</span>
-					</button>
-				</div>
-				<div class="modal-body">
-					<!-- Formulario de Edición -->
-					<form action="ciudadEditar" var="ciudad" method="post">
+		<div class="modal fade" id="modal${ciudad.id}" tabindex="-1"
+			role="dialog" aria-labelledby="editModalLabel" aria-hidden="true">
+			<div class="modal-dialog" role="document">
+				<div class="modal-content">
+					<div class="modal-header">
+						<h5 class="modal-title" id="editModalLabel">Editar Ciudad</h5>
+						<button type="button" class="close" data-dismiss="modal"
+							aria-label="Close">
+							<span aria-hidden="true">&times;</span>
+						</button>
+					</div>
+					<div class="modal-body">
+						<!-- Formulario de Edición -->
+						<form action="ciudadEditar" var="ciudad" method="post">
 							<input type="hidden" name="editId" id="editId"
 								value="${ciudad.id}">
-						<div class="form-group">
-							<label for="editNombre">Nombre</label> <input type="text"
-								class="form-control" id="editNombre"  name="editNombre"  value="${ciudad.nombre}">
-						</div>
-						<div class="form-group">
-							<label for="editUbicacion">Ubicación Geográfica</label> <input
-								type="text" class="form-control" id="editUbicacion" name="editUbicacion" value="${ciudad.ubicacionGeografica}">
-						</div>
-						<div class="form-group">
-							<label for="editPoblacion">Población</label> <input type="number"
-								class="form-control" id="editPoblacion" name="editPoblacion" value="${ciudad.poblacion}">
-						</div>
-						<button type="button" class="btn btn-secondary"
-							data-bs-dismiss="modal">Cerrar</button>
-						<button type="submit" class="btn btn-primary"
-							data-bs-dismiss="modal">Guardar Cambios</button>
-					</form>
+							<div class="form-group">
+								<label for="editNombre">Nombre</label> <input type="text"
+									class="form-control" id="editNombre" name="editNombre"
+									value="${ciudad.nombre}">
+							</div>
+							<div class="form-group">
+								<label for="editUbicacion">Ubicación Geográfica</label> <input
+									type="text" class="form-control" id="editUbicacion"
+									name="editUbicacion" value="${ciudad.ubicacionGeografica}">
+							</div>
+							<div class="form-group">
+								<label for="editPoblacion">Población</label> <input
+									type="number" class="form-control" id="editPoblacion"
+									name="editPoblacion" value="${ciudad.poblacion}">
+							</div>
+							<button type="button" class="btn btn-secondary"
+								data-bs-dismiss="modal">Cerrar</button>
+							<button type="submit" class="btn btn-primary"
+								data-bs-dismiss="modal">Guardar Cambios</button>
+						</form>
+					</div>
+
 				</div>
-				
 			</div>
 		</div>
-	</div>
 	</c:forEach>
 	<!-- Modal de Agregar -->
 	<div class="modal fade" id="addModal" tabindex="-1" role="dialog"
@@ -228,27 +194,28 @@ th {
 				<div class="modal-body">
 					<!-- Formulario de Agregar -->
 					<form action="ciudadAgregar" var="ciudad" method="post">
-					
+
 						<div class="form-group">
 							<label for="addNombre">Nombre</label> <input type="text"
 								class="form-control" id="addNombre" name="addNombre">
 						</div>
 						<div class="form-group">
 							<label for="addUbicacion">Ubicación Geográfica</label> <input
-								type="text" class="form-control" id="addUbicacion" name="addUbicacion">
+								type="text" class="form-control" id="addUbicacion"
+								name="addUbicacion">
 						</div>
 						<div class="form-group">
 							<label for="addPoblacion">Población</label> <input type="number"
 								class="form-control" id="addPoblacion" name="addPoblacion">
 						</div>
-						
-					<button type="button" class="btn btn-secondary"
-						data-dismiss="modal">Cerrar</button>
-					<button type="submit" class="btn btn-primary" data-dismiss="modal">Agregar</button>
-				
+
+						<button type="button" class="btn btn-secondary"
+							data-dismiss="modal">Cerrar</button>
+						<button type="submit" class="btn btn-primary" data-dismiss="modal">Agregar</button>
+
 					</form>
 				</div>
-				
+
 			</div>
 		</div>
 	</div>
