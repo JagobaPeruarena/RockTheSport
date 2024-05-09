@@ -131,4 +131,33 @@ public class ModeloInscripcion extends Conector {
 			return false;
 		}
 	}
+	
+	public int getMaxDorsalForEdicion(int idEdicion) {
+	    String query = "SELECT MAX(dorsal) AS maxDorsal FROM inscripciones WHERE idEdicion = ?";
+	    PreparedStatement st = null;
+	    ResultSet rs = null;
+	    try {
+	        st = getCon().prepareStatement(query);
+	        st.setInt(1, idEdicion);
+	        rs = st.executeQuery();
+	        if (rs.next()) {
+	            return rs.getInt("maxDorsal");  // Devuelve el dorsal máximo encontrado, 0 si no hay ninguno
+	        }
+	    } catch (SQLException e) {
+	        e.printStackTrace();
+	    } finally {
+	        try {
+	            if (rs != null) rs.close();
+	            if (st != null) st.close();
+	        } catch (SQLException e) {
+	            e.printStackTrace();
+	        }
+	    }
+	    return 0; // Devuelve 0 si no encuentra un dorsal máximo o en caso de error
+	}
+
+	
+	
+	
+
 }

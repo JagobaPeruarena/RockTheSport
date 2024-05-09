@@ -21,6 +21,7 @@
       align-items: center;
       padding-top: 30px; /* Altura de la barra de navegación */
       padding-bottom: 50px; /* Altura del footer */
+      
     }
     .navbar-brand img {
       height: 100px; /* Tamaño del logo */

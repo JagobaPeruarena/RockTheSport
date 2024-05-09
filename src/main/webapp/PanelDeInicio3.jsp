@@ -75,9 +75,8 @@ body, html {
 	<!-- Contenido de la página -->
 	<div class="event-content">
 		<div class="event-description">
-			<h2>Nombre del Evento</h2>
-			<p>Descripción detallada del evento. Información relevante sobre
-				el evento, como horarios, ubicación, participantes, etc.</p>
+			<h2>${edicion.eventoDeportivo.nombre}</h2>
+			<p>${edicion.eventoDeportivo.descripcion}</p>
 		</div>
 		<div class="login-section">
 			<!-- Pestañas -->

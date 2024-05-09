@@ -137,5 +137,27 @@ public class ModeloDeportista extends Conector{
 	    }
 	}
 
+	public int getMaxIdForDeportista() {
+	    String query = "SELECT MAX(id) FROM deportistas";
+	    PreparedStatement st = null;
+	    ResultSet rs = null;
+	    try {
+	        st = getCon().prepareStatement(query);
+	        rs = st.executeQuery();
+	        if (rs.next()) {
+	            return rs.getInt("id");  // Devuelve el dorsal máximo encontrado, 0 si no hay ninguno
+	        }
+	    } catch (SQLException e) {
+	        e.printStackTrace();
+	    } finally {
+	        try {
+	            if (rs != null) rs.close();
+	            if (st != null) st.close();
+	        } catch (SQLException e) {
+	            e.printStackTrace();
+	        }
+	    }
+	    return 0; // Devuelve 0 si no encuentra un dorsal máximo o en caso de error
+	}
 
 }

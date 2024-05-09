@@ -74,6 +74,7 @@ body, html {
 				<h5 class="card-title">${edicion.eventoDeportivo.nombre}</h5>
 				<p class="card-text">Fecha:<p> ${edicion.fecha}</p>
 				<a href="PanelDeInicio3?edicionId=${edicion.id}" class="btn btn-primary">Inscribirse</a>
+				
 			</div>
 		</div>
 		</c:forEach>

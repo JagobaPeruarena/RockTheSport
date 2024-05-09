@@ -7,6 +7,9 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import modelo.bean.Edicion;
+import modelo.dao.ModeloEdicion;
+
 /**
  * Servlet implementation class PanelDeInicio3
  */
@@ -27,7 +30,17 @@ public class PanelDeInicio3 extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
-		request.getRequestDispatcher("PanelDeInicio3.jsp").forward(request, response);
+	    ModeloEdicion me = new ModeloEdicion();
+	    
+	    int edicionId = Integer.parseInt(request.getParameter("edicionId"));
+	    
+	    Edicion edicion = me.select(edicionId);
+	  
+	    request.setAttribute("edicion", edicion); 
+
+	  
+	    request.getRequestDispatcher("PanelDeInicio3.jsp").forward(request, response);
+		
 	}
 
 	/**
@@ -35,7 +48,8 @@ public class PanelDeInicio3 extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		doGet(request, response);
+		
+		
 	}
 
 }
