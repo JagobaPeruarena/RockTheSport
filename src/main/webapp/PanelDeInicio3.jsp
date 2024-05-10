@@ -63,6 +63,12 @@ body, html {
 .tab-content {
 	width: 100%;
 }
+.social-icon {
+	color: white;
+	text-decoration: none;
+	margin: 0 10px;
+	
+	}
 </style>
 </head>
 <body>

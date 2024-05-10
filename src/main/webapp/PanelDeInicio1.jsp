@@ -21,13 +21,15 @@
       align-items: center;
       padding-top: 30px; /* Altura de la barra de navegación */
       padding-bottom: 50px; /* Altura del footer */
-      
+    }
+    nav{
+    background-color: #343a40;
     }
     .navbar-brand img {
       height: 100px; /* Tamaño del logo */
     }
     .social-icon {
-      color: #fff; /* Cambia el color del texto de las redes sociales */
+      color: white; /* Cambia el color del texto de las redes sociales */
       text-decoration: none; /* Elimina el subrayado del texto de las redes sociales */
       margin: 0 10px; /* Ajusta el espacio entre los íconos y el texto de las redes sociales */
     }

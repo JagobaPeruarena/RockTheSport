@@ -52,7 +52,7 @@ body, html {
 }
 
 .social-icon {
-	color: #fff;
+	color: white;
 	text-decoration: none;
 	margin: 0 10px;
 }
