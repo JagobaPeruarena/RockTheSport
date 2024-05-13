@@ -66,6 +66,32 @@ public class ModeloDeportista extends Conector{
 		return null;
 		
 	}
+	public Deportista selectDNI(String dni) {
+		try {
+		PreparedStatement st = getCon().prepareStatement("Select * from deportista where dni = ? ");
+		st.setString(1, dni);
+		ResultSet rs= st.executeQuery();
+		
+		if (rs.next()) {
+			Deportista deportista = new Deportista();
+			deportista.setId(rs.getInt("idDeportista"));
+			deportista.setDni(rs.getString("dni"));
+			deportista.setEdad(rs.getInt("edad"));
+			deportista.setGenero(rs.getString("genero"));
+			deportista.setNombre(rs.getString("nombre"));
+			deportista.setTelefono(rs.getInt("telefono"));
+			deportista.setEmail(rs.getString("email"));
+			
+			return deportista;
+		}
+		rs.close();
+		st.close();
+		}catch (Exception e) {
+			// TODO: handle exception
+		}
+		return null;
+		
+	}
 	
 	
 	public boolean insertDeportista(Deportista deportista) {

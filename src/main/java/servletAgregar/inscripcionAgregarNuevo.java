@@ -66,17 +66,22 @@ public class inscripcionAgregarNuevo extends HttpServlet {
 			edicion.setId(idEdicion);
 			
 			Deportista deportista1= new Deportista();
-			deportista1.setId(idEdicion);	
+			deportista1.setId(idDeportista);	
 			
 			
 			
 			Inscripcion nuevaInscripcion = new Inscripcion(dorsal, fecha, deportista1, edicion);
 			mi.crearInscripcion(nuevaInscripcion);
 			
+			System.out.println("Creado");
+			
+			
+			response.sendRedirect("PanelDeInicio2?msg=inscrito");
+			
 			
 		}else {
 			System.out.println("error");
-			response.sendRedirect("PanelDeInicio3");
+			response.sendRedirect("PanelDeInicio3msg=errorDeInsertado");
 		}
 		
 	}

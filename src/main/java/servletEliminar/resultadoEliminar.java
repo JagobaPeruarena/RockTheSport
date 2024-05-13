@@ -1,4 +1,4 @@
-package servlet;
+package servletEliminar;
 
 import java.io.IOException;
 import javax.servlet.ServletException;
@@ -7,21 +7,17 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import modelo.bean.Edicion;
-import modelo.bean.Genero;
-import modelo.dao.ModeloEdicion;
-
 /**
- * Servlet implementation class PanelDeInicio3
+ * Servlet implementation class resultadoEliminar
  */
-@WebServlet("/PanelDeInicio3")
-public class PanelDeInicio3 extends HttpServlet {
+@WebServlet("/resultadoEliminar")
+public class resultadoEliminar extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public PanelDeInicio3() {
+    public resultadoEliminar() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -30,18 +26,8 @@ public class PanelDeInicio3 extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		
-	    ModeloEdicion me = new ModeloEdicion();
-	    
-	    int edicionId = Integer.parseInt(request.getParameter("edicionId"));
-	    Genero[] generos = Genero.values();
-	    Edicion edicion = me.select(edicionId);
-	    
-	    request.setAttribute("edicion", edicion); 
-	    request.setAttribute("generos", generos);
-	  
-	    request.getRequestDispatcher("PanelDeInicio3.jsp").forward(request, response);
-		
+		// TODO Auto-generated method stub
+		response.getWriter().append("Served at: ").append(request.getContextPath());
 	}
 
 	/**
@@ -49,8 +35,7 @@ public class PanelDeInicio3 extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		
-		
+		doGet(request, response);
 	}
 
 }

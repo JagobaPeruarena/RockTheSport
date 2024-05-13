@@ -1,5 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
+	
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -98,25 +100,26 @@ body, html {
 				<div id="signup" class="container tab-pane active">
 					<br>
 					<h3>Registro</h3>
-					<form action="" var="deportista" method="post">
+					<form action="inscripcionAgregarNuevo" var="deportista" method="post">
 						<div class="form-row">
-						<input type="hidden" name="edicionId" id="edicionId"
-								value="${edicionId}">
+						<input type="hidden" name="edicionId" id="edicionId" value="${edicion.id}">
 							<div class="col-md-6 mb-3">
 								<label for="nombre">Nombre</label> <input type="text"
 									class="form-control" id="addNombre" name="addNombre" required>
 								<div class="valid-feedback">¡Se ve bien!</div>
 							</div>
 							<div class="col-md-3 mb-3">
+								<label for="edad">Edad</label>
 								<input type="number" class="form-control" min="1" max="110"
 									id="addEdad" name="addEdad" required>
 
 								<div class="valid-feedback">¡Se ve bien!</div>
 							</div>
 							<div class="col-md-3 mb-3">
-								<label for="genero">Género</label> <select class="form-select"
+								<label for="genero">Género </label> <br>
+								<select class="form-select"
 									id="addGenero" name="addGenero">
-									<option value="">Generos</option>
+									<option value="" disabled>Generos</option>
 									<c:forEach var="genero" items="${generos}">
 										<option value="${genero.nombre}">${genero.nombre}</option>
 
@@ -155,7 +158,7 @@ body, html {
 					<h3>Login</h3>
 					<form action="#" method="post">
 					<input type="hidden" name="edicionId" id="edicionId"
-								value="${edicionId}">
+								value="${edicion.id}">
 						<div class="form-group">
 							<label for="dni">DNI:</label> <input type="text"
 								class="form-control" id="addDNI" name="addDNI">
