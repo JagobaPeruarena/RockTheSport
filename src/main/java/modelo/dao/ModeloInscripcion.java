@@ -1,10 +1,12 @@
 package modelo.dao;
 
+import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
+import java.util.List;
 
 import conector.Conector;
 
@@ -157,7 +159,35 @@ public class ModeloInscripcion extends Conector {
 	}
 
 	
-	
-	
+	 public List<Inscripcion> selectByDeportistaId(int deportistaId) {
+	        List<Inscripcion> inscripciones = new ArrayList<>();
+	        String query = "SELECT * FROM inscripciones WHERE idDeportista = ?";
+	        PreparedStatement st = null;
+	        ResultSet rs = null;
+	        try {
+	            st = getCon().prepareStatement(query);
+	            st.setInt(1, deportistaId);
+	            rs = st.executeQuery();
+	            while (rs.next()) {
+	                Inscripcion inscripcion = new Inscripcion();
+	                inscripcion.setId(rs.getInt("idInscripcion"));
+	                inscripcion.setFechaInscripcion(rs.getDate("fechaInscipcion"));
+	                inscripcion.setDorsal(rs.getInt("dorsal"));
+	                inscripcion.setDeportista(mdd.select(rs.getInt("idDeportista")));
+	                inscripcion.setEdicion(mde.select(rs.getInt("idEdicion")));
+	                inscripciones.add(inscripcion);
+	            }
+	        } catch (SQLException e) {
+	            e.printStackTrace();
+	        } finally {
+	            try {
+	                if (rs != null) rs.close();
+	                if (st != null) st.close();
+	            } catch (SQLException e) {
+	                e.printStackTrace();
+	            }
+	        }
+	        return inscripciones;
+	    }
 
 }

@@ -1,13 +1,18 @@
 package servlet;
 
 import java.io.IOException;
+import java.util.List;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import modelo.bean.Deportista;
+import modelo.bean.Inscripcion;
+import modelo.bean.Resultado;
 import modelo.dao.ModeloDeportista;
+import modelo.dao.ModeloInscripcion;
+import modelo.dao.ModeloResultado;
 
 @WebServlet("/deportistaVer")
 public class DeportistaVer extends HttpServlet {
@@ -18,17 +23,20 @@ public class DeportistaVer extends HttpServlet {
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        // Obtener el ID del deportista desde el parámetro de la solicitud
         int idDeportista = Integer.parseInt(request.getParameter("idDeportista"));
         
-        // Crear instancia del modelo y obtener los detalles del deportista
         ModeloDeportista modeloDeportista = new ModeloDeportista();
+        ModeloInscripcion modeloInscripcion = new ModeloInscripcion();
+        ModeloResultado modeloResultado = new ModeloResultado();
+        
         Deportista deportista = modeloDeportista.select(idDeportista);
+        List<Inscripcion> inscripciones = modeloInscripcion.selectByDeportistaId(idDeportista);
+        List<Resultado> resultados = modeloResultado.selectByDeportistaId(idDeportista);
         
-        // Establecer el atributo del deportista en la solicitud
         request.setAttribute("deportista", deportista);
+        request.setAttribute("inscripciones", inscripciones);
+        request.setAttribute("resultados", resultados);
         
-        // Redirigir a la página JSP para mostrar los detalles
         request.getRequestDispatcher("verDeportista.jsp").forward(request, response);
     }
 

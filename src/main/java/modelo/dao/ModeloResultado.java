@@ -5,6 +5,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
+import java.util.List;
 
 import conector.Conector;
 import modelo.bean.Inscripcion;
@@ -123,5 +124,37 @@ public class ModeloResultado extends Conector {
 	            e.printStackTrace();
 	            return false;
 	        }
+	    }
+	    
+	    
+	    
+	    public List<Resultado> selectByDeportistaId(int deportistaId) {
+	        List<Resultado> resultados = new ArrayList<>();
+	        String query = "SELECT r.* FROM resultados r JOIN inscripciones i ON r.idInscripcion = i.idInscripcion WHERE i.idDeportista = ?";
+	        PreparedStatement st = null;
+	        ResultSet rs = null;
+	        try {
+	            st = getCon().prepareStatement(query);
+	            st.setInt(1, deportistaId);
+	            rs = st.executeQuery();
+	            while (rs.next()) {
+	                Resultado resultado = new Resultado();
+	                resultado.setId(rs.getInt("idResultado"));
+	                resultado.setClasificacion(rs.getInt("clasificacion"));
+	                resultado.setTiempo(rs.getString("tiempo"));
+	                resultado.setInscripcion(mdi.select(rs.getInt("idInscripcion")));
+	                resultados.add(resultado);
+	            }
+	        } catch (SQLException e) {
+	            e.printStackTrace();
+	        } finally {
+	            try {
+	                if (rs != null) rs.close();
+	                if (st != null) st.close();
+	            } catch (SQLException e) {
+	                e.printStackTrace();
+	            }
+	        }
+	        return resultados;
 	    }
 }

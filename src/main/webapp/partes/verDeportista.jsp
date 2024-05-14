@@ -110,6 +110,7 @@ body, html {
                     <div class="card-body">
                         <h5 class="card-title">${deportista.nombre}</h5>
                         <p class="card-text">
+                            <strong>ID:</strong> ${deportista.id} <br>
                             <strong>Edad:</strong> ${deportista.edad} <br>
                             <strong>Género:</strong> ${deportista.genero} <br>
                             <strong>Email:</strong> ${deportista.email} <br>
@@ -148,22 +149,22 @@ body, html {
                             <th>ID</th>
                             <th>Evento</th>
                             <th>Tiempo</th>
-                            <th>Posición</th>
+                            <th>Clasificación</th>
                         </tr>
                     </thead>
                     <tbody>
                         <c:forEach var="resultado" items="${resultados}">
                             <tr>
                                 <td>${resultado.id}</td>
-                                <td>${resultado.edicion.eventoDeportivo.nombre}</td>
+                                <td>${resultado.inscripcion.edicion.eventoDeportivo.nombre}</td>
                                 <td>${resultado.tiempo}</td>
-                                <td>${resultado.posicion}</td>
+                                <td>${resultado.clasificacion}</td>
                             </tr>
                         </c:forEach>
                     </tbody>
                 </table>
 
-                <a href="javascript:history.back()" class="btn btn-primary">Volver</a>
+                <a href="javascript:history.back()" class="btn btn-primary mt-3">Volver</a>
             </div>
         </div>
     </div>
