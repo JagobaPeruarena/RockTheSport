@@ -1,7 +1,8 @@
-package servlet;
+package servletVer;
 
 import java.io.IOException;
-import java.util.List;
+import java.util.ArrayList;
+
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -15,10 +16,10 @@ import modelo.dao.ModeloInscripcion;
 import modelo.dao.ModeloResultado;
 
 @WebServlet("/deportistaVer")
-public class DeportistaVer extends HttpServlet {
+public class deportistaVer extends HttpServlet {
     private static final long serialVersionUID = 1L;
 
-    public DeportistaVer() {
+    public deportistaVer() {
         super();
     }
 
@@ -30,8 +31,8 @@ public class DeportistaVer extends HttpServlet {
         ModeloResultado modeloResultado = new ModeloResultado();
         
         Deportista deportista = modeloDeportista.select(idDeportista);
-        List<Inscripcion> inscripciones = modeloInscripcion.selectByDeportistaId(idDeportista);
-        List<Resultado> resultados = modeloResultado.selectByDeportistaId(idDeportista);
+        ArrayList<Inscripcion> inscripciones = modeloInscripcion.selectByDeportistaId(idDeportista);
+        ArrayList<Resultado> resultados = modeloResultado.selectByDeportistaId(idDeportista);
         
         request.setAttribute("deportista", deportista);
         request.setAttribute("inscripciones", inscripciones);

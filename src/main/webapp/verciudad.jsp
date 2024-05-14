@@ -93,40 +93,42 @@ th {
 			<!-- ï¿½rea central para listar elementos -->
 			<div class="col-md-9 main-content">
 				<!-- Tabla de información de la tabla seleccionada -->
-				<h2>Ciudad</h2>
-				<div class="container">
-					<p>ID: ${ciudad.id}</p>
-					<p>Nombre: ${ciudad.nombre}</p>
-					<p>Ubicación Geográfica: ${ciudad.ubicacionGeografica}</p>
-					<p>Población: ${ciudad.poblacion}</p>
+				<h2 class="my-4">Detalles de Ciudad</h2>
+				<div class="card">
+					<div class="card-body">
+						<h5 class="card-title">${ciudad.nombre}</h5>
+						<p class="card-text">
+							<strong>ID:</strong> ${ciudad.id} <br> 
+							<strong>Ubicación Geográfica:</strong> ${ciudad.ubicacionGeografica} <br> 
+							<strong>Población:</strong>${ciudad.poblacion} <br>						
+						</p>
+					</div>
 				</div>
-				<form method="post" action="">
-					<input type="hidden" name="ciudadId" value="${ciudad.id}">
-					<div class="table-responsive">
-						<table class="table">
-							<thead>
-								<tr>
-									<th>ID</th>
-									<th>Fehca</th>
-									<th>CuposDisponibles</th>
-									<th>Evento</th>
-									
-								</tr>
-							</thead>
-							<tbody>
-								<c:forEach var="edicion" items="${ediciones}">
-									<tr>
-										<td>${edicion.id}</td>
-										<td>${edicion.fecha}</td>
-										<td>${edicion.cuposDisponibles}</td>
-										<td>${edicion.eventoDeportivo.nombre}</td>								
-									</tr>
-								</c:forEach>
-							</tbody>
-						</table>
-					</div>					
-				</form>
 
+				<h3 class="my-4">Ediciones</h3>
+				<table class="table table-striped">
+					<thead>
+						<tr>
+							<th>ID</th>
+							<th>Fehca</th>
+							<th>CuposDisponibles</th>
+							<th>Evento</th>
+						</tr>
+					</thead>
+					<tbody>
+						<c:forEach var="edicion" items="${ediciones}">
+							<tr>
+								<td>${edicion.id}</td>
+								<td>${edicion.fecha}</td>
+								<td>${edicion.cuposDisponibles}</td>
+								<td><a class="btn btn-info btn-sm delete-btn"
+									href="eventoDeportivoVer?idEventoDeportivo=${edicion.eventoDeportivo.id}"> <i class="fas fa-eye"> ${edicion.eventoDeportivo.nombre}</i></a></td>
+							</tr>
+						</c:forEach>
+					</tbody>
+				</table>
+
+				<a href="javascript:history.back()" class="btn btn-primary mt-3">Volver</a>
 
 
 

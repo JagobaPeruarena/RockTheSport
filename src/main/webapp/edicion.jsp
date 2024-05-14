@@ -131,6 +131,8 @@ td {
 									type="button" class="btn btn-danger btn-sm delete-btn"> <i
 										class="fas fa-trash-alt"></i>
 								</a>
+								<a class="btn btn-info btn-sm delete-btn"
+									href="edicionVer?idEdicion=${edicion.id}"> <i class="fas fa-eye"></i></a>
 								</td>
 							</tr>
 						</c:forEach>

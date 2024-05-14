@@ -68,40 +68,13 @@ body, html {
 </head>
 <body>
     <!-- Barra de Navegación -->
-    <nav class="navbar navbar-expand-lg navbar-dark text-white fixed-top">
-        <div class="container">
-            <a class="navbar-brand" href="#"> 
-                <img src="imagen/images.jpg" alt="Logo de la Empresa">
-            </a>
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
-                aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                <ul class="navbar-nav ml-auto">
-                    <li class="nav-item"><a class="nav-link" href="PanelDeInicio2">Inicio</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#">Usuarios</a></li>
-                    <li class="nav-item"><a class="nav-link" href="ciudad">Tablas</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#">Configuración</a></li>
-                    <li class="nav-item"><a class="nav-link" href="PanelDeInicio1">Salir</a></li>
-                </ul>
-            </div>
-        </div>
-    </nav>
+    <%@ include file="/partes/navbar.jsp" %>	
 
-    <div class="container-fluid">
-        <div class="row">
-            <!-- Barra lateral -->
-            <div class="col-md-3 sidebar">
-                <!-- Botones para seleccionar tablas -->
-                <a type="button" class="btn btn-primary btn-block mt-3" href="ciudad">Ciudad</a>
-                <a type="button" class="btn btn-primary btn-block mt-3" href="EventoDeportivo">Evento deportivo</a>
-                <a type="button" class="btn btn-primary btn-block mt-3" href="organizador">Organizador</a>
-                <a type="button" class="btn btn-primary btn-block mt-3" href="edicion">Edicion</a>
-                <a type="button" class="btn btn-primary btn-block mt-3" href="deportista">Deportista</a>
-                <a type="button" class="btn btn-primary btn-block mt-3" href="inscripcion">Inscripción</a>
-                <a type="button" class="btn btn-primary btn-block mt-3" href="resultado">Resultado</a>
-            </div>
+	<!-- Contenido Principal -->
+	<div class="container-fluid">
+		<div class="row">
+			<!-- Barra lateral -->
+			<%@ include file="/partes/sidebar.jsp" %>
             
             <!-- Contenido principal -->
             <div class="col-md-9 main-content">
@@ -134,8 +107,8 @@ body, html {
                         <c:forEach var="inscripcion" items="${inscripciones}">
                             <tr>
                                 <td>${inscripcion.id}</td>
-                                <td>${inscripcion.fecha}</td>
-                                <td>${inscripcion.edicion.eventoDeportivo.nombre}</td>
+                                <td>${inscripcion.fechaInscripcion}</td>
+                                <td><a class="btn btn-info btn-sm delete-btn" href="eventoDeportivoVer?idEventoDeportivo=${inscripcion.edicion.eventoDeportivo.id}"> <i class="fas fa-eye"> ${inscripcion.edicion.eventoDeportivo.nombre} evento</i></a></td>
                                 <td>${inscripcion.dorsal}</td>
                             </tr>
                         </c:forEach>
@@ -146,7 +119,7 @@ body, html {
                 <table class="table table-striped">
                     <thead>
                         <tr>
-                            <th>ID</th>
+                            <th>Dorsal</th>
                             <th>Evento</th>
                             <th>Tiempo</th>
                             <th>Clasificación</th>
@@ -155,8 +128,9 @@ body, html {
                     <tbody>
                         <c:forEach var="resultado" items="${resultados}">
                             <tr>
-                                <td>${resultado.id}</td>
-                                <td>${resultado.inscripcion.edicion.eventoDeportivo.nombre}</td>
+                                <td>${resultado.inscripcion.dorsal}</td>
+                                <td><a class="btn btn-info btn-sm delete-btn"
+									href="edicionVer?idEdicion=${resultado.inscripcion.edicion.id}"> <i class="fas fa-eye"> ${resultado.inscripcion.edicion.eventoDeportivo.nombre} edicion</i></a></td>
                                 <td>${resultado.tiempo}</td>
                                 <td>${resultado.clasificacion}</td>
                             </tr>

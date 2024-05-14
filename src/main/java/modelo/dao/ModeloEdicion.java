@@ -159,8 +159,8 @@ public class ModeloEdicion extends Conector {
 	    }
 		
 	    
-	    public List<Edicion> selectByEventoDeportivoId(int eventoDeportivoId) {
-	        List<Edicion> ediciones = new ArrayList<>();
+	    public ArrayList<Edicion> selectByEventoDeportivoId(int eventoDeportivoId) {
+	        ArrayList<Edicion> ediciones = new ArrayList<>();
 	        String query = "SELECT * FROM ediciones WHERE idEvento = ?";
 	        try (PreparedStatement st = getCon().prepareStatement(query)) {
 	            st.setInt(1, eventoDeportivoId);

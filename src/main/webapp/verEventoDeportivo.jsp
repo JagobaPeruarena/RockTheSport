@@ -67,41 +67,15 @@ body, html {
 </style>
 </head>
 <body>
+    
     <!-- Barra de Navegación -->
-    <nav class="navbar navbar-expand-lg navbar-dark text-white fixed-top">
-        <div class="container">
-            <a class="navbar-brand" href="#"> 
-                <img src="imagen/images.jpg" alt="Logo de la Empresa">
-            </a>
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
-                aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                <ul class="navbar-nav ml-auto">
-                    <li class="nav-item"><a class="nav-link" href="PanelDeInicio2">Inicio</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#">Usuarios</a></li>
-                    <li class="nav-item"><a class="nav-link" href="ciudad">Tablas</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#">Configuración</a></li>
-                    <li class="nav-item"><a class="nav-link" href="PanelDeInicio1">Salir</a></li>
-                </ul>
-            </div>
-        </div>
-    </nav>
+	<%@ include file="/partes/navbar.jsp"%>
 
-    <div class="container-fluid">
-        <div class="row">
-            <!-- Barra lateral -->
-            <div class="col-md-3 sidebar">
-                <!-- Botones para seleccionar tablas -->
-                <a type="button" class="btn btn-primary btn-block mt-3" href="ciudad">Ciudad</a>
-                <a type="button" class="btn btn-primary btn-block mt-3" href="EventoDeportivo">Evento deportivo</a>
-                <a type="button" class="btn btn-primary btn-block mt-3" href="organizador">Organizador</a>
-                <a type="button" class="btn btn-primary btn-block mt-3" href="edicion">Edicion</a>
-                <a type="button" class="btn btn-primary btn-block mt-3" href="deportista">Deportista</a>
-                <a type="button" class="btn btn-primary btn-block mt-3" href="inscripcion">Inscripción</a>
-                <a type="button" class="btn btn-primary btn-block mt-3" href="resultado">Resultado</a>
-            </div>
+	<!-- Contenido Principal -->
+	<div class="container-fluid">
+		<div class="row">
+			<!-- Barra lateral -->
+			<%@ include file="/partes/sidebar.jsp"%>
             
             <!-- Contenido principal -->
             <div class="col-md-9 main-content">
@@ -125,6 +99,7 @@ body, html {
                             <th>Fecha</th>
                             <th>Cupos Disponibles</th>
                             <th>Nombre de Edición</th>
+                            <th>Ciudad</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -133,7 +108,10 @@ body, html {
                                 <td>${edicion.id}</td>
                                 <td>${edicion.fecha}</td>
                                 <td>${edicion.cuposDisponibles}</td>
-                                <td>${edicion.nombre}</td>
+                                <td><a class="btn btn-info btn-sm delete-btn"
+									href="edicionVer?idEdicion=${edicion.id}"> <i class="fas fa-eye"> ${edicion.eventoDeportivo.nombre}</i></a></td>
+                                <td><a class="btn btn-info btn-sm delete-btn"
+									href="ciudadVer?ciudadId=${edicion.ciudad.id}"> <i class="fas fa-eye"> ${edicion.ciudad.nombre}</i></a></td>
                             </tr>
                         </c:forEach>
                     </tbody>
