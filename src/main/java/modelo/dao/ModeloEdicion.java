@@ -5,6 +5,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
+import java.util.List;
 
 import conector.Conector;
 import modelo.bean.Edicion;
@@ -155,6 +156,29 @@ public class ModeloEdicion extends Conector {
 	            e.printStackTrace();
 	            return false;
 	        }
+	    }
+		
+	    
+	    public List<Edicion> selectByEventoDeportivoId(int eventoDeportivoId) {
+	        List<Edicion> ediciones = new ArrayList<>();
+	        String query = "SELECT * FROM ediciones WHERE idEvento = ?";
+	        try (PreparedStatement st = getCon().prepareStatement(query)) {
+	            st.setInt(1, eventoDeportivoId);
+	            ResultSet rs = st.executeQuery();
+	            while (rs.next()) {
+	                Edicion edicion = new Edicion();
+	                edicion.setId(rs.getInt("idEdicion"));
+	                edicion.setFecha(rs.getDate("fecha"));
+	                edicion.setCuposDisponibles(rs.getInt("cuposDisponibles"));
+	                edicion.setEventoDeportivo(mded.select(rs.getInt("idEvento")));
+	                edicion.setCiudad(mdc.select(rs.getInt("idCiudad")));
+	                ediciones.add(edicion);
+	            }
+	            rs.close();
+	        } catch (SQLException e) {
+	            e.printStackTrace();
+	        }
+	        return ediciones;
 	    }
 	    
 	    
