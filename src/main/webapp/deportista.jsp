@@ -127,13 +127,15 @@ th {
 								<td>${deportista.dni}</td>
 								<td>
 									<button type="button" class="btn btn-primary btn-sm edit-btn"
-										data-toggle="modal" data-target="#modal${deportista.id}">
-
-										<i class="fas fa-edit"></i>
-									</button>
-									<a href="deportistaEliminar?idDeportista=${deportista.id}" type="button" class="btn btn-danger btn-sm delete-btn">
-										<i class="fas fa-trash-alt"></i>
-									</a>
+                    data-toggle="modal" data-target="#modal${deportista.id}">
+                    <i class="fas fa-edit"></i>
+                </button>
+                <a href="deportistaEliminar?idDeportista=${deportista.id}" type="button" class="btn btn-danger btn-sm delete-btn">
+                    <i class="fas fa-trash-alt"></i>
+                </a>
+                <a href="deportistaVer?idDeportista=${deportista.id}" type="button" class="btn btn-info btn-sm view-btn">
+                    <i class="fas fa-eye"></i>
+                </a>
 								</td>
 							</tr>
 						</c:forEach>
@@ -256,7 +258,7 @@ th {
 						</div>
 						<button type="button" class="btn btn-secondary"
 						data-dismiss="modal">Cerrar</button>
-						<button type="submit" class="btn btn-primary" data-dismiss="modal">Agregar</button>
+					
 				
 					</form>
 				</div>

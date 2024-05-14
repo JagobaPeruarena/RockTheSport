@@ -48,6 +48,7 @@ public class inscripcionAgregarExistente extends HttpServlet {
 		
 		ModeloDeportista mdd = new ModeloDeportista();
 		ModeloInscripcion mi= new ModeloInscripcion();
+		
 		Deportista deportista = new Deportista();
 		deportista.setDni(dni);
 		deportista = mdd.selectDNI(dni);
@@ -65,6 +66,8 @@ public class inscripcionAgregarExistente extends HttpServlet {
 			
 			Inscripcion nuevaInscripcion = new Inscripcion(dorsal, fecha, deportista, edicion);
 			mi.crearInscripcion(nuevaInscripcion);
+			
+			
 			
 			System.out.println("Creado");
 			

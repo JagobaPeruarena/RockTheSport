@@ -120,15 +120,16 @@ th {
 								<td>${eventoDeportivo.tipoDeporte}</td>
 								<td>${eventoDeportivo.organizador.nombre}</td>
 								<td>
-									<button type="button" class="btn btn-primary btn-sm edit-btn"
-										data-toggle="modal"
-										data-target="#editModal${eventoDeportivo.id}">
-										<i class="fas fa-edit"></i>
-									</button> <a
-									href="eventoDeportivoEliminar?idEventoDeportivo=${eventoDeportivo.id}"
-									type="button" class="btn btn-danger btn-sm delete-btn"> <i
-										class="fas fa-trash-alt"></i>
-								</a>
+									 <button type="button" class="btn btn-primary btn-sm edit-btn"
+                    data-toggle="modal" data-target="#editModal${eventoDeportivo.id}">
+                    <i class="fas fa-edit"></i>
+                </button>
+                <a href="eventoDeportivoEliminar?idEventoDeportivo=${eventoDeportivo.id}" type="button" class="btn btn-danger btn-sm delete-btn">
+                    <i class="fas fa-trash-alt"></i>
+                </a>
+                <a href="eventoDeportivoVer?idEventoDeportivo=${eventoDeportivo.id}" type="button" class="btn btn-info btn-sm view-btn">
+                    <i class="fas fa-eye"></i>
+                </a>
 								</td>
 							</tr>
 						</c:forEach>
