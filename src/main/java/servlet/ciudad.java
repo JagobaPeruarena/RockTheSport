@@ -39,6 +39,7 @@ public class ciudad extends HttpServlet {
         ArrayList<Ciudad> ciudades = mc.getCiudades();
         
         // Pasar la lista de ciudades al JSP
+        request.setAttribute("msg", request.getParameter("msg"));
         request.setAttribute("ciudades", ciudades);
         
         // Redirigir a la página JSP para mostrar los datos

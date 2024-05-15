@@ -92,9 +92,7 @@ th {
 		<div class="row">
 			<!-- Barra lateral -->
 			
-			<jsp:include page="/partes/sidebar.jsp">
-			<jsp:param name="msgs" value="${msg}"/>
-			</jsp:include>
+			<%@ include file="/partes/sidebar.jsp"%>
 			<!-- Contenido principal -->
 			<div class="col-md-9 main-content">
 				<!-- Tabla de información de la tabla seleccionada -->

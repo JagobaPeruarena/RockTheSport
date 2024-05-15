@@ -49,11 +49,13 @@ public class ciudadEditar extends HttpServlet {
 		
 		if(mc.editarCiudad(ciudad)) {
 			System.out.println("editado");
+			response.sendRedirect("ciudad?msg=editado");
 			
 		}else {
 			System.out.println("error");
+			response.sendRedirect("ciudad?msg=error");
 		}
-		response.sendRedirect("ciudad");
+	
 		
 		
 	}
