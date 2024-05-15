@@ -1,4 +1,3 @@
-
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
@@ -8,12 +7,8 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Panel de Control de Base de Datos</title>
-<link
-	href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
-	rel="stylesheet">
-<link
-	href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
-	rel="stylesheet">
+<link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
 <style>
 body, html {
 	height: 100%;
@@ -56,23 +51,14 @@ body, html {
 	padding: 20px;
 }
 
-table {
-	width: 100%;
-	margin-bottom: 1rem;
-	color: #fff;
+.table thead th {
+	background-color: #f8f9fa;
+	border-bottom: 2px solid #dee2e6;
 }
 
-td {
-	border: 1px solid #666;
-	padding: 0.5rem;
-	text-align: center;
-	color: black;
-}
-
-th {
-	background-color: #222;
-	border: 1px solid #666;
-	padding: 0.5rem;
+.table tbody tr td {
+	background-color: #ffffff;
+	border-top: 1px solid #dee2e6;
 	text-align: center;
 }
 
@@ -90,29 +76,30 @@ th {
 		<div class="row">
 			<%@ include file="/partes/sidebar.jsp"%>
 
-			<!-- ï¿½rea central para listar elementos -->
+			<!-- Área central para listar elementos -->
 			<div class="col-md-9 main-content">
-				<!-- Tabla de información de la tabla seleccionada -->
+				<!-- Detalles de la ciudad -->
 				<h2 class="my-4">Detalles de Ciudad</h2>
-				<div class="card">
+				<div class="card mb-4">
 					<div class="card-body">
 						<h5 class="card-title">${ciudad.nombre}</h5>
 						<p class="card-text">
 							<strong>ID:</strong> ${ciudad.id} <br> 
 							<strong>Ubicación Geográfica:</strong> ${ciudad.ubicacionGeografica} <br> 
-							<strong>Población:</strong>${ciudad.poblacion} <br>						
+							<strong>Población:</strong> ${ciudad.poblacion} <br>						
 						</p>
 					</div>
 				</div>
 
 				<h3 class="my-4">Ediciones</h3>
-				<table class="table table-striped">
+				<table class="table">
 					<thead>
 						<tr>
 							<th>ID</th>
-							<th>Fehca</th>
-							<th>CuposDisponibles</th>
-							<th>Evento</th>
+							<th>Fecha</th>
+							<th>Cupos Disponibles</th>
+							<th>Nombre de Edición</th>
+							<th>Ciudad</th>
 						</tr>
 					</thead>
 					<tbody>
@@ -121,27 +108,29 @@ th {
 								<td>${edicion.id}</td>
 								<td>${edicion.fecha}</td>
 								<td>${edicion.cuposDisponibles}</td>
-								<td><a class="btn btn-info btn-sm delete-btn"
-									href="eventoDeportivoVer?idEventoDeportivo=${edicion.eventoDeportivo.id}"> <i class="fas fa-eye"> ${edicion.eventoDeportivo.nombre}</i></a></td>
+								<td>
+									<a class="btn btn-info btn-sm" href="eventoDeportivoVer?idEventoDeportivo=${edicion.eventoDeportivo.id}">
+										<i class="fas fa-eye"></i> ${edicion.eventoDeportivo.nombre}
+									</a>
+								</td>
+								<td>
+									<a class="btn btn-info btn-sm" href="ciudadVer?idCiudad=${edicion.ciudad.id}">
+										<i class="fas fa-eye"></i> ${edicion.ciudad.nombre}
+									</a>
+								</td>
 							</tr>
 						</c:forEach>
 					</tbody>
 				</table>
 
 				<a href="javascript:history.back()" class="btn btn-primary mt-3">Volver</a>
-
-
-
-
 			</div>
 		</div>
 	</div>
 
 	<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-	<script
-		src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js"></script>
-	<script
-		src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+	<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js"></script>
+	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 </body>
 
 </html>
