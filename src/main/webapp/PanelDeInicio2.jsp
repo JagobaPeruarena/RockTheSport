@@ -21,8 +21,8 @@ body, html {
 	background-color: #f8f9fa;
 }
 
-.logo-section {º
-	width: 100%;
+.logo-section {
+	º width: 100%;
 	background-color: #343a40;
 	display: flex;
 	justify-content: center;
@@ -40,6 +40,8 @@ body, html {
 	flex-wrap: wrap;
 	justify-content: center;
 	padding: 20px;
+	background-color: cyan; /* For browsers that do not support gradients */
+	background-image: linear-gradient(to right, cyan, white);
 }
 
 .card {
@@ -98,7 +100,7 @@ body, html {
 			</button>
 		</div>
 	</c:if>
-	<div class="main-content">
+	<div class="main-content ">
 
 
 		<c:forEach items="${ediciones}" var="edicion" varStatus="stat">
@@ -108,9 +110,13 @@ body, html {
 				<div class="card-body">
 					<h5 class="card-title">${edicion.eventoDeportivo.nombre}</h5>
 					<p class="card-text">
+						<img src="imagen/images.jpg" alt="Logo de Eventos Deportivos">
+
+					</p>
+					<p>
 						<strong>Fecha:</strong> ${edicion.fecha}
 					</p>
-					<a href="PanelDeInicio3?edicionId=${edicion.id}"
+					<br> <a href="PanelDeInicio3?edicionId=${edicion.id}"
 						class="btn btn-primary">Inscribirse</a>
 				</div>
 
