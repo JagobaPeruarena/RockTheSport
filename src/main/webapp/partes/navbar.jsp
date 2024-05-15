@@ -18,7 +18,7 @@
 					</li>
 					<li class="nav-item"><a class="nav-link" href="deportista">Usuarios</a>
 					</li>
-					<li class="nav-item "><a class="nav-link" href="tablas/ciudad">Tablas</a></li>
+					<li class="nav-item "><a class="nav-link" href="ciudad">Tablas</a></li>
 					<li class="nav-item"><a class="nav-link" href="#">Configuración</a>
 					</li>
 					<li class="nav-item"><a class="nav-link" href="PanelDeInicio1">Salir</a></li>

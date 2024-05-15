@@ -66,10 +66,12 @@ public class edicionAgregar extends HttpServlet {
 		
 		if (mde.crearEdicion(edicion)) {
 			System.out.println("creado");
+			response.sendRedirect("edicion?msg=agregado");
 		}else {
 			System.out.println("error");
+			response.sendRedirect("edicion?msg=error");
 		}
-		response.sendRedirect("edicion");
+		
 		
 		
 	}

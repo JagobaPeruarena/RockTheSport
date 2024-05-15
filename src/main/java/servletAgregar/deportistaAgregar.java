@@ -51,11 +51,11 @@ public class deportistaAgregar extends HttpServlet {
 		
 		if(mdd.insertDeportista(deportista)) {
 			System.out.println("creado");
-			
+			response.sendRedirect("deportista?msg=agregado");
 		}else {
 			System.out.println("error");
 		}
-		response.sendRedirect("deportista");
+		
 		
 		
 	}

@@ -59,7 +59,7 @@ body, html {
 .table tbody tr td {
 	background-color: #ffffff;
 	border-top: 1px solid #dee2e6;
-	text-align: center;
+	text-align: right;
 }
 
 .btn-custom {
@@ -99,7 +99,7 @@ body, html {
 							<th>Fecha</th>
 							<th>Cupos Disponibles</th>
 							<th>Nombre de Edición</th>
-							<th>Ciudad</th>
+							
 						</tr>
 					</thead>
 					<tbody>
@@ -113,11 +113,7 @@ body, html {
 										<i class="fas fa-eye"></i> ${edicion.eventoDeportivo.nombre}
 									</a>
 								</td>
-								<td>
-									<a class="btn btn-info btn-sm" href="ciudadVer?idCiudad=${edicion.ciudad.id}">
-										<i class="fas fa-eye"></i> ${edicion.ciudad.nombre}
-									</a>
-								</td>
+								
 							</tr>
 						</c:forEach>
 					</tbody>

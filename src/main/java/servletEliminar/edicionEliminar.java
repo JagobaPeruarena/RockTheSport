@@ -35,9 +35,9 @@ public class edicionEliminar extends HttpServlet {
 		Boolean eliminado = mde.eliminarEdicion(IdEdicion);
 		
 		if (eliminado) {
-			response.sendRedirect("edicion");
+			response.sendRedirect("edicion?msg=eliminado");
 		}else {
-			response.getWriter().println("No se pudo eliminar la Edicion con id"+IdEdicion);
+			response.sendRedirect("edicion?msg=error");
 		}
 	}
 

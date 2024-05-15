@@ -49,10 +49,12 @@ public class organizadorEditar extends HttpServlet {
 		
 		if (mdo.actualizarOrganizador(organizador)) {
 			System.out.println("editado");
+			response.sendRedirect("organizador?msg=editado");
 		}else {
 			System.out.println("error");
+			response.sendRedirect("organizador?msg=error");
 		}
-		response.sendRedirect("organizador");
+		
 		
 	}
 

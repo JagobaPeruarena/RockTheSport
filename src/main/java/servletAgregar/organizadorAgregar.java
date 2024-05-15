@@ -48,10 +48,13 @@ public class organizadorAgregar extends HttpServlet {
 		
 		if (mdo.crearOrganizador(organizador)) {
 			System.out.println("creado");
+			response.sendRedirect("organizador?msg=agregado");
 		}else {
 			System.out.println("error");
+			response.sendRedirect("organizador?msg=error");
+			
 		}
-		response.sendRedirect("organizador");
+		
 	}
 
 }

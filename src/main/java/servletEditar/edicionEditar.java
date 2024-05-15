@@ -66,10 +66,12 @@ public class edicionEditar extends HttpServlet {
 		
 		if (mde.actualizarEdicion(edicion)) {
 			System.out.println("editado");
+			response.sendRedirect("edicion?msg=editado");
 		}else {
 			System.out.println("error");
+			response.sendRedirect("edicion?msg=error");
 		}
-		response.sendRedirect("edicion");
+		
 	}
 
 }

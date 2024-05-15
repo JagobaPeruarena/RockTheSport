@@ -35,10 +35,10 @@ public class eventoDeportivoEliminar extends HttpServlet {
 		boolean eliminado = mded.eliminarEventoDeportivo(IdEventoDeportivo);
 		
 		if (eliminado) {
-			response.sendRedirect("EventoDeportivo");
+			response.sendRedirect("EventoDeportivo?msg=eliminado");
 			
 		}else {
-			response.getWriter().println("No se pudo eliminar el EventoDeportivo");
+			response.sendRedirect("EventoDeportivo?msg=error");
 		}
 	}
 

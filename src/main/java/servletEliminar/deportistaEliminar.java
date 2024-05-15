@@ -37,10 +37,11 @@ public class deportistaEliminar extends HttpServlet {
 	        if (eliminado) {
 	            // Redireccionar a alguna p�gina despu�s de eliminar exitosamente el alumno
 	        	
-	            response.sendRedirect("deportista");
+	            
+	            response.sendRedirect("deportista?msg=eliminado");
 	        } else {
 	            // Manejo si no se puede eliminar el alumno
-	            response.getWriter().println("No se pudo eliminar el deportista con ID: " + IdDeportista);
+	        	response.sendRedirect("deportista?msg=error");
 	        }
 	}
 

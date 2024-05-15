@@ -35,11 +35,12 @@ public class ciudadEliminar extends HttpServlet {
 		
 		if(mc.eliminarCiudad(id)) {
 			System.out.println("eliminado");
-			
+			response.sendRedirect("ciudad?msg=eliminado");
 		}else {
 			System.out.println("error");
+			response.sendRedirect("ciudad?msg=error");
 		}
-		response.sendRedirect("ciudad");
+		
 	}
 
 	/**

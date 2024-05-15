@@ -50,11 +50,13 @@ public class deportistaEditar extends HttpServlet {
 		
 		if(mdd.modificarDeportista(deportista)) {
 			System.out.println("editado");
+			response.sendRedirect("deportista?msg=editado");
 			
 		}else {
 			System.out.println("error");
+			response.sendRedirect("deportista?msg=error");
 		}
-		response.sendRedirect("deportista");
+		
 		
 		
 	}

@@ -52,11 +52,13 @@ public class eventoDeportivoEditar extends HttpServlet {
 				EventoDeportivo eventoDeportivo = new EventoDeportivo(id,nombre, descripcion, tipoDeporte, addOrganizador);
 				
 				if (mded.actualizarEventoDeportivo(eventoDeportivo)) {
-					System.out.println("creado");
+					System.out.println("editado");
+					response.sendRedirect("EventoDeportivo?msg=editado");
 				}else {
 					System.out.println("error");
+					response.sendRedirect("EventoDeportivo?msg=error");
 				}
-				response.sendRedirect("EventoDeportivo");
+				
 			}
 	
 

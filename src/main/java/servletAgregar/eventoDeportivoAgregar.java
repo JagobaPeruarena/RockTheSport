@@ -52,10 +52,12 @@ public class eventoDeportivoAgregar extends HttpServlet {
 		
 		if (mded.crearEventoDeportivo(eventoDeportivo)) {
 			System.out.println("creado");
+			response.sendRedirect("EventoDeportivo?msg=agregado");
 		}else {
 			System.out.println("error");
+			response.sendRedirect("EventoDeportivo?msg=error");
 		}
-		response.sendRedirect("EventoDeportivo");
+		
 	}
 
 }

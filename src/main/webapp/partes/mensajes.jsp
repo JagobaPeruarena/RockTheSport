@@ -13,7 +13,16 @@
 		</button>
 	</div>
 </c:if>
-
+<c:if test="${msg.equals('eliminado')}">
+	<div class="alert alert-warning alert-dismissible fade show"
+		role="alert">
+		<strong>Operacion Realizada:</strong> Linea eliminada correctamente
+		<button type="button" class="close" data-dismiss="alert"
+			aria-label="Close">
+			<span aria-hidden="true">&times;</span>
+		</button>
+	</div>
+</c:if>
 <c:if test="${msg.equals('editado')}">
 			<div class="alert alert-primary alert-dismissible fade show"
 				role="alert">

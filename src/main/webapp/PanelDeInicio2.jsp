@@ -21,7 +21,7 @@ body, html {
 	background-color: #f8f9fa;
 }
 
-.logo-section {
+.logo-section {º
 	width: 100%;
 	background-color: #343a40;
 	display: flex;
@@ -35,6 +35,7 @@ body, html {
 }
 
 .main-content {
+	height: 76%;
 	display: flex;
 	flex-wrap: wrap;
 	justify-content: center;
@@ -46,10 +47,7 @@ body, html {
 	border: none;
 	border-radius: 15px;
 	box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-	flex: 1 1 calc(33.333% - 20px);
-	/* Toma un tercio del contenedor menos el margen */
-	max-width: calc(33.333% - 20px);
-	/* Máximo un tercio del contenedor menos el margen */
+	float: left;
 }
 
 .card h5 {
@@ -68,13 +66,8 @@ body, html {
 	position: relative;
 	bottom: 0;
 }
-
-.social-icons a {
-	color: white;
-	text-decoration: none;
-	margin: 0 10px;
-}
 </style>
+
 </head>
 <body>
 
@@ -86,28 +79,31 @@ body, html {
 
 	<!-- Contenido de la Landing Page -->
 	<c:if test="${msg.equals('inscrito')}">
-			<div class="alert alert-success alert-dismissible fade show"
-				role="alert">
-				<strong>Datos Correctos:</strong> Inscripcion realizada correctamente
-				<button type="button" class="close" data-dismiss="alert"
-					aria-label="Close">
-					<span aria-hidden="true">&times;</span>
-				</button>
-			</div>
-		</c:if>
-		<c:if test="${msg.equals('error')}">
-			<div class="alert alert-danger alert-dismissible fade show"
-				role="alert">
-				<strong>Datos Incorrectos:</strong> Error al realizar la inscripcion
-				<button type="button" class="close" data-dismiss="alert"
-					aria-label="Close">
-					<span aria-hidden="true">&times;</span>
-				</button>
-			</div>
-		</c:if>
-	<div class="main-content container-fluid">
-		
-		<c:forEach items="${ediciones}" var="edicion">
+		<div class="alert alert-success alert-dismissible fade show"
+			role="alert">
+			<strong>Datos Correctos:</strong> Inscripcion realizada correctamente
+			<button type="button" class="close" data-dismiss="alert"
+				aria-label="Close">
+				<span aria-hidden="true">&times;</span>
+			</button>
+		</div>
+	</c:if>
+	<c:if test="${msg.equals('error')}">
+		<div class="alert alert-danger alert-dismissible fade show"
+			role="alert">
+			<strong>Datos Incorrectos:</strong> Error al realizar la inscripcion
+			<button type="button" class="close" data-dismiss="alert"
+				aria-label="Close">
+				<span aria-hidden="true">&times;</span>
+			</button>
+		</div>
+	</c:if>
+	<div class="main-content">
+
+
+		<c:forEach items="${ediciones}" var="edicion" varStatus="stat">
+
+
 			<div class="card">
 				<div class="card-body">
 					<h5 class="card-title">${edicion.eventoDeportivo.nombre}</h5>
@@ -117,9 +113,13 @@ body, html {
 					<a href="PanelDeInicio3?edicionId=${edicion.id}"
 						class="btn btn-primary">Inscribirse</a>
 				</div>
+
 			</div>
 		</c:forEach>
+
 	</div>
+
+
 
 	<!-- Footer -->
 	<footer class="footer text-center">

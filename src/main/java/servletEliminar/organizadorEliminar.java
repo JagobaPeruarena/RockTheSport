@@ -34,9 +34,9 @@ public class organizadorEliminar extends HttpServlet {
 		
 		boolean eliminado = mdo.eliminarOrganizador(IdOrganizdor);
 		if (eliminado) {
-			response.sendRedirect("organizador");
+			response.sendRedirect("organizador?msg=eliminado");
 		}else {
-			response.getWriter().println("No se pudo eliminar el deportista con ID: "+ IdOrganizdor);
+			response.sendRedirect("organizador?msg=error");
 		}
 	}
 
