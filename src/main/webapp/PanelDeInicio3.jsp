@@ -77,8 +77,8 @@ body, html {
 
 	<!-- Sección del logo con fondo -->
 	<div class="logo-section">
-		<img src="imagen\images.jpg" alt="Logo de Eventos Deportivos"
-			style="height: 100px;">
+		<a href="PanelDeInicio1"><img src="imagen\images.jpg"
+			alt="Logo de Eventos Deportivos" style="height: 100px;"></a>
 	</div>
 
 	<!-- Contenido de la página -->
@@ -156,7 +156,7 @@ body, html {
 				<div id="login" class="container tab-pane fade">
 					<br>
 					<h3>Login</h3>
-					<form action="#" method="post">
+					<form action="inscripcionAgregarExistente" method="post">
 					<input type="hidden" name="edicionId" id="edicionId"
 								value="${edicion.id}">
 						<div class="form-group">

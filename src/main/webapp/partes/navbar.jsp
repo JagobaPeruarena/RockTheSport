@@ -16,7 +16,7 @@
 				<ul class="navbar-nav ml-auto">
 					<li class="nav-item"><a class="nav-link" href="PanelDeInicio2">Inicio</a>
 					</li>
-					<li class="nav-item"><a class="nav-link" href="#">Usuarios</a>
+					<li class="nav-item"><a class="nav-link" href="deportista">Usuarios</a>
 					</li>
 					<li class="nav-item "><a class="nav-link" href="ciudad">Tablas</a></li>
 					<li class="nav-item"><a class="nav-link" href="#">Configuración</a>
