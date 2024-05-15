@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
-	
+
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html lang="es">
@@ -65,20 +65,21 @@ body, html {
 .tab-content {
 	width: 100%;
 }
+
 .social-icon {
 	color: white;
 	text-decoration: none;
 	margin: 0 10px;
-	
-	}
+}
 </style>
 </head>
 <body>
 
 	<!-- Sección del logo con fondo -->
 	<div class="logo-section">
-	   <a href="PanelDeInicio2">	<img src="imagen\images.jpg" alt="Logo de Eventos Deportivos"
-			style="height: 100px;"> </a>
+		<a href="PanelDeInicio2"> <img src="imagen\images.jpg"
+			alt="Logo de Eventos Deportivos" style="height: 100px;">
+		</a>
 	</div>
 
 	<!-- Contenido de la página -->
@@ -100,25 +101,26 @@ body, html {
 				<div id="signup" class="container tab-pane active">
 					<br>
 					<h3>Registro</h3>
-					<form action="inscripcionAgregarNuevo" var="deportista" method="post">
+					<form action="inscripcionAgregarNuevo" var="deportista"
+						method="post">
 						<div class="form-row">
-						<input type="hidden" name="edicionId" id="edicionId" value="${edicion.id}">
+							<input type="hidden" name="edicionId" id="edicionId"
+								value="${edicion.id}">
 							<div class="col-md-6 mb-3">
 								<label for="nombre">Nombre</label> <input type="text"
 									class="form-control" id="addNombre" name="addNombre" required>
 								<div class="valid-feedback">¡Se ve bien!</div>
 							</div>
 							<div class="col-md-3 mb-3">
-								<label for="edad">Edad</label>
-								<input type="number" class="form-control" min="1" max="110"
-									id="addEdad" name="addEdad" required>
+								<label for="edad">Edad</label> <input type="number"
+									class="form-control" min="1" max="110" id="addEdad"
+									name="addEdad" required>
 
 								<div class="valid-feedback">¡Se ve bien!</div>
 							</div>
 							<div class="col-md-3 mb-3">
-								<label for="genero">Género </label> <br>
-								<select class="form-select"
-									id="addGenero" name="addGenero">
+								<label for="genero">Género </label> <br> <select
+									class="form-select" id="addGenero" name="addGenero">
 									<option value="" disabled>Generos</option>
 									<c:forEach var="genero" items="${generos}">
 										<option value="${genero.nombre}">${genero.nombre}</option>
@@ -137,13 +139,14 @@ body, html {
 							</div>
 							<div class="col-md-3 mb-3">
 								<label for="telefono">Teléfono</label> <input type="text"
-								class="form-control" id="addTelefono" name="addTelefono" required>
+									class="form-control" id="addTelefono" name="addTelefono"
+									required>
 
 								<div class="valid-feedback">¡Se ve bien!</div>
 							</div>
 							<div class="col-md-3 mb-3">
 								<label for="dni">DNI</label> <input type="text"
-								class="form-control" id="addDNI" name="addDNI" required>
+									class="form-control" id="addDNI" name="addDNI" required>
 
 								<div class="valid-feedback">¡Se ve bien!</div>
 							</div>
@@ -155,10 +158,11 @@ body, html {
 
 				<div id="login" class="container tab-pane fade">
 					<br>
+
 					<h3>Login</h3>
 					<form action="inscripcionAgregarExistente" method="post">
-					<input type="hidden" name="edicionId" id="edicionId"
-								value="${edicion.id}">
+						<input type="hidden" name="edicionId" id="edicionId"
+							value="${edicion.id}">
 						<div class="form-group">
 							<label for="dni">DNI:</label> <input type="text"
 								class="form-control" id="addDNI" name="addDNI">
