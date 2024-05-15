@@ -81,7 +81,7 @@ public class inscripcionAgregarNuevo extends HttpServlet {
 			
 		}else {
 			System.out.println("error");
-			response.sendRedirect("PanelDeInicio3msg=errorDeInsertado");
+			response.sendRedirect("PanelDeInicio2?msg=error");
 		}
 		
 	}

@@ -256,8 +256,11 @@ th {
 							<label for="addDNI">DNI</label> <input type="text"
 								class="form-control" id="addDNI" name="addDNI">
 						</div>
-						<button type="button" class="btn btn-secondary"
-						data-dismiss="modal">Cerrar</button>
+						<div class="modal-footer">
+							<button type="button" class="btn btn-secondary"
+								data-dismiss="modal">Cerrar</button>
+							<button type="submit" class="btn btn-primary">Agregar</button>
+						</div>
 					
 				
 					</form>

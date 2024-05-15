@@ -47,11 +47,13 @@ public class ciudadAgregar extends HttpServlet {
 		
 		if(mc.insertCiudad(ciudad)) {
 			System.out.println("creado");
+			response.sendRedirect("ciudad?msg=agregado");
 			
 		}else {
 			System.out.println("error");
+			response.sendRedirect("ciudad?msg=error");
 		}
-		response.sendRedirect("ciudad");
+		
 	}
 
 }

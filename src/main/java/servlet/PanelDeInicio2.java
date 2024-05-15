@@ -39,11 +39,12 @@ public class PanelDeInicio2 extends HttpServlet {
 		ModeloEdicion me = new ModeloEdicion();
 		ModeloCiudad mdc = new ModeloCiudad();
 		ModeloEventoDeportivo mded = new ModeloEventoDeportivo();
-		
+		String msg = request.getParameter("msg");	
 		ArrayList<Edicion> ediciones = me.getEdicions();
 		ArrayList<Ciudad> ciudades = mdc.getCiudades();
 		ArrayList<EventoDeportivo> eventoDeportivos = mded.getEventos();
 		
+		request.setAttribute("msg", msg);
 		request.setAttribute("ediciones", ediciones);
 		request.setAttribute("ciudades", ciudades);
 		request.setAttribute("eventoDeportivos", eventoDeportivos);

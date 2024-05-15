@@ -91,14 +91,21 @@ th {
 	<div class="container-fluid">
 		<div class="row">
 			<!-- Barra lateral -->
-			<%@ include file="/partes/sidebar.jsp"%>
+			
+			<jsp:include page="/partes/sidebar.jsp">
+			<jsp:param name="msgs" value="${msg}"/>
+			</jsp:include>
 			<!-- Contenido principal -->
 			<div class="col-md-9 main-content">
 				<!-- Tabla de información de la tabla seleccionada -->
 				<h2>Ciudad</h2>
+
+				<!-- Mensaje -->
+				<%@ include file="/partes/mensajes.jsp" %>
 				<!-- Botón de agregar -->
 				<button type="button" class="btn btn-success mb-3"
 					data-toggle="modal" data-target="#addModal">Agregar</button>
+
 				<table>
 					<thead>
 						<tr>
@@ -122,10 +129,10 @@ th {
 										<i class="fas fa-edit"></i>
 									</button> <a class="btn btn-danger btn-sm delete-btn"
 									href="ciudadEliminar?ciudadId=${ciudad.id}"> <i
-										class="fas fa-trash-alt"></i></a>
-										<a class="btn btn-info btn-sm delete-btn"
-									href="ciudadVer?ciudadId=${ciudad.id}"> <i class="fas fa-eye"></i></a>
-										</td>
+										class="fas fa-trash-alt"></i></a> <a
+									class="btn btn-info btn-sm delete-btn"
+									href="ciudadVer?ciudadId=${ciudad.id}"> <i
+										class="fas fa-eye"></i></a></td>
 							</tr>
 						</c:forEach>
 
@@ -209,10 +216,11 @@ th {
 								class="form-control" id="addPoblacion" name="addPoblacion">
 						</div>
 
-						<button type="button" class="btn btn-secondary"
-							data-dismiss="modal">Cerrar</button>
-						<button type="submit" class="btn btn-primary" data-dismiss="modal">Agregar</button>
-
+						<div class="modal-footer">
+							<button type="button" class="btn btn-secondary"
+								data-dismiss="modal">Cerrar</button>
+							<button type="submit" class="btn btn-primary">Agregar</button>
+						</div>
 					</form>
 				</div>
 
