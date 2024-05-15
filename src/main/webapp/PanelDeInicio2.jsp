@@ -1,4 +1,3 @@
-
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
@@ -8,24 +7,14 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Landing Page de Eventos Deportivos</title>
-<link
-	href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
-	rel="stylesheet">
-<link
-	href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
-	rel="stylesheet">
+<link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
 <style>
 body, html {
 	height: 100%;
-}
-
-.container {
-	min-height: 100%;
-	display: flex;
-	flex-direction: column;
-	justify-content: space-between;
-	align-items: center;
-	padding-bottom: 50px;
+	margin: 0;
+	padding: 0;
+	background-color: #f8f9fa;
 }
 
 .logo-section {
@@ -33,25 +22,48 @@ body, html {
 	background-color: #343a40;
 	display: flex;
 	justify-content: center;
+	align-items: center;
 	padding: 20px 0;
 }
 
-.navbar-brand img {
+.logo-section img {
 	height: 100px;
 }
 
-.event-box {
-	width: 200px;
-	margin: 10px;
-	padding: 10px;
-	border: 1px solid #ccc;
+.main-content {
 	display: flex;
-	flex-direction: column;
-	justify-content: space-between;
-	margin-top: 60px;
+	flex-wrap: wrap;
+	justify-content: center;
+	padding: 20px;
 }
 
-.social-icon {
+.card {
+	margin: 10px;
+	border: none;
+	border-radius: 15px;
+	box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+	flex: 1 1 calc(33.333% - 20px); /* Toma un tercio del contenedor menos el margen */
+	max-width: calc(33.333% - 20px); /* Máximo un tercio del contenedor menos el margen */
+}
+
+.card h5 {
+	font-size: 1.25rem;
+}
+
+.card p {
+	font-size: 1rem;
+}
+
+.footer {
+	background-color: #343a40;
+	color: #fff;
+	padding: 10px 0;
+	width: 100%;
+	position: relative;
+	bottom: 0;
+}
+
+.social-icons a {
 	color: white;
 	text-decoration: none;
 	margin: 0 10px;
@@ -62,49 +74,36 @@ body, html {
 
 	<!-- Sección del logo con fondo -->
 	<div class="logo-section">
-		<a href="PanelDeInicio1"><img src="imagen\images.jpg"
-			alt="Logo de Eventos Deportivos" style="height: 100px;"></a>
+		<a href="PanelDeInicio1"><img src="imagen/images.jpg" alt="Logo de Eventos Deportivos"></a>
 	</div>
 
 	<!-- Contenido de la Landing Page -->
-	<div class="d-flex justify-content-center flex-wrap">
+	<div class="main-content container-fluid">
 		<c:forEach items="${ediciones}" var="edicion">
-		<div class="card" style="width: 18rem;">
-			<div class="card-body">
-				<h5 class="card-title">${edicion.eventoDeportivo.nombre}</h5>
-				<p class="card-text">Fecha:<p> ${edicion.fecha}</p>
-				<a href="PanelDeInicio3?edicionId=${edicion.id}" class="btn btn-primary">Inscribirse</a>
-				
+			<div class="card">
+				<div class="card-body">
+					<h5 class="card-title">${edicion.eventoDeportivo.nombre}</h5>
+					<p class="card-text"><strong>Fecha:</strong> ${edicion.fecha}</p>
+					<a href="PanelDeInicio3?edicionId=${edicion.id}" class="btn btn-primary">Inscribirse</a>
+				</div>
 			</div>
-		</div>
 		</c:forEach>
 	</div>
 
 	<!-- Footer -->
-	<footer class="footer py-3 bg-dark text-white fixed-bottom">
-		<div class="container text-center">
+	<footer class="footer text-center">
+		<div class="container">
 			<span>&copy; 2024 Eventos Deportivos</span>
-			<div class="social-icons">
-				<a href="#" class="social-icon"><i class="fab fa-facebook-f"></i>
-					RockTheSport</a> <a href="#" class="social-icon"><i
-					class="fab fa-twitter"></i> RockTheSport</a> <a href="#"
-					class="social-icon"><i class="fab fa-instagram"></i>
-					RockTheSport</a>
+			<div class="social-icons mt-2">
+				<a href="#" class="social-icon"><i class="fab fa-facebook-f"></i> RockTheSport</a>
+				<a href="#" class="social-icon"><i class="fab fa-twitter"></i> RockTheSport</a>
+				<a href="#" class="social-icon"><i class="fab fa-instagram"></i> RockTheSport</a>
 			</div>
 		</div>
 	</footer>
 
-	<script
-		src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-	<script
-		src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
-	<script
-		src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
-		integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
-		crossorigin="anonymous"></script>
 	<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-
-	<script
-		src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+	<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js"></script>
+	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 </body>
 </html>
