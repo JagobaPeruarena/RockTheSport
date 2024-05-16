@@ -1,74 +1,102 @@
 package testbean;
 
+import static org.junit.Assert.assertEquals;
 import static org.junit.jupiter.api.Assertions.*;
+
+import java.util.Date;
 
 import org.junit.jupiter.api.Test;
 
+import modelo.bean.Ciudad;
+import modelo.bean.Edicion;
+import modelo.bean.EventoDeportivo;
+import servlet.edicion;
+
 class EdicionTest {
+	private Edicion edicion = null;
 
 	@Test
-	void testEdicionIntDateIntEventoDeportivoCiudad() {
-		fail("Not yet implemented");
+	void testSetAndGetId() {
+		edicion = new Edicion();
+		edicion.setId(12);
+		assertEquals("error", 12, edicion.getId());
+
 	}
 
 	@Test
-	void testEdicionDateIntEventoDeportivoCiudad() {
-		fail("Not yet implemented");
+	void testSetAndGetFecha() {
+		edicion = new Edicion();
+		edicion.setFecha(new java.util.Date());
+		assertEquals("error", new java.util.Date(), edicion.getFecha());
+
 	}
 
 	@Test
-	void testGetId() {
-		fail("Not yet implemented");
+	void testSetAndGetCuposDisponibles() {
+		edicion = new Edicion();
+		edicion.setCuposDisponibles(1222);
+		assertEquals("error", 1222, edicion.getCuposDisponibles());
+
 	}
 
 	@Test
-	void testSetId() {
-		fail("Not yet implemented");
+	void testSetAndGetEventoDeportivo() {
+		edicion = new Edicion();
+		EventoDeportivo eventoDeportivo = new EventoDeportivo();
+		edicion.setEventoDeportivo(eventoDeportivo);
+
+		assertEquals("error", eventoDeportivo, edicion.getEventoDeportivo());
+
 	}
 
 	@Test
-	void testGetFecha() {
-		fail("Not yet implemented");
+	void testSetAndGetCiudad() {
+		edicion = new Edicion();
+		Ciudad ciudad = new Ciudad();
+		edicion.setCiudad(ciudad);
+		assertEquals("error", ciudad, edicion.getCiudad());
+
 	}
 
 	@Test
-	void testSetFecha() {
-		fail("Not yet implemented");
+	void testEdicionId() {
+		int id = 12;
+		Date date = new java.util.Date();
+		int cuposDisponibles = 1222;
+		EventoDeportivo eventoDeportivo = new EventoDeportivo();
+		Ciudad ciudad = new Ciudad();
+
+		edicion = new Edicion(id, date, cuposDisponibles, eventoDeportivo, ciudad);
+
+		assertEquals("error", 12, edicion.getId());
+		assertEquals("error", date, edicion.getFecha());
+		assertEquals("error", 1222, edicion.getCuposDisponibles());
+		assertEquals("error", eventoDeportivo, edicion.getEventoDeportivo());
+		assertEquals("error", ciudad, edicion.getCiudad());
 	}
 
 	@Test
-	void testGetCuposDisponibles() {
-		fail("Not yet implemented");
-	}
+	void testEdicionNoId() {
 
-	@Test
-	void testSetCuposDisponibles() {
-		fail("Not yet implemented");
-	}
+		Date date = new java.util.Date();
+		int cuposDisponibles = 1222;
+		EventoDeportivo eventoDeportivo = new EventoDeportivo();
+		Ciudad ciudad = new Ciudad();
 
-	@Test
-	void testGetEventoDeportivo() {
-		fail("Not yet implemented");
-	}
+		edicion = new Edicion(date, cuposDisponibles, eventoDeportivo, ciudad);
 
-	@Test
-	void testSetEventoDeportivo() {
-		fail("Not yet implemented");
-	}
-
-	@Test
-	void testGetCiudad() {
-		fail("Not yet implemented");
-	}
-
-	@Test
-	void testSetCiudad() {
-		fail("Not yet implemented");
+		assertEquals("error", date, edicion.getFecha());
+		assertEquals("error", 1222, edicion.getCuposDisponibles());
+		assertEquals("error", eventoDeportivo, edicion.getEventoDeportivo());
+		assertEquals("error", ciudad, edicion.getCiudad());
 	}
 
 	@Test
 	void testEdicion() {
-		fail("Not yet implemented");
+		edicion = new Edicion();
+		
+		Edicion edicionn = new Edicion();
+		assertEquals("error",edicionn,edicionn);
 	}
 
 }

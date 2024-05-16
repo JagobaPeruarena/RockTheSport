@@ -2,43 +2,77 @@ package testdao;
 
 import static org.junit.jupiter.api.Assertions.*;
 
+import java.util.ArrayList;
+import java.util.Date;
+
 import org.junit.jupiter.api.Test;
 
-class ModeloEdicionTest {
+import modelo.bean.Ciudad;
+import modelo.bean.Edicion;
+import modelo.bean.EventoDeportivo;
+import modelo.dao.ModeloEdicion;
 
+class ModeloEdicionTest {
+	private ModeloEdicion modeloEdicion	= new ModeloEdicion();
+	private Edicion edicion = null;
 	@Test
 	void testGetEdicions() {
-		fail("Not yet implemented");
+		modeloEdicion.getEdicions();
 	}
 
 	@Test
 	void testGetEdicionsCiudad() {
-		fail("Not yet implemented");
+		modeloEdicion.getEdicionsCiudad(2);
 	}
 
 	@Test
 	void testSelect() {
-		fail("Not yet implemented");
+		modeloEdicion.select(14);
 	}
 
 	@Test
 	void testCrearEdicion() {
-		fail("Not yet implemented");
+	
+		Date date = new java.util.Date();
+		int cuposDisponibles = 1222;
+		EventoDeportivo eventoDeportivo = new EventoDeportivo();
+		eventoDeportivo.setId(11);
+		Ciudad ciudad = new Ciudad();
+		ciudad.setId(2);
+
+		edicion = new Edicion( date, cuposDisponibles, eventoDeportivo, ciudad);
+		
+		assertTrue(modeloEdicion.crearEdicion(edicion));
 	}
 
 	@Test
 	void testActualizarEdicion() {
-		fail("Not yet implemented");
+	
+		Date date = new java.util.Date();
+		int cuposDisponibles = 1222;
+		EventoDeportivo eventoDeportivo = new EventoDeportivo();
+		eventoDeportivo.setId(11);
+		Ciudad ciudad = new Ciudad();
+		ciudad.setId(3);
+
+		edicion = new Edicion( date, cuposDisponibles, eventoDeportivo, ciudad);
+		ArrayList<Edicion> edicions = modeloEdicion.getEdicions();
+		int last = edicions.get(edicions.size()-1).getId();
+		edicion.setId(last);
+		assertTrue(modeloEdicion.actualizarEdicion(edicion));
+
 	}
 
 	@Test
 	void testEliminarEdicion() {
-		fail("Not yet implemented");
+		ArrayList<Edicion> edicions = modeloEdicion.getEdicions();
+		int last = edicions.get(edicions.size()-1).getId();
+		assertTrue(modeloEdicion.eliminarEdicion(last));
 	}
 
 	@Test
 	void testSelectByEventoDeportivoId() {
-		fail("Not yet implemented");
+		modeloEdicion.selectByEventoDeportivoId(11);
 	}
 
 }

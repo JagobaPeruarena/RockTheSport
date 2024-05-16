@@ -46,6 +46,7 @@ public class edicion extends HttpServlet {
 		ArrayList<Ciudad> ciudades = mdc.getCiudades();
 		ArrayList<EventoDeportivo> eventoDeportivos = mded.getEventos();
 		
+		request.setAttribute("msg", request.getParameter("msg"));
 		request.setAttribute("ediciones", ediciones);
 		request.setAttribute("ciudades", ciudades);
 		request.setAttribute("eventoDeportivos", eventoDeportivos);

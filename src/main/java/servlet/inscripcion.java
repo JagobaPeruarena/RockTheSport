@@ -41,6 +41,7 @@ public class inscripcion extends HttpServlet {
 	        
 	        // Pasar la lista de ciudades al JSP
 	        request.setAttribute("inscripciones", inscripciones);
+	        request.setAttribute("msg", request.getParameter("msg"));
 	        
 	        // Redirigir a la página JSP para mostrar los datos
 	        request.getRequestDispatcher("inscripcion.jsp").forward(request, response);

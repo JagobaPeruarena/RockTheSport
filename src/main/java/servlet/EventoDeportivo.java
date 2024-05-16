@@ -46,6 +46,7 @@ public class EventoDeportivo extends HttpServlet {
         request.setAttribute("deportess", deportess);
         request.setAttribute("eventoDeportivo", eventoDeportivo);
         request.setAttribute("organizadores", organizadores);
+        request.setAttribute("msg", request.getParameter("msg"));
         // Redirigir a la página JSP para mostrar los datos
         request.getRequestDispatcher("EventoDeportivo.jsp").forward(request, response);
 	}

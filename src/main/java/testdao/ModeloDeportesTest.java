@@ -4,16 +4,18 @@ import static org.junit.jupiter.api.Assertions.*;
 
 import org.junit.jupiter.api.Test;
 
-class ModeloDeportesTest {
+import modelo.dao.ModeloDeportes;
 
+class ModeloDeportesTest {
+	private ModeloDeportes modeloDeportes = new ModeloDeportes();
 	@Test
 	void testGetDeportes() {
-		fail("Not yet implemented");
+		modeloDeportes.getDeportes();
 	}
 
 	@Test
 	void testSelect() {
-		fail("Not yet implemented");
+		modeloDeportes.select(3);
 	}
 
 }

@@ -37,6 +37,7 @@ public class deportista extends HttpServlet {
 		Genero[] generos = Genero.values();
 		request.setAttribute("deportistas", deportistas);
 		request.setAttribute("generos", generos);
+		request.setAttribute("msg", request.getParameter("msg"));
 		request.getRequestDispatcher("deportista.jsp").forward(request, response);
 		
 		

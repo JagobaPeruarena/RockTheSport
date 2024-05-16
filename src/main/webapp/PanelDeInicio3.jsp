@@ -166,7 +166,7 @@ body, html {
 							value="${edicion.id}">
 						<div class="form-group">
 							<label for="dni">DNI:</label> <input type="text"
-								class="form-control" id="addDNI" name="addDNI">
+								class="form-control" id="addDNI" name="addDNI" required>
 
 						</div>
 						<button type="submit" class="btn btn-primary">Inscribir</button>

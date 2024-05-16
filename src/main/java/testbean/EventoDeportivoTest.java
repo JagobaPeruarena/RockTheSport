@@ -1,74 +1,97 @@
 package testbean;
 
+import static org.junit.Assert.assertEquals;
 import static org.junit.jupiter.api.Assertions.*;
 
 import org.junit.jupiter.api.Test;
 
+import modelo.bean.Deportes;
+import modelo.bean.Edicion;
+import modelo.bean.EventoDeportivo;
+import modelo.bean.Organizador;
+
 class EventoDeportivoTest {
+	private EventoDeportivo eventoDeportivo = null;
 
 	@Test
-	void testGetId() {
-		fail("Not yet implemented");
+	void testSetAndGetId() {
+		eventoDeportivo = new EventoDeportivo();
+		eventoDeportivo.setId(12);
+		assertEquals("error", 12, eventoDeportivo.getId());
+
 	}
 
 	@Test
-	void testSetId() {
-		fail("Not yet implemented");
+	void testSetAndGetNombre() {
+		eventoDeportivo = new EventoDeportivo();
+		eventoDeportivo.setNombre("aaa");
+		assertEquals("error", "aaa", eventoDeportivo.getNombre());
+
 	}
 
 	@Test
-	void testGetNombre() {
-		fail("Not yet implemented");
+	void testSetAndGetDescripcion() {
+		eventoDeportivo = new EventoDeportivo();
+		eventoDeportivo.setDescripcion("aass");
+		assertEquals("error", "aass", eventoDeportivo.getDescripcion());
+
 	}
 
 	@Test
-	void testSetNombre() {
-		fail("Not yet implemented");
+	void testSetAndGetTipoDeporte() {
+		eventoDeportivo = new EventoDeportivo();
+		Deportes deportes = new Deportes();
+		eventoDeportivo.setTipoDeporte(deportes);
+		assertEquals("error", deportes, eventoDeportivo.getTipoDeporte());
+
 	}
 
 	@Test
-	void testGetDescripcion() {
-		fail("Not yet implemented");
+	void testSetAndGetOrganizador() {
+		eventoDeportivo = new EventoDeportivo();
+		Organizador organizador = new Organizador();
+		eventoDeportivo.setOrganizador(organizador);
+		assertEquals("error", organizador, eventoDeportivo.getOrganizador());
+
 	}
 
 	@Test
-	void testSetDescripcion() {
-		fail("Not yet implemented");
+	void testEventoDeportivoID() {
+		int id = 12;
+		String nombre = "aaa";
+		String descripcion = "aass";
+		Deportes deportes = new Deportes();
+		Organizador organizador = new Organizador();
+
+		eventoDeportivo = new EventoDeportivo(id, nombre, descripcion, deportes, organizador);
+
+		assertEquals("error", 12, eventoDeportivo.getId());
+		assertEquals("error", "aaa", eventoDeportivo.getNombre());
+		assertEquals("error", "aass", eventoDeportivo.getDescripcion());
+		assertEquals("error", deportes, eventoDeportivo.getTipoDeporte());
+		assertEquals("error", organizador, eventoDeportivo.getOrganizador());
 	}
 
 	@Test
-	void testGetTipoDeporte() {
-		fail("Not yet implemented");
-	}
+	void testEventoDeportivoNoId() {
+		String nombre = "aaa";
+		String descripcion = "aass";
+		Deportes deportes = new Deportes();
+		Organizador organizador = new Organizador();
 
-	@Test
-	void testSetTipoDeporte() {
-		fail("Not yet implemented");
-	}
+		eventoDeportivo = new EventoDeportivo(nombre, descripcion, deportes, organizador);
 
-	@Test
-	void testGetOrganizador() {
-		fail("Not yet implemented");
-	}
-
-	@Test
-	void testSetOrganizador() {
-		fail("Not yet implemented");
-	}
-
-	@Test
-	void testEventoDeportivoIntStringStringDeportesOrganizador() {
-		fail("Not yet implemented");
-	}
-
-	@Test
-	void testEventoDeportivoStringStringDeportesOrganizador() {
-		fail("Not yet implemented");
+		assertEquals("error", "aaa", eventoDeportivo.getNombre());
+		assertEquals("error", "aass", eventoDeportivo.getDescripcion());
+		assertEquals("error", deportes, eventoDeportivo.getTipoDeporte());
+		assertEquals("error", organizador, eventoDeportivo.getOrganizador());
 	}
 
 	@Test
 	void testEventoDeportivo() {
-		fail("Not yet implemented");
+		eventoDeportivo = new EventoDeportivo();
+		
+		assertEquals("error",eventoDeportivo,eventoDeportivo);
 	}
 
 }

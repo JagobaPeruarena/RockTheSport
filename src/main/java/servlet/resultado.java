@@ -41,6 +41,7 @@ public class resultado extends HttpServlet {
         
         // Pasar la lista de ciudades al JSP
         request.setAttribute("resultados", resultados);
+        request.setAttribute("msg", request.getParameter("msg"));
         
         // Redirigir a la página JSP para mostrar los datos
         request.getRequestDispatcher("resultado.jsp").forward(request, response);

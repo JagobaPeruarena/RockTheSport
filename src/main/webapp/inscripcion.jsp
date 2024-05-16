@@ -133,11 +133,7 @@ td {
                 <!-- Mensajes de acciones -->
                 <%@ include file="/partes/mensajes.jsp" %>
 
-                <!-- Botón de agregar -->
-                <button type="button" class="btn btn-success mb-3" data-toggle="modal" data-target="#addModal">
-                    <i class="fas fa-plus"></i> Agregar
-                </button>
-
+               
                 <table class="table table-hover">
                     <thead>
                         <tr>
@@ -158,9 +154,7 @@ td {
                                 <td>${inscripcion.deportista.nombre}</td>
                                 <td>${inscripcion.edicion.eventoDeportivo.nombre}</td>
                                 <td>
-                                    <button type="button" class="btn btn-primary btn-sm edit-btn" data-toggle="modal" data-target="#editModal${inscripcion.id}">
-                                        <i class="fas fa-edit"></i> Editar
-                                    </button>
+                                    
                                     <a href="inscripcionEliminar?idInscripcion=${inscripcion.id}" type="button" class="btn btn-danger btn-sm delete-btn">
                                         <i class="fas fa-trash-alt"></i> Eliminar
                                     </a>

@@ -1,74 +1,100 @@
 package testbean;
 
+import static org.junit.Assert.assertEquals;
 import static org.junit.jupiter.api.Assertions.*;
+
+import java.util.Date;
 
 import org.junit.jupiter.api.Test;
 
+import modelo.bean.Deportista;
+import modelo.bean.Edicion;
+import modelo.bean.EventoDeportivo;
+import modelo.bean.Inscripcion;
+
 class InscripcionTest {
+	private Inscripcion inscripcion = null;
 
 	@Test
-	void testGetId() {
-		fail("Not yet implemented");
+	void testSetAndGetId() {
+		inscripcion = new Inscripcion();
+		inscripcion.setId(12);
+		assertEquals("error", 12, inscripcion.getId());
+
 	}
 
 	@Test
-	void testSetId() {
-		fail("Not yet implemented");
+	void testSetAndGetDorsal() {
+		inscripcion = new Inscripcion();
+		inscripcion.setDorsal(1234);
+		assertEquals("error", 1234, inscripcion.getDorsal());
+
 	}
 
 	@Test
-	void testGetDorsal() {
-		fail("Not yet implemented");
+	void testSetAndGetFechaInscripcion() {
+		inscripcion = new Inscripcion();
+		inscripcion.setFechaInscripcion(new java.util.Date());
+		assertEquals("error", new java.util.Date(), inscripcion.getFechaInscripcion());
+
 	}
 
 	@Test
-	void testSetDorsal() {
-		fail("Not yet implemented");
+	void testSetAndGetDeportista() {
+		inscripcion = new Inscripcion();
+		Deportista deportista = new Deportista();
+		inscripcion.setDeportista(deportista);
+		assertEquals("error", deportista, inscripcion.getDeportista());
+
 	}
 
 	@Test
-	void testGetFechaInscripcion() {
-		fail("Not yet implemented");
+	void testSetAndGetEdicion() {
+		inscripcion = new Inscripcion();
+		Edicion edicion = new Edicion();
+		inscripcion.setEdicion(edicion);
+		assertEquals("error", edicion, inscripcion.getEdicion());
+
 	}
 
 	@Test
-	void testSetFechaInscripcion() {
-		fail("Not yet implemented");
+	void testInscripcionId() {
+		int id = 12;
+		int dorsal = 1234;
+		Date date = new java.util.Date();
+		Deportista deportista = new Deportista();
+		Edicion edicion = new Edicion();
+
+		inscripcion = new Inscripcion(id, dorsal, date, deportista, edicion);
+
+		assertEquals("error", 12, inscripcion.getId());
+		assertEquals("error", 1234, inscripcion.getDorsal());
+		assertEquals("error", date, inscripcion.getFechaInscripcion());
+		assertEquals("error", deportista, inscripcion.getDeportista());
+		assertEquals("error", edicion, inscripcion.getEdicion());
 	}
 
 	@Test
-	void testGetDeportista() {
-		fail("Not yet implemented");
-	}
+	void testInscripcionNoID() {
 
-	@Test
-	void testSetDeportista() {
-		fail("Not yet implemented");
-	}
+		int dorsal = 1234;
+		Date date = new java.util.Date();
+		Deportista deportista = new Deportista();
+		Edicion edicion = new Edicion();
 
-	@Test
-	void testGetEdicion() {
-		fail("Not yet implemented");
-	}
+		inscripcion = new Inscripcion(dorsal, date, deportista, edicion);
 
-	@Test
-	void testSetEdicion() {
-		fail("Not yet implemented");
-	}
-
-	@Test
-	void testInscripcionIntIntDateDeportistaEdicion() {
-		fail("Not yet implemented");
-	}
-
-	@Test
-	void testInscripcionIntDateDeportistaEdicion() {
-		fail("Not yet implemented");
+		assertEquals("error", 1234, inscripcion.getDorsal());
+		assertEquals("error", date, inscripcion.getFechaInscripcion());
+		assertEquals("error", deportista, inscripcion.getDeportista());
+		assertEquals("error", edicion, inscripcion.getEdicion());
 	}
 
 	@Test
 	void testInscripcion() {
-		fail("Not yet implemented");
+		inscripcion = new Inscripcion();
+		Inscripcion inscripcionn = new Inscripcion();
+		assertEquals("error",inscripcionn, inscripcionn);
 	}
 
 }

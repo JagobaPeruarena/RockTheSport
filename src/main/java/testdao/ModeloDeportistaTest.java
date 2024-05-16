@@ -2,43 +2,74 @@ package testdao;
 
 import static org.junit.jupiter.api.Assertions.*;
 
+import java.util.ArrayList;
+
 import org.junit.jupiter.api.Test;
 
-class ModeloDeportistaTest {
+import modelo.bean.Ciudad;
+import modelo.bean.Deportista;
+import modelo.dao.ModeloDeportista;
 
+class ModeloDeportistaTest {
+	private ModeloDeportista modeloDeportista = new ModeloDeportista();
+	private Deportista deportista = null;
 	@Test
 	void testGetAll() {
-		fail("Not yet implemented");
+		modeloDeportista.getAll();
 	}
 
 	@Test
 	void testSelect() {
-		fail("Not yet implemented");
+		modeloDeportista.select(7);
 	}
 
 	@Test
 	void testSelectDNI() {
-		fail("Not yet implemented");
+		modeloDeportista.selectDNI("87654321B");
 	}
 
 	@Test
 	void testInsertDeportista() {
-		fail("Not yet implemented");
+		
+		String nombre = "jose";
+		int edad = 12;
+		String genero = "Mujer";
+		String email = "aa@a.com";
+		int telefono = 12345;
+		String dni = "123A";
+
+		deportista = new Deportista( nombre, edad, genero, email, telefono, dni);
+		
+		assertTrue(modeloDeportista.insertDeportista(deportista));
+	}
+	@Test
+	void testModificarDeportista() {
+		String nombre = "jose";
+		int edad = 12;
+		String genero = "Mujer";
+		String email = "aa@a.com";
+		int telefono = 12345;
+		String dni = "123A";
+
+		deportista = new Deportista( nombre, edad, genero, email, telefono, dni);
+		ArrayList<Deportista>deportistas =modeloDeportista.getAll();
+		int last =deportistas.get(deportistas.size()-1).getId();
+		deportista.setId(last);
+		assertTrue(modeloDeportista.modificarDeportista(deportista));
 	}
 
 	@Test
 	void testEliminarDeportista() {
-		fail("Not yet implemented");
+		ArrayList<Deportista>deportistas =modeloDeportista.getAll();
+		int last =deportistas.get(deportistas.size()-1).getId();
+		assertTrue(modeloDeportista.eliminarDeportista(last));
 	}
 
-	@Test
-	void testModificarDeportista() {
-		fail("Not yet implemented");
-	}
+	
 
 	@Test
 	void testGetMaxIdForDeportista() {
-		fail("Not yet implemented");
+		modeloDeportista.getMaxIdForDeportista();
 	}
 
 }

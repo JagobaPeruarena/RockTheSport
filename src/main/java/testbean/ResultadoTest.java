@@ -1,64 +1,83 @@
 package testbean;
 
+import static org.junit.Assert.assertEquals;
 import static org.junit.jupiter.api.Assertions.*;
 
 import org.junit.jupiter.api.Test;
 
+import modelo.bean.Inscripcion;
+import modelo.bean.Organizador;
+import modelo.bean.Resultado;
+
 class ResultadoTest {
-
+	private Resultado resultado = null;
+	
 	@Test
-	void testGetId() {
-		fail("Not yet implemented");
-	}
+	void testSetAndGetId() {
+		resultado = new Resultado();
+		resultado.setId(12);
+		assertEquals("error", 12, resultado.getId());
 
-	@Test
-	void testSetId() {
-		fail("Not yet implemented");
 	}
+	@Test
+	void testSetAndGetTiempo() {
+		resultado = new Resultado();
+		resultado.setTiempo("12:00");
+		assertEquals("error", "12:00", resultado.getTiempo());
 
-	@Test
-	void testGetTiempo() {
-		fail("Not yet implemented");
 	}
+	@Test
+	void testSetAndGetClasificacion() {
+		resultado = new Resultado();
+		resultado.setClasificacion(12);
+		assertEquals("error", 12, resultado.getClasificacion());
 
-	@Test
-	void testSetTiempo() {
-		fail("Not yet implemented");
 	}
+	@Test
+	void testSetAndGetInscripcion() {
+		resultado = new Resultado();
+		Inscripcion inscripcion = new Inscripcion();
+		resultado.setInscripcion(inscripcion);
+		assertEquals("error", inscripcion, resultado.getInscripcion());
 
-	@Test
-	void testGetClasificacion() {
-		fail("Not yet implemented");
 	}
-
-	@Test
-	void testSetClasificacion() {
-		fail("Not yet implemented");
-	}
-
-	@Test
-	void testGetInscripcion() {
-		fail("Not yet implemented");
-	}
-
-	@Test
-	void testSetInscripcion() {
-		fail("Not yet implemented");
-	}
+	
 
 	@Test
 	void testResultadoIntStringIntInscripcion() {
-		fail("Not yet implemented");
+		int id = 12;
+		String tiempo = "12:00";
+		int clasificacion = 12;
+		Inscripcion inscripcion = new Inscripcion();
+		
+		resultado = new Resultado(id, tiempo, clasificacion, inscripcion);
+		
+		assertEquals("error", 12, resultado.getId());
+		assertEquals("error", "12:00", resultado.getTiempo());
+		assertEquals("error", 12, resultado.getClasificacion());
+		assertEquals("error", inscripcion, resultado.getInscripcion());
 	}
 
 	@Test
 	void testResultadoStringIntInscripcion() {
-		fail("Not yet implemented");
+		
+		String tiempo = "12:00";
+		int clasificacion = 12;
+		Inscripcion inscripcion = new Inscripcion();
+		
+		resultado = new Resultado( tiempo, clasificacion, inscripcion);
+	
+		assertEquals("error", "12:00", resultado.getTiempo());
+		assertEquals("error", 12, resultado.getClasificacion());
+		assertEquals("error", inscripcion, resultado.getInscripcion());
 	}
 
 	@Test
 	void testResultado() {
-		fail("Not yet implemented");
+		resultado = new Resultado();
+		
+		Resultado resultadod= new Resultado();
+		assertEquals("error",resultadod, resultadod);
 	}
 
 }

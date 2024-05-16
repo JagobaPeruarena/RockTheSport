@@ -133,10 +133,7 @@ td {
                 <!-- Mensajes de acciones -->
                 <%@ include file="/partes/mensajes.jsp" %>
 
-                <!-- Botón de agregar -->
-                <button type="button" class="btn btn-success mb-3" data-toggle="modal" data-target="#addModal">
-                    <i class="fas fa-plus"></i> Agregar
-                </button>
+                
 
                 <table class="table table-hover">
                     <thead>
@@ -156,9 +153,7 @@ td {
                                 <td>${resultado.clasificacion}</td>
                                 <td>${resultado.inscripcion.dorsal}</td>
                                 <td>
-                                    <button type="button" class="btn btn-primary btn-sm edit-btn" data-toggle="modal" data-target="#editModal${resultado.id}">
-                                        <i class="fas fa-edit"></i> Editar
-                                    </button>
+                                    
                                     <a href="resultadoEliminar?idResultado=${resultado.id}" type="button" class="btn btn-danger btn-sm delete-btn">
                                         <i class="fas fa-trash-alt"></i> Eliminar
                                     </a>
@@ -171,90 +166,7 @@ td {
         </div>
     </div>
 
-    <!-- Modal de Edición -->
-    <c:forEach var="resultado" items="${resultados}">
-        <div class="modal fade" id="editModal${resultado.id}" tabindex="-1" role="dialog" aria-labelledby="editModalLabel" aria-hidden="true">
-            <div class="modal-dialog" role="document">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h5 class="modal-title" id="editModalLabel">Editar Resultado</h5>
-                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                            <span aria-hidden="true">&times;</span>
-                        </button>
-                    </div>
-                    <div class="modal-body">
-                        <!-- Formulario de Edición -->
-                        <form action="resultadoEditar" method="post">
-                            <input type="hidden" name="editId" id="editId" value="${resultado.id}">
-                            <div class="form-group">
-                                <label for="editTiempo">Tiempo</label>
-                                <input type="text" class="form-control" id="editTiempo" name="editTiempo" value="${resultado.tiempo}">
-                            </div>
-                            <div class="form-group">
-                                <label for="editClasificacion">Clasificación</label>
-                                <input type="number" min="1" max="50000" class="form-control" id="editClasificacion" name="editClasificacion" value="${resultado.clasificacion}">
-                            </div>
-                            <div class="form-group">
-                                <label for="editIdInscripcion">Dorsal</label>
-                                <select class="form-control" id="editIdInscripcion" name="editIdInscripcion">
-                                    <option value="">Seleccionar Dorsal</option>
-                                    <c:forEach var="inscripcion" items="${inscripciones}">
-                                        <option value="${inscripcion.id}" ${inscripcion.id == resultado.inscripcion.id ? 'selected' : ''}>
-                                            ${inscripcion.dorsal}
-                                        </option>
-                                    </c:forEach>
-                                </select>
-                            </div>
-                            <div class="modal-footer">
-                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
-                                <button type="submit" class="btn btn-primary">Guardar Cambios</button>
-                            </div>
-                        </form>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </c:forEach>
-
-    <!-- Modal de Agregar -->
-    <div class="modal fade" id="addModal" tabindex="-1" role="dialog" aria-labelledby="addModalLabel" aria-hidden="true">
-        <div class="modal-dialog" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="addModalLabel">Agregar Resultado</h5>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
-                </div>
-                <div class="modal-body">
-                    <!-- Formulario de Agregar -->
-                    <form action="resultadoAgregar" method="post">
-                        <div class="form-group">
-                            <label for="addTiempo">Tiempo</label>
-                            <input type="text" class="form-control" id="addTiempo" name="addTiempo">
-                        </div>
-                        <div class="form-group">
-                            <label for="addClasificacion">Clasificación</label>
-                            <input type="number" min="1" max="50000" class="form-control" id="addClasificacion" name="addClasificacion">
-                        </div>
-                        <div class="form-group">
-                            <label for="addIdInscripcion">Dorsal</label>
-                            <select class="form-control" id="addIdInscripcion" name="addIdInscripcion">
-                                <option value="">Seleccionar Dorsal</option>
-                                <c:forEach var="inscripcion" items="${inscripciones}">
-                                    <option value="${inscripcion.id}">${inscripcion.dorsal}</option>
-                                </c:forEach>
-                            </select>
-                        </div>
-                        <div class="modal-footer">
-                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
-                            <button type="submit" class="btn btn-primary">Agregar</button>
-                        </div>
-                    </form>
-                </div>
-            </div>
-        </div>
-    </div>
+    
 
     <!-- Scripts de Bootstrap -->
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
