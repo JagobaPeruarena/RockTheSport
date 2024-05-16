@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 02-05-2024 a las 10:43:40
+-- Tiempo de generación: 16-05-2024 a las 10:25:29
 -- Versión del servidor: 10.4.32-MariaDB
 -- Versión de PHP: 8.2.12
 
@@ -39,9 +39,8 @@ CREATE TABLE `ciudades` (
 --
 
 INSERT INTO `ciudades` (`idCiudad`, `nombre`, `poblacion`, `ubicacionGeografica`) VALUES
-(1, 'Madrid', 3223334, 'Espana'),
 (2, 'Barcelona', 1620343, 'Espana'),
-(3, 'Valencia', 791413, 'Espana'),
+(3, 'Valencia', 791414, 'Espana'),
 (4, 'Sevilla', 688592, 'Espana'),
 (5, 'Zaragoza', 661108, 'Espana'),
 (6, 'Malaga', 571026, 'Espana'),
@@ -66,7 +65,33 @@ INSERT INTO `ciudades` (`idCiudad`, `nombre`, `poblacion`, `ubicacionGeografica`
 (26, 'Bruselas', 1211035, 'Belgica'),
 (27, 'Praga', 1301132, 'Republica C'),
 (28, 'Viena', 1840573, 'Austria'),
-(29, 'Atenas', 664046, 'Grecia');
+(29, 'Atenas', 664046, 'Grecia'),
+(32, 'Dawd', 7897, 'dadwda'),
+(33, 'qdefa', 123123, 'awefzf');
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `deportes`
+--
+
+CREATE TABLE `deportes` (
+  `idDeporte` int(11) NOT NULL,
+  `nombre` varchar(30) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Volcado de datos para la tabla `deportes`
+--
+
+INSERT INTO `deportes` (`idDeporte`, `nombre`) VALUES
+(1, 'Maraton'),
+(2, 'Ciclismo'),
+(3, 'Triatlon'),
+(4, 'Futbol'),
+(5, 'Piraguismo'),
+(6, 'Eskupilota'),
+(7, 'CestaPunta');
 
 -- --------------------------------------------------------
 
@@ -127,7 +152,8 @@ INSERT INTO `deportista` (`idDeportista`, `Nombre`, `edad`, `genero`, `email`, `
 (36, 'Manuel Guti�rrez', 65, 'Hombre', 'manuel.gutierrez@example.com', 147963852, '43210987A'),
 (37, 'Sara L�pez', 61, 'Mujer', 'sara.lopez@example.com', 963258741, '32109876A'),
 (38, 'Antonia Martin', 56, 'Mujer', 'antonia.martin@example.com', 369741852, '21098765A'),
-(39, 'Juan Jose Garcia', 66, 'Hombre', 'juanjose.garcia@example.com', 741369852, '10987654A');
+(39, 'Juan Jose Garcia', 66, 'Hombre', 'juanjose.garcia@example.com', 741369852, '10987654A'),
+(41, 'Juan', 12, 'Hombre', 'eawdadawd@dawd.com', 48989897, '8978989P');
 
 -- --------------------------------------------------------
 
@@ -148,15 +174,11 @@ CREATE TABLE `ediciones` (
 --
 
 INSERT INTO `ediciones` (`idEdicion`, `cuposDisponibles`, `fecha`, `idEvento`, `idCiudad`) VALUES
-(11, 5000, '2024-06-15', 11, 1),
-(12, 8000, '2024-07-20', 12, 2),
-(13, 6000, '2024-08-10', 13, 3),
+(13, 1200, '1812-08-10', 13, 25),
 (14, 7000, '2024-09-05', 14, 4),
 (15, 9000, '2024-10-12', 15, 5),
 (16, 10000, '2024-11-18', 16, 6),
-(17, 12000, '2024-12-22', 17, 7),
 (18, 3000, '2025-01-30', 18, 8),
-(19, 4000, '2025-02-25', 19, 9),
 (20, 6000, '2025-03-15', 20, 10);
 
 -- --------------------------------------------------------
@@ -169,7 +191,7 @@ CREATE TABLE `eventosdeportivos` (
   `idEvento` int(11) NOT NULL,
   `nombre` varchar(255) NOT NULL,
   `descripcion` varchar(255) NOT NULL,
-  `tipoDeporte` enum('Triatlon','Ciclismo','Maraton','Piragüismo','Futbol','Eskupilota','CestaPunta') NOT NULL,
+  `tipoDeporte` int(11) NOT NULL,
   `idOrganizador` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 
@@ -178,16 +200,17 @@ CREATE TABLE `eventosdeportivos` (
 --
 
 INSERT INTO `eventosdeportivos` (`idEvento`, `nombre`, `descripcion`, `tipoDeporte`, `idOrganizador`) VALUES
-(11, 'Maraton de Madrid', '¡Unete a la carrera mas emocionante de la ciudad!', 'Maraton', 1),
-(12, 'Campeonato de Ciclismo de Montana', '¡Desafia las montanas en esta competicion unica!', 'Ciclismo', 2),
-(13, 'Triatlon Costa del Sol', '¡Nada, pedalea y corre en uno de los eventos mas desafiantes!', 'Triatlon', 3),
-(14, 'Copa de Futbol Internacional', '¡Los equipos mas grandes del mundo compiten por la gloria!', 'Futbol', 4),
-(15, 'Torneo de Piraguismo en el Danubio', '¡Deslizate por las aguas del Danubio en este emocionante torneo!', 'Piragüismo', 5),
-(16, 'Campeonato de Eskupilota', '¡Experimenta la velocidad y la destreza en este torneo de pelota vasca!', 'Eskupilota', 6),
-(17, 'Maraton de Atenas', '¡Corre en la cuna de los Juegos Olimpicos en este desafiante maraton!', 'Maraton', 7),
-(18, 'Carrera de Cesta Punta en Biarritz', '¡Disfruta del deporte vasco en las playas de Biarritz!', 'CestaPunta', 8),
-(19, 'Campeonato Nacional de Triatlon', '¡Los mejores triatletas del pais compiten por el titulo nacional!', 'Triatlon', 9),
-(20, 'Torneo de Ciclismo de Ruta en los Alpes', '¡Enfrenta los desafios de las carreteras alpinas en este emocionante torneo!', 'Ciclismo', 10);
+(11, 'Maraton de Madrid', '¡Unete a la carrera mas emocionante de la ciudad!', 1, 1),
+(12, 'Campeonato de Ciclismo de Montana', '¡Desafia las montanas en esta competicion unica!', 2, 2),
+(13, 'Triatlon Costa del Sol', '¡Nada, pedalea y corre en uno de los eventos mas desafiantes!', 3, 3),
+(14, 'Copa de Futbol Internacional', '¡Los equipos mas grandes del mundo compiten por la gloria!', 4, 4),
+(15, 'Torneo de Piraguismo en el Danubio', '¡Deslizate por las aguas del Danubio en este emocionante torneo!', 5, 5),
+(16, 'Campeonato de Eskupilota', '¡Experimenta la velocidad y la destreza en este torneo de pelota vasca!', 6, 6),
+(17, 'Maraton de Atenas', '¡Corre en la cuna de los Juegos Olimpicos en este desafiante maraton!', 1, 7),
+(18, 'Carrera de Cesta Punta en Biarritz', '¡Disfruta del deporte vasco en las playas de Biarritz!', 7, 8),
+(19, 'Campeonato Nacional de Triatlon', '¡Los mejores triatletas del pais compiten por el titulo nacional!', 3, 9),
+(20, 'Torneo de Ciclismo de Ruta en los Alpes', '¡Enfrenta los desafios de las carreteras alpinas en este emocionante torneo!', 2, 10),
+(24, 'awddawaf', 'wt', 1, 1);
 
 -- --------------------------------------------------------
 
@@ -208,13 +231,6 @@ CREATE TABLE `inscripciones` (
 --
 
 INSERT INTO `inscripciones` (`idInscripcion`, `dorsal`, `fechaInscipcion`, `idDeportista`, `idEdicion`) VALUES
-(31, 1001, '2024-06-01', 1, 11),
-(32, 1002, '2024-06-02', 2, 11),
-(33, 1003, '2024-06-03', 3, 11),
-(34, 1004, '2024-06-04', 4, 11),
-(35, 1005, '2024-06-05', 5, 12),
-(36, 1006, '2024-06-06', 6, 12),
-(37, 1007, '2024-06-07', 7, 12),
 (38, 1008, '2024-06-08', 8, 13),
 (39, 1009, '2024-06-09', 9, 13),
 (40, 1010, '2024-06-10', 10, 14),
@@ -223,21 +239,20 @@ INSERT INTO `inscripciones` (`idInscripcion`, `dorsal`, `fechaInscipcion`, `idDe
 (43, 1013, '2024-07-03', 13, 15),
 (44, 1014, '2024-07-04', 14, 16),
 (45, 1015, '2024-07-05', 15, 16),
-(46, 1016, '2024-07-06', 16, 17),
-(47, 1017, '2024-07-07', 17, 17),
-(48, 1018, '2024-07-08', 18, 17),
 (49, 1019, '2024-07-09', 19, 18),
 (50, 1020, '2024-07-10', 20, 18),
 (51, 1021, '2024-08-01', 21, 18),
 (52, 1022, '2024-08-02', 22, 18),
-(53, 1023, '2024-08-03', 23, 19),
-(54, 1024, '2024-08-04', 24, 19),
-(55, 1025, '2024-08-05', 25, 19),
 (56, 1026, '2024-08-06', 26, 20),
 (57, 1027, '2024-08-07', 27, 20),
 (58, 1028, '2024-08-08', 28, 20),
 (59, 1029, '2024-08-09', 29, 20),
-(60, 1030, '2024-08-10', 30, 20);
+(60, 1030, '2024-08-10', 30, 20),
+(61, 1010, '2024-05-13', 13, 13),
+(62, 1014, '2024-05-14', 1, 15),
+(63, 1012, '2024-05-15', 8, 14),
+(64, 1031, '2024-05-15', 8, 20),
+(65, 1013, '2024-05-15', 1, 14);
 
 -- --------------------------------------------------------
 
@@ -250,7 +265,7 @@ CREATE TABLE `organizadores` (
   `nombre` varchar(255) NOT NULL,
   `email` varchar(255) NOT NULL,
   `telefono` int(9) NOT NULL,
-  `dni` int(11) NOT NULL
+  `dni` varchar(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 
 --
@@ -258,16 +273,16 @@ CREATE TABLE `organizadores` (
 --
 
 INSERT INTO `organizadores` (`idOrganizador`, `nombre`, `email`, `telefono`, `dni`) VALUES
-(1, 'Ana Garcia', 'ana.garcia@example.com', 123456789, 12345678),
-(2, 'David Martinez', 'david.martinez@example.com', 987654321, 87654321),
-(3, 'Elena Lopez', 'elena.lopez@example.com', 456789123, 76543210),
-(4, 'Juan Rodriguez', 'juan.rodriguez@example.com', 321654987, 65432109),
-(5, 'Maria Sanchez', 'maria.sanchez@example.com', 789123456, 54321098),
-(6, 'Carlos Feraández', 'carlos.fernandez@example.com', 654987321, 43210987),
-(7, 'Laura Perez', 'laura.perez@example.com', 147258369, 32109876),
-(8, 'Daniel Gonzalez', 'daniel.gonzalez@example.com', 369258147, 21098765),
-(9, 'Sara Martin', 'sara.martin@example.com', 258369147, 10987654),
-(10, 'Javier Ruiz', 'javier.ruiz@example.com', 852963741, 9876543);
+(1, 'Ana Garcia', 'ana.garcia@example.com', 123456789, '12345678'),
+(2, 'David Martinez', 'david.martinez@example.com', 987654321, '87654321'),
+(3, 'Elena Lopez', 'elena.lopez@example.com', 456789123, '76543210'),
+(4, 'Juan Rodriguez', 'juan.rodriguez@example.com', 321654987, '65432109'),
+(5, 'Maria Sanchez', 'maria.sanchez@example.com', 789123456, '54321098'),
+(6, 'Carlos Feraández', 'carlos.fernandez@example.com', 654987321, '43210987'),
+(7, 'Laura Perez', 'laura.perez@example.com', 147258369, '32109876'),
+(8, 'Daniel Gonzalez', 'daniel.gonzalez@example.com', 369258147, '21098765'),
+(9, 'Sara Martin', 'sara.martin@example.com', 258369147, '10987654'),
+(10, 'Javier Ruiz', 'javier.ruiz@example.com', 852963741, '9876543');
 
 -- --------------------------------------------------------
 
@@ -287,13 +302,6 @@ CREATE TABLE `resultados` (
 --
 
 INSERT INTO `resultados` (`idResultado`, `tiempo`, `clasificacion`, `idInscripcion`) VALUES
-(1, '2:15:30', 1, 31),
-(2, '2:20:15', 10, 32),
-(3, '2:25:45', 6, 33),
-(4, '2:30:10', 8, 34),
-(5, '2:35:20', 3, 35),
-(6, '2:40:55', 7, 36),
-(7, '2:45:30', 4, 37),
 (8, '2:50:40', 9, 38),
 (9, '2:55:15', 5, 39),
 (10, '3:00:25', 2, 40),
@@ -302,16 +310,10 @@ INSERT INTO `resultados` (`idResultado`, `tiempo`, `clasificacion`, `idInscripci
 (13, '3:20:45', 5, 43),
 (14, '3:25:55', 6, 44),
 (15, '3:30:40', 7, 45),
-(16, '3:35:25', 8, 46),
-(17, '3:40:10', 9, 47),
-(18, '3:45:20', 10, 48),
 (19, '3:50:15', 1, 49),
 (20, '3:55:30', 2, 50),
 (21, '4:05:20', 5, 51),
-(22, '4:10:30', 6, 52),
-(23, '4:15:40', 7, 53),
-(24, '4:20:55', 8, 54),
-(25, '4:25:15', 9, 55);
+(22, '4:10:30', 6, 52);
 
 --
 -- Índices para tablas volcadas
@@ -322,6 +324,12 @@ INSERT INTO `resultados` (`idResultado`, `tiempo`, `clasificacion`, `idInscripci
 --
 ALTER TABLE `ciudades`
   ADD PRIMARY KEY (`idCiudad`);
+
+--
+-- Indices de la tabla `deportes`
+--
+ALTER TABLE `deportes`
+  ADD PRIMARY KEY (`idDeporte`);
 
 --
 -- Indices de la tabla `deportista`
@@ -342,7 +350,8 @@ ALTER TABLE `ediciones`
 --
 ALTER TABLE `eventosdeportivos`
   ADD PRIMARY KEY (`idEvento`),
-  ADD KEY `fk_foreign_key_organizador` (`idOrganizador`);
+  ADD KEY `fk_foreign_key_organizador` (`idOrganizador`),
+  ADD KEY `fk_foreign_key_tipoDeporte` (`tipoDeporte`);
 
 --
 -- Indices de la tabla `inscripciones`
@@ -373,13 +382,13 @@ ALTER TABLE `resultados`
 -- AUTO_INCREMENT de la tabla `ciudades`
 --
 ALTER TABLE `ciudades`
-  MODIFY `idCiudad` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=32;
+  MODIFY `idCiudad` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=34;
 
 --
 -- AUTO_INCREMENT de la tabla `deportista`
 --
 ALTER TABLE `deportista`
-  MODIFY `idDeportista` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=41;
+  MODIFY `idDeportista` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=42;
 
 --
 -- AUTO_INCREMENT de la tabla `ediciones`
@@ -391,19 +400,19 @@ ALTER TABLE `ediciones`
 -- AUTO_INCREMENT de la tabla `eventosdeportivos`
 --
 ALTER TABLE `eventosdeportivos`
-  MODIFY `idEvento` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
+  MODIFY `idEvento` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=28;
 
 --
 -- AUTO_INCREMENT de la tabla `inscripciones`
 --
 ALTER TABLE `inscripciones`
-  MODIFY `idInscripcion` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=61;
+  MODIFY `idInscripcion` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=66;
 
 --
 -- AUTO_INCREMENT de la tabla `organizadores`
 --
 ALTER TABLE `organizadores`
-  MODIFY `idOrganizador` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `idOrganizador` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 
 --
 -- AUTO_INCREMENT de la tabla `resultados`
@@ -427,6 +436,7 @@ ALTER TABLE `ediciones`
 --
 ALTER TABLE `eventosdeportivos`
   ADD CONSTRAINT `eventosdeportivos_ibfk_1` FOREIGN KEY (`idOrganizador`) REFERENCES `organizadores` (`idOrganizador`) ON DELETE CASCADE,
+  ADD CONSTRAINT `eventosdeportivos_ibfk_2` FOREIGN KEY (`tipoDeporte`) REFERENCES `deportes` (`idDeporte`) ON DELETE CASCADE,
   ADD CONSTRAINT `fk_foreign_key_organizador` FOREIGN KEY (`idOrganizador`) REFERENCES `organizadores` (`idOrganizador`);
 
 --

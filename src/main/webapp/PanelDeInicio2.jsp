@@ -104,7 +104,7 @@ body, html {
 					<div class="card">
 						<div class="card-body text-center">
 							<h2 class="card-title">${edicion.eventoDeportivo.nombre}</h2>
-							<img src="imagen/${edicion.eventoDeportivo.tipoDeporte.id}.jpg" alt="Logo de Eventos Deportivos" width="700" height="453">
+							<img src="imagen/${edicion.eventoDeportivo.tipoDeporte.id}.jpg" alt="Logo de Eventos Deportivos" width="1000" height="453">
 							<p><strong>Fecha:</strong> ${edicion.fecha}</p>
 							<a href="PanelDeInicio3?edicionId=${edicion.id}" class="btn btn-primary">Inscribirse</a>
 						</div>
