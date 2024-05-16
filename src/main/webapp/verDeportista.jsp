@@ -100,6 +100,7 @@ body, html {
                             <th>ID</th>
                             <th>Fecha</th>
                             <th>Evento</th>
+                            <th>Ciudad</th>
                             <th>Dorsal</th>
                         </tr>
                     </thead>
@@ -109,6 +110,7 @@ body, html {
                                 <td>${inscripcion.id}</td>
                                 <td>${inscripcion.fechaInscripcion}</td>
                                 <td><a class="btn btn-info btn-sm delete-btn" href="eventoDeportivoVer?idEventoDeportivo=${inscripcion.edicion.eventoDeportivo.id}"> <i class="fas fa-eye"> ${inscripcion.edicion.eventoDeportivo.nombre} evento</i></a></td>
+                                <td><a class="btn btn-info btn-sm delete-btn" href="ciudadVer?idCiudad=${inscripcion.edicion.ciudad.id}"> <i class="fas fa-eye"> ${inscripcion.edicion.ciudad.nombre}</i></a></td>
                                 <td>${inscripcion.dorsal}</td>
                             </tr>
                         </c:forEach>

@@ -14,13 +14,12 @@
 
 			<div class="collapse navbar-collapse" id="navbarSupportedContent">
 				<ul class="navbar-nav ml-auto">
-					<li class="nav-item"><a class="nav-link" href="PanelDeInicio2">Inicio</a>
+					<li class="nav-item"><a class="nav-link" href="PanelDeInicio1">Inicio</a>
 					</li>
 					<li class="nav-item"><a class="nav-link" href="deportista">Usuarios</a>
 					</li>
-					<li class="nav-item "><a class="nav-link" href="ciudad">Tablas</a></li>
-					<li class="nav-item"><a class="nav-link" href="#">Configuración</a>
-					</li>
+					<li class="nav-item "><a class="nav-link" href="ciudad">Dashboard</a></li>
+					
 					<li class="nav-item"><a class="nav-link" href="PanelDeInicio1">Salir</a></li>
 				</ul>
 			</div>

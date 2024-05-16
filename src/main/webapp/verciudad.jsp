@@ -98,7 +98,7 @@ body, html {
 							<th>ID</th>
 							<th>Fecha</th>
 							<th>Cupos Disponibles</th>
-							<th>Nombre de Edición</th>
+							<th>Nombre de Evento</th>
 							
 						</tr>
 					</thead>

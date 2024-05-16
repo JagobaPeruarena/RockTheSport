@@ -84,9 +84,10 @@ body, html {
 
 	<!-- Contenido de la página -->
 	<div class="event-content">
-		<div class="event-description">
+		<div class="event-description text-center" >
 			<h2>${edicion.eventoDeportivo.nombre}</h2>
 			<p>${edicion.eventoDeportivo.descripcion}</p>
+			<img src="imagen/${edicion.eventoDeportivo.tipoDeporte.id}.jpg" alt="Logo de Eventos Deportivos" width="1000" height="453">
 		</div>
 		<div class="login-section">
 			<!-- Pestañas -->
@@ -151,7 +152,7 @@ body, html {
 								<div class="valid-feedback">¡Se ve bien!</div>
 							</div>
 						</div>
-						<button class="btn btn-primary" type="submit">Registrar</button>
+						<button class="btn btn-primary" type="submit">Registrar e Inscribir</button>
 					</form>
 
 				</div>
@@ -168,8 +169,7 @@ body, html {
 								class="form-control" id="addDNI" name="addDNI">
 
 						</div>
-						<button type="submit" class="btn btn-primary">Buscar
-							perfil</button>
+						<button type="submit" class="btn btn-primary">Inscribir</button>
 					</form>
 				</div>
 			</div>

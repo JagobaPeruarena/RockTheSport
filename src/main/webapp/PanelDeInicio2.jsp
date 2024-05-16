@@ -31,7 +31,7 @@ body, html {
 }
 
 .main-content {
-	height: 76%;
+	height: 78%;
 	display: flex;
 	justify-content: center;
 	padding: 20px;
