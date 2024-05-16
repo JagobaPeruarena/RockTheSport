@@ -7,6 +7,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import modelo.bean.Deportes;
 import modelo.bean.EventoDeportivo;
 import modelo.bean.Organizador;
 import modelo.dao.ModeloEventoDeportivo;
@@ -42,14 +43,17 @@ public class eventoDeportivoEditar extends HttpServlet {
 				int id = Integer.parseInt(request.getParameter("editId"));
 				String nombre = request.getParameter("editNombre");
 				String descripcion = request.getParameter("editDescripcion");
-				String tipoDeporte = request.getParameter("editTipoDeporte");
+				int tipoDeporte = Integer.parseInt(request.getParameter("editTipoDeporte"));
 				int organizadorId = Integer.parseInt(request.getParameter("editOrganizador"));
 				
+
+				Deportes addDeportes = new Deportes();
+				addDeportes.setId(tipoDeporte);
 				Organizador addOrganizador = new Organizador();
 				addOrganizador.setId(organizadorId);
 				
 				ModeloEventoDeportivo mded= new ModeloEventoDeportivo();
-				EventoDeportivo eventoDeportivo = new EventoDeportivo(id,nombre, descripcion, tipoDeporte, addOrganizador);
+				EventoDeportivo eventoDeportivo = new EventoDeportivo(id,nombre, descripcion, addDeportes, addOrganizador);
 				
 				if (mded.actualizarEventoDeportivo(eventoDeportivo)) {
 					System.out.println("editado");

@@ -4,7 +4,7 @@ public class EventoDeportivo {
 	private int id;
 	private String nombre;
 	private String descripcion;
-	private String tipoDeporte;
+	private Deportes tipoDeporte;
 	private Organizador organizador;
 	public int getId() {
 		return id;
@@ -24,10 +24,10 @@ public class EventoDeportivo {
 	public void setDescripcion(String descripcion) {
 		this.descripcion = descripcion;
 	}
-	public String getTipoDeporte() {
+	public Deportes getTipoDeporte() {
 		return tipoDeporte;
 	}
-	public void setTipoDeporte(String tipoDeporte) {
+	public void setTipoDeporte(Deportes tipoDeporte) {
 		this.tipoDeporte = tipoDeporte;
 	}
 	public Organizador getOrganizador() {
@@ -36,7 +36,7 @@ public class EventoDeportivo {
 	public void setOrganizador(Organizador organizador) {
 		this.organizador = organizador;
 	}
-	public EventoDeportivo(int id, String nombre, String descripcion, String tipoDeporte, Organizador organizador) {
+	public EventoDeportivo(int id, String nombre, String descripcion, Deportes tipoDeporte, Organizador organizador) {
 		super();
 		this.id = id;
 		this.nombre = nombre;
@@ -44,7 +44,7 @@ public class EventoDeportivo {
 		this.tipoDeporte = tipoDeporte;
 		this.organizador = organizador;
 	}
-	public EventoDeportivo( String nombre, String descripcion, String tipoDeporte, Organizador organizador) {
+	public EventoDeportivo( String nombre, String descripcion, Deportes tipoDeporte, Organizador organizador) {
 		super();
 	
 		this.nombre = nombre;

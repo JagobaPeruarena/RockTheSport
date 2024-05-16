@@ -117,7 +117,7 @@ th {
 								<td>${eventoDeportivo.id}</td>
 								<td>${eventoDeportivo.nombre}</td>
 								<td>${eventoDeportivo.descripcion}</td>
-								<td>${eventoDeportivo.tipoDeporte}</td>
+								<td>${eventoDeportivo.tipoDeporte.nombre}</td>
 								<td>${eventoDeportivo.organizador.nombre}</td>
 								<td>
 									<button type="button" class="btn btn-primary btn-sm edit-btn"
@@ -173,30 +173,19 @@ th {
 									name="editDescripcion" value="${eventoDeportivo.descripcion}">
 							</div>
 							<div class="form-group">
-								<label for="editTipoDeporte">Tipo de Deporte</label> <select
-									class="form-control" id="editTipoDeporte"
-									name="editTipoDeporte">
-									<option value="Triatlon"
-										${eventoDeportivo.tipoDeporte.equals("Triatlon") ? 'selected' : ''}>Triatlón</option>
-									<option value="Ciclismo"
-										${eventoDeportivo.tipoDeporte.equals("Ciclismo") ? 'selected' : ''}>Ciclismo</option>
-									<option value="Maraton"
-										${eventoDeportivo.tipoDeporte.equals("Maraton") ? 'selected' : ''}>Maratón</option>
-									<option value="Piragüismo"
-										${eventoDeportivo.tipoDeporte.equals("Piragüismo") ? 'selected' : ''}>Piragüismo</option>
-									<option value="Futbol"
-										${eventoDeportivo.tipoDeporte.equals("Futbol") ? 'selected' : ''}>Fútbol</option>
-									<option value="Eskupilota"
-										${eventoDeportivo.tipoDeporte.equals("Eskupilota") ? 'selected' : ''}>Eskupilota</option>
-									<option value="CestaPunta"
-										${eventoDeportivo.tipoDeporte.equals("CestaPunta") ? 'selected' : ''}>Cesta
-										Punta</option>
-								</select>
+								<label for="editTipoDeporte">Tipo Deporte</label> <select class="form-select" id="editTipoDeporte" name="editTipoDeporte">
+									<option value="" disabled>TipoDeporte</option>
+									<c:forEach var="deportes" items="${deportess}">
+										<option value="${deportes.id}"
+											${deportes.id == eventoDeportivo.tipoDeporte.id ? 'selected' : ''}>${deportes.nombre}</option>
+
+									</c:forEach>
+									</select>
 							</div>
 							<div class="form-group">
 								<label for="editIdOrganizador">Organizador</label> <select
 									class="form-select" id="editOrganizador" name="editOrganizador">
-									<option value="">Organizadores</option>
+									<option value="" disabled>Organizadores</option>
 									<c:forEach var="organizador" items="${organizadores}">
 										<option value="${organizador.id}"
 											${organizador.id == eventoDeportivo.organizador.id ? 'selected' : ''}>${organizador.nombre}</option>
@@ -244,17 +233,14 @@ th {
 								name="addDescripcion">
 						</div>
 						<div class="form-group">
-							<label for="addTipoDeporte">Tipo de Deporte</label> <select
-								class="form-control" id="addTipoDeporte" name="addTipoDeporte">
-								<option value="Triatlon">Triatlón</option>
-								<option value="Ciclismo">Ciclismo</option>
-								<option value="Maraton">Maratón</option>
-								<option value="Piragüismo">Piragüismo</option>
-								<option value="Futbol">Fútbol</option>
-								<option value="Eskupilota">Eskupilota</option>
-								<option value="CestaPunta">Cesta Punta</option>
-							</select>
-						</div>
+								<label for="editTipoDeporte">Tipo Deporte</label> <select class="form-select" id="editTipoDeporte" name="editTipoDeporte">
+									<option value="" disabled>TipoDeporte</option>
+									<c:forEach var="deportes" items="${deportess}">
+										<option value="${deportes.id}">${deportes.nombre}</option>
+
+									</c:forEach>
+									</select>
+							</div>
 						<div class="form-group">
 							<label for="addIdOrganizador">Organizador</label> <select
 								class="form-select" id="addOrganizador" name="addOrganizador">

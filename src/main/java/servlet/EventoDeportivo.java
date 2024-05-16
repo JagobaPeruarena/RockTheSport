@@ -11,6 +11,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import modelo.bean.Ciudad;
 import modelo.dao.ModeloCiudad;
+import modelo.dao.ModeloDeportes;
 import modelo.dao.ModeloEventoDeportivo;
 import modelo.dao.ModeloOrganizador;
 
@@ -36,11 +37,13 @@ public class EventoDeportivo extends HttpServlet {
 		   // Instanciar el modelo de ciudad
         ModeloEventoDeportivo med= new ModeloEventoDeportivo();
         ModeloOrganizador mdo = new ModeloOrganizador();
-        
+        ModeloDeportes mdd = new ModeloDeportes();
         // Obtener la lista de ciudades desde el modelo
         ArrayList<modelo.bean.EventoDeportivo> eventoDeportivo = med.getEventos();
         ArrayList<modelo.bean.Organizador> organizadores = mdo.getAll();
+        ArrayList<modelo.bean.Deportes> deportess = mdd.getDeportes();
         // Pasar la lista de ciudades al JSP
+        request.setAttribute("deportess", deportess);
         request.setAttribute("eventoDeportivo", eventoDeportivo);
         request.setAttribute("organizadores", organizadores);
         // Redirigir a la página JSP para mostrar los datos

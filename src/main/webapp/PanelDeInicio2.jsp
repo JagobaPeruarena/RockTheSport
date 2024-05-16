@@ -110,7 +110,7 @@ body, html {
 				<div class="card-body">
 					<h5 class="card-title">${edicion.eventoDeportivo.nombre}</h5>
 					<p class="card-text">
-						<img src="imagen/images.jpg" alt="Logo de Eventos Deportivos">
+						<img src="imagen/${edicion.eventoDeportivo.tipoDeporte.id}.jpg" alt="Logo de Eventos Deportivos" width="700" height="453">
 
 					</p>
 					<p>

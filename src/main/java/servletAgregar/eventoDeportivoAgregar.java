@@ -7,6 +7,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import modelo.bean.Deportes;
 import modelo.bean.EventoDeportivo;
 import modelo.bean.Organizador;
 import modelo.dao.ModeloEventoDeportivo;
@@ -41,14 +42,16 @@ public class eventoDeportivoAgregar extends HttpServlet {
 		// TODO Auto-generated method stub
 		String nombre = request.getParameter("addNombre");
 		String descripcion = request.getParameter("addDescripcion");
-		String tipoDeporte = request.getParameter("addTipoDeporte");
+		int tipoDeporte = Integer.parseInt(request.getParameter("addTipoDeporte"));
 		int organizadorId = Integer.parseInt(request.getParameter("addOrganizador"));
 		
+		Deportes addDeportes = new Deportes();
+		addDeportes.setId(tipoDeporte);
 		Organizador addOrganizador = new Organizador();
 		addOrganizador.setId(organizadorId);
 		
 		ModeloEventoDeportivo mded= new ModeloEventoDeportivo();
-		EventoDeportivo eventoDeportivo = new EventoDeportivo(nombre, descripcion, tipoDeporte, addOrganizador);
+		EventoDeportivo eventoDeportivo = new EventoDeportivo(nombre, descripcion,addDeportes, addOrganizador);
 		
 		if (mded.crearEventoDeportivo(eventoDeportivo)) {
 			System.out.println("creado");

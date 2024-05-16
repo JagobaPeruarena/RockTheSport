@@ -85,7 +85,7 @@ body, html {
                         <h5 class="card-title">${eventoDeportivo.nombre}</h5>
                         <p class="card-text">
                             <strong>Descripción:</strong> ${eventoDeportivo.descripcion} <br>
-                            <strong>Tipo de Deporte:</strong> ${eventoDeportivo.tipoDeporte} <br>
+                            <strong>Tipo de Deporte:</strong> ${eventoDeportivo.tipoDeporte.nombre} <br>
                             <strong>Organizador:</strong> ${eventoDeportivo.organizador.nombre} <br>
                         </p>
                     </div>

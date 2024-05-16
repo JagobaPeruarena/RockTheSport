@@ -13,7 +13,7 @@ import modelo.bean.EventoDeportivo;
 
 public class ModeloEventoDeportivo extends Conector {
 	private ModeloOrganizador md = new ModeloOrganizador();
-	
+	private ModeloDeportes mdd= new ModeloDeportes();
 	
 	public ArrayList<EventoDeportivo> getEventos(){
 		ArrayList<EventoDeportivo> eventoDeportivos = new ArrayList<EventoDeportivo>();
@@ -28,7 +28,7 @@ public class ModeloEventoDeportivo extends Conector {
 				eventoDeportivo.setId(rs.getInt("idEvento"));
 				eventoDeportivo.setNombre(rs.getString("nombre"));
 				eventoDeportivo.setDescripcion(rs.getString("descripcion"));
-				eventoDeportivo.setTipoDeporte(rs.getString("tipoDeporte"));
+				eventoDeportivo.setTipoDeporte(mdd.select(rs.getInt("tipoDeporte")));
 				eventoDeportivo.setOrganizador( md.select(rs.getInt("idOrganizador")));
 				
 				eventoDeportivos.add(eventoDeportivo);
@@ -54,7 +54,7 @@ public class ModeloEventoDeportivo extends Conector {
 				eventoDeportivo.setId(rs.getInt("idEvento"));
 				eventoDeportivo.setNombre(rs.getString("nombre"));
 				eventoDeportivo.setDescripcion(rs.getString("descripcion"));
-				eventoDeportivo.setTipoDeporte(rs.getString("tipoDeporte"));
+				eventoDeportivo.setTipoDeporte(mdd.select(rs.getInt("tipoDeporte")));
 				eventoDeportivo.setOrganizador( md.select(rs.getInt("idOrganizador")));
 				
 				return eventoDeportivo;
@@ -77,7 +77,7 @@ public class ModeloEventoDeportivo extends Conector {
             PreparedStatement st = getCon().prepareStatement(query);
             st.setString(1, evento.getNombre());
             st.setString(2, evento.getDescripcion());
-            st.setString(3, evento.getTipoDeporte());
+            st.setInt(3, evento.getTipoDeporte().getId());
             st.setInt(4, evento.getOrganizador().getId());
             
             int rowsInserted = st.executeUpdate();
@@ -99,7 +99,7 @@ public class ModeloEventoDeportivo extends Conector {
             PreparedStatement st = getCon().prepareStatement(query);
             st.setString(1, evento.getNombre());
             st.setString(2, evento.getDescripcion());
-            st.setString(3, evento.getTipoDeporte());
+            st.setInt(3, evento.getTipoDeporte().getId());
             st.setInt(4, evento.getOrganizador().getId());
             st.setInt(5, evento.getId());
             
