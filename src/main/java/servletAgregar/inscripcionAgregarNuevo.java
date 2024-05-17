@@ -44,6 +44,8 @@ public class inscripcionAgregarNuevo extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		
+		try {
+			
 		
 		String nombre = request.getParameter("addNombre");
 		int edad = Integer.parseInt(request.getParameter("addEdad"));
@@ -80,6 +82,12 @@ public class inscripcionAgregarNuevo extends HttpServlet {
 			
 			
 		}else {
+			
+		
+			System.out.println("error");
+			response.sendRedirect("PanelDeInicio2?msg=error");
+		}
+		} catch (Exception e) {
 			System.out.println("error");
 			response.sendRedirect("PanelDeInicio2?msg=error");
 		}

@@ -7,6 +7,9 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import modelo.dao.ModeloInscripcion;
+import modelo.dao.ModeloResultado;
+
 /**
  * Servlet implementation class inscripcionEliminar
  */
@@ -27,15 +30,16 @@ public class inscripcionEliminar extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		response.getWriter().append("Served at: ").append(request.getContextPath());
-	}
+		ModeloInscripcion mdo = new ModeloInscripcion();
+		int idIncrip = Integer.parseInt(request.getParameter("idInscripcion"));
 
-	/**
-	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
-	 */
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		doGet(request, response);
-	}
+		boolean eliminado = mdo.eliminarInscripcion(idIncrip);
+		if (eliminado) {
+			response.sendRedirect("inscripcion?msg=eliminado");
+		} else {
+			response.sendRedirect("inscripcion?msg=error");
+		}	}
+
+	
 
 }

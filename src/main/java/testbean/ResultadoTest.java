@@ -44,7 +44,7 @@ class ResultadoTest {
 	
 
 	@Test
-	void testResultadoIntStringIntInscripcion() {
+	void testResultadoId() {
 		int id = 12;
 		String tiempo = "12:00";
 		int clasificacion = 12;
@@ -59,7 +59,7 @@ class ResultadoTest {
 	}
 
 	@Test
-	void testResultadoStringIntInscripcion() {
+	void testResultadoNoId() {
 		
 		String tiempo = "12:00";
 		int clasificacion = 12;

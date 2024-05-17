@@ -52,7 +52,9 @@ public class inscripcionAgregarExistente extends HttpServlet {
 		Deportista deportista = new Deportista();
 		deportista.setDni(dni);
 		deportista = mdd.selectDNI(dni);
-		if(deportista.getNombre()!=null) {
+		
+		
+		if(deportista!=null) {
 			System.out.println("selected");
 			int dorsal = mi.getMaxDorsalForEdicion(idEdicion)+1;
 			

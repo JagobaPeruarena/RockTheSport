@@ -126,6 +126,8 @@ td {
 			<div class="col-md-9 main-content">
 				<!-- Tabla de información de la tabla seleccionada -->
 				<h2>Edición</h2>
+				<!-- Mensaje -->
+				<%@ include file="/partes/mensajes.jsp" %>
 				<!-- Botón de agregar -->
 				<button type="button" class="btn btn-success mb-3" data-toggle="modal" data-target="#addModal">
 					<i class="fas fa-plus"></i> Agregar

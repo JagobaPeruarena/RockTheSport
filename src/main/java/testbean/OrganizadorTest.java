@@ -52,7 +52,7 @@ class OrganizadorTest {
 	}
 
 	@Test
-	void testOrganizadorIntStringStringIntString() {
+	void testOrganizadorId() {
 		int id = 12;
 		String nombre = "memuero";
 		String email = "doslineasmas@adios.dead";
@@ -69,7 +69,7 @@ class OrganizadorTest {
 	}
 
 	@Test
-	void testOrganizadorStringStringIntString() {
+	void testOrganizadorNoId() {
 
 		String nombre = "memuero";
 		String email = "doslineasmas@adios.dead";
